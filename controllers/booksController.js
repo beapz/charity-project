@@ -33,5 +33,8 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  }
+  },
+  // fb_auth: function(req, res) {
+  //   res.send('hello foo bar!')
+  // }
 };
