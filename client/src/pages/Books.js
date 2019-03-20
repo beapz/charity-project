@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
-import API from "../utils/API";
+import API from "../services/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
@@ -95,11 +95,16 @@ class Books extends Component {
             {this.state.books.length ? (
               <List>
                 {this.state.books.map(book => (
-                  <ListItem key={book._id}>
-                    <Link to={"/books/" + book._id}>
+                  <ListItem key={book.id}>
+                    <Link to={"/books/" + book.id}>
                       <strong>
-                        {book.title} by {book.author}
+                        {book.name} by {book.owner_name}
                       </strong>
+                      <p>{book.description}</p>
+                      <p>Hours Recieved So Far:{book.hours_received}</p>
+                      <p>Hours Needed:{book.total_hours}</p>
+                      
+                      <p>Project Category: {book.category}</p>
                     </Link>
                     <DeleteBtn onClick={() => this.deleteBook(book._id)} />
                   </ListItem>
