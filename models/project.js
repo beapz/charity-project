@@ -1,4 +1,4 @@
-const projectSeeds = require("./scripts/projectSeeds");
+const projectSeeds = require("../scripts/projectSeeds");
 
 module.exports = function (sequelize, DataTypes) {
   //Define the project table
@@ -26,7 +26,7 @@ module.exports = function (sequelize, DataTypes) {
       }
     });
 
-
+    
     // Associating project with user_projects
     Project.belongsToMany(models.User, {
       through: 'UserProject'

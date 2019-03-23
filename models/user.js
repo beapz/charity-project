@@ -1,4 +1,4 @@
-const userSeeds = require("./scripts/userSeeds");
+const userSeeds = require("../scripts/userSeeds");
 
 module.exports = function (sequelize, DataTypes) {
     //Define the user table
