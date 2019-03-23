@@ -2,7 +2,7 @@ const userProjectSeeds = require("./scripts/userProjectSeeds");
 
 module.exports = function (sequelize, DataTypes) {
     //Define the user_project table
-    var UserProject = sequelize.define("UserProject", {
+    let UserProject = sequelize.define("UserProject", {
         hours_pledged: DataTypes.INTEGER,
         is_owner: {
             type: DataTypes.BOOLEAN,
@@ -17,7 +17,7 @@ module.exports = function (sequelize, DataTypes) {
                 allowNull: false
             }
         });
-//associate the user_project with user
+        //associate the user_project with user
         UserProject.belongsTo(models.User, {
             foreignKey: {
                 allowNull: false
