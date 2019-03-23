@@ -1,6 +1,6 @@
 const projectSeeds = require("./scripts/projectSeeds");
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   //Define the project table
   var Project = sequelize.define("Project", {
     title: DataTypes.STRING,
@@ -12,22 +12,29 @@ module.exports = function(sequelize, DataTypes) {
     end_time: DataTypes.TIME,
     location: DataTypes.STRING
   });
-//TODO: this is incomplete - benefactor, user, and category need to be created first
+
   //Associate the projects with benefactor 
-  Project.associate = function (models){
-    Project.belongsTo(models.benefactor, {
+  Project.associate = function (models) {
+    Project.belongsTo(models.Benefactor, {
       foreignKey: {
         allowNull: false
       }
     });
 
-    //Insert the task seed data
-    Task.sync().then(() => {
-      Task.bulkCreate(taskSeeds, {
-        ignoreDuplicates: true
-      });
+    Project.belongsTo(models.Category, {
+      foreignKey: {
+        allowNull: false
+      }
     });
   };
 
-  return Task;
+  //Insert the project seed data
+  Project.sync().then(() => {
+    Project.bulkCreate(projectSeeds, {
+      ignoreDuplicates: true
+    });
+  });
+
+
+  return Project;
 };
