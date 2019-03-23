@@ -2,7 +2,7 @@ const benefactorSeeds = require("./scripts/benefactorSeeds");
 
 module.exports = function (sequelize, DataTypes) {
   //Define the benefactors table
-  var Benefactor = sequelize.define("Benefactor", {
+  let Benefactor = sequelize.define("Benefactor", {
     name: DataTypes.STRING,
     description: DataTypes.TEXT
   });
