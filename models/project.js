@@ -3,6 +3,11 @@ const projectSeeds = require("./scripts/projectSeeds");
 module.exports = function (sequelize, DataTypes) {
   //Define the project table
   var Project = sequelize.define("Project", {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+    },
     title: DataTypes.STRING,
     description: DataTypes.TEXT,
     photo_url: DataTypes.TEXT,
@@ -21,6 +26,13 @@ module.exports = function (sequelize, DataTypes) {
       }
     });
 
+
+    // Associating project with user_projects
+    Project.belongsToMany(models.User, {
+      through: 'UserProject'
+    });
+
+    //Associating project with category
     Project.belongsTo(models.Category, {
       foreignKey: {
         allowNull: false

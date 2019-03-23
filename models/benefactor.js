@@ -3,6 +3,11 @@ const benefactorSeeds = require("./scripts/benefactorSeeds");
 module.exports = function (sequelize, DataTypes) {
   //Define the benefactors table
   let Benefactor = sequelize.define("Benefactor", {
+    id: { 
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
     name: DataTypes.STRING,
     description: DataTypes.TEXT
   });
