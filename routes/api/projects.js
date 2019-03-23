@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const booksController = require("../../controllers/projController");
+// const booksController = require("../../controllers/projController");
+const projController = require("../../controllers/projController");
 const db = require("../../models");
 
 router.route('/')
