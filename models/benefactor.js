@@ -1,26 +1,26 @@
-const benefactorSeeds = require("./seeds/benefactorSeeds");
+const benefactorSeeds = require("./scripts/benefactorSeeds");
 
 module.exports = function (sequelize, DataTypes) {
-  //Define the categories table
-  var Category = sequelize.define("Category", {
-    name: DataTypes.STRING
+  //Define the benefactors table
+  var Benefactor = sequelize.define("Benefactor", {
+    name: DataTypes.STRING,
+    description: DataTypes.TEXT
   });
 
-  Category.associate = function (models) {
-    // Associating Category with Tasks
-    // When a Category is deleted, also delete any associated Tasks
-    Category.hasMany(models.Task, {
-      onDelete: "cascade"
+  Benefactor.associate = function (models) {
+    // Associating Benefactor with Projects
+    Benefactor.hasMany(models.Project, {
+        onDelete: "cascade"
     });
   };
 
-  //Insert category seed data
-  Category.sync().then(() => {
-    Category.bulkCreate(categorySeeds, {
+  //Insert benefactor seed data
+  Benefactor.sync().then(() => {
+    Benefactor.bulkCreate(benefactorSeeds, {
       ignoreDuplicates: true
     });
   });
 
-  return Category;
+  return Benefactor;
 };
 
