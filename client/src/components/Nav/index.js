@@ -16,6 +16,8 @@ class Nav extends Component {
   }
 
   componentDidMount() {
+    console.log('authenticated', this.props.auth.isAuthenticated());
+    
     const { renewSession } = this.props.auth;
 
     if (localStorage.getItem('isLoggedIn') === 'true') {
@@ -48,17 +50,21 @@ class Nav extends Component {
                     onClick={this.login.bind(this)}
                   >
                     Log In
+                    {/* {isAuthenticated().toString()} */}
                   </Button>
                 )
             }
             {
-              isAuthenticated() && (
+              !isAuthenticated() && (
                   <Button
                     bsStyle="primary"
                     className="btn-margin"
                     onClick={this.logout.bind(this)}
                   >
                     Log Out
+                    {/* {isAuthenticated().toString()} */}
+
+                    
                   </Button>
                 )
             }

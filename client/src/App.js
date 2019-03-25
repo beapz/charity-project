@@ -5,7 +5,7 @@ import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import history from "./history";
-import Callback from "./Callback/Callback";
+// import Callback from "./Callback/Callback";
 import Auth from './Auth/Auth';
 
 const auth = new Auth();
@@ -31,7 +31,9 @@ function App() {
             path="/callback"
             render={props => {
               handleAuthentication(props);
-              return <Callback {...props} />;
+              console.log(props)
+              return <Books {...props} />;
+              
             }}
           />
           <Route component={NoMatch} />
