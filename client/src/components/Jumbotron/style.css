@@ -1,0 +1,11 @@
+.hiRes {
+    background: url(https://res.cloudinary.com/dlfl6vj4n/image/upload/v1552960567/sample.jpg) !important;
+    background-repeat: no-repeat !important;
+    background-size: 100% auto !important;
+    height: 500px !important;
+    width: 100% !important;
+}
+
+.jumbotron-fluid {
+    color: white !important;
+}

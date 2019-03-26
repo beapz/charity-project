@@ -29,7 +29,7 @@ module.exports = function (sequelize, DataTypes) {
 
     };
 
-    //Insert user seed data
+    // //Insert user seed data
     User.sync().then(() => {
         User.bulkCreate(userSeeds, {
             ignoreDuplicates: true

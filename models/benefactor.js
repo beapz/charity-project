@@ -20,7 +20,7 @@ module.exports = function (sequelize, DataTypes) {
   //   });
   // };
 
-  //Insert benefactor seed data
+  // //Insert benefactor seed data
   Benefactor.sync().then(() => {
     Benefactor.bulkCreate(benefactorSeeds, {
       ignoreDuplicates: true
