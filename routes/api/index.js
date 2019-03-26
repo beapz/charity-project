@@ -6,12 +6,10 @@ const projRoutes = require('./projects');
 const userRoutes = require('./users');
 
 //User Routes
-router.use('/user/:id', userRoutes);
-router.use('/users/:id/dash', userRoutes);
+router.use('/users', userRoutes);
 
 //Project Routes
 router.use('/projects', projRoutes);
-router.use('/projects/:id', projRoutes);
 
 
 module.exports = router;
