@@ -45,11 +45,14 @@ export default class Auth {
       
 
       console.log("authResult",authResult)
-      debugger;
+      //setting the returned user information to the session storage
+      localStorage.setItem("userObject",authResult)
+      localStorage.setItem('profile', JSON.stringify(authResult));
+      // debugger;
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
       } else if (err) {
-        history.replace("/books");
+        history.replace("/");
         console.log(err);
         alert(`Error: ${err.error}. Check the console for further details.`);
       }
@@ -69,6 +72,7 @@ export default class Auth {
     
     // Set isLoggedIn flag in localStorage
     localStorage.setItem("isLoggedIn", "true");
+ 
 
     
     // Set the time that the access token will expire at
@@ -78,7 +82,7 @@ export default class Auth {
     this.expiresAt = expiresAt;
 
     // navigate to the home route
-    history.replace("/books");
+    history.replace("/");
   }
 
   getProfile(cb) { console.log('htting the get profile method')
@@ -123,7 +127,7 @@ export default class Auth {
     localStorage.removeItem("isLoggedIn");
 
     // navigate to the home route
-    history.replace("/books");
+    history.replace("/");
   }
 
   isAuthenticated() {

@@ -33,7 +33,7 @@ class Nav extends Component {
         <Navbar fluid>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#">Auth0 - React</a>
+              <a href="#">Timelenders</a>
             </Navbar.Brand>
             <Button
               bsStyle="primary"
