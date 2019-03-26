@@ -12,25 +12,24 @@ class ProjectDetail extends Component {
   // When this component mounts, grab the book with the _id of this.props.match.params.id
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
   componentDidMount() {
-    console.log(this.state.id);
-    API.getProjectDetails(this.state.id)
-      .then(res => console.log(res.data))
+    console.log(this.props.match.params.projectId);
+    API.getProjectDetails(this.props.match.params.projectId)
+      .then(res => this.setState({project: res.data}))
       .catch(err => console.log(err));
-
-      // .then(res => this.setState({ book: res.data }))
   }
 
   render() {
+    console.log(this.state.project);
     return (
       <Container fluid>
         <Row>
           <Col size="md-12">
             <Jumbotron>
               <h1>
-                {this.state.project.title} 
+               
               </h1>
               <h2>
-                {this.state.project.description}
+                Learn More About {this.state.project.title}
               </h2>
                
               
@@ -40,10 +39,25 @@ class ProjectDetail extends Component {
         <Row>
           <Col size="md-10 md-offset-1">
             <article>
-              <h1></h1>
+              <h1> {this.state.project.title} </h1>
               <p>
-                {/* {this.state.book.synopsis} */}
+              {this.state.project.description}
               </p>
+              <p>
+              {this.state.project.location}
+              </p>
+              <p>
+              {this.state.project.start_time}
+              </p>
+              <p>
+              {this.state.project.end_time}
+              </p>
+              <p>
+              {this.state.project.total_hours}
+              </p>
+              <img src={this.state.project.photo_url} alt="{this.state.project.title}" height="200px" width="300px"/>
+              
+             
             </article>
           </Col>
         </Row>
