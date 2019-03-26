@@ -19,8 +19,9 @@ function App() {
           <Route exact path="/" component={Splash} />
           <Route exact path="/create" component={BeginProject} />
           <Route exact path="/find" component={Find} />
+          <Route exact path="/find/:category" component={Find} />
           <Route exact path="/find/:projectId" component={ProjectDetail} />
-          <Route exact path="/:user/dash" component={UserDashboard} />
+          {/* <Route exact path="/:user/dash" component={UserDashboard} /> */}
           <Route component={NoMatch} />
         </Switch>
       </div>

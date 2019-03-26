@@ -27,8 +27,20 @@ module.exports = {
     });
   },
 
+  findByCategory: function(req, res) {
+    const category = req.params.category;
+    console.log(category);
+    db.Project.findAll({
+      where: {
+        CategoryId: category
+      }
+    }).then(function (categoryResults) {
+      res.json(categoryResults);
+    } )
+  },
+
   findProjDetail: function (req, res) {
-    let id = req.params.id;
+    const id = req.params.id;
     db.Project.findOne({
       //query by id
       where: {

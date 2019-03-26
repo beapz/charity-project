@@ -14,6 +14,11 @@ export default {
     return axios.get('/api/projects/all/carousel');
   },
 
+  //Get projects by category
+   searchCategory: function(category) {
+    return axios.get('/api/projects/all/' + category);
+  },
+
   //Get details of project with given id
   getProjectDetails: function(id) {
     return axios.get('/api/projects/' + id);
