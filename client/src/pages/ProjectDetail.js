@@ -7,10 +7,11 @@ import API from "../services/API";
 class ProjectDetail extends Component {
   state = {
     project: {},
-    id: 5
+  
   };
-  // When this component mounts, grab the book with the _id of this.props.match.params.id
-  // e.g. localhost:3000/books/599dcb67f0f16317844583fc
+
+  // When this component mounts, grab the PROJECT with the id of this.props.match.params.id
+ //(this.props.match.params.id) <--- is how we get the ID from URL
   componentDidMount() {
     console.log(this.props.match.params.projectId);
     API.getProjectDetails(this.props.match.params.projectId)
@@ -25,9 +26,7 @@ class ProjectDetail extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1>
-               
-              </h1>
+             
               <h2>
                 Learn More About {this.state.project.title}
               </h2>

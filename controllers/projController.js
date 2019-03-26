@@ -27,6 +27,8 @@ module.exports = {
     });
   },
 
+  //Method takes in category from params and searches for all 
+  //projects of that category.
   findByCategory: function(req, res) {
     const category = req.params.category;
     console.log(category);
