@@ -10,27 +10,25 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-    // //Associate the user_project with project
-    // UserProject.associate = function (models) {
-    //     UserProject.belongsTo(models.Project, {
-    //         foreignKey: {
-    //             allowNull: false
-    //         }
-    //     });
-    //     //associate the user_project with user
-    //     UserProject.belongsTo(models.User, {
-    //         foreignKey: {
-    //             allowNull: false
-    //         }
-    //     });
-    // };
-
-    // //Insert the project seed data
-    UserProject.sync().then(() => {
-        UserProject.bulkCreate(userProjectSeeds, {
-            ignoreDuplicates: true
+    //Associate the user_project with project
+    UserProject.associate = function (models) {
+        UserProject.belongsTo(models.Project, {
+            foreignKey: {
+                allowNull: false
+            }
         });
-    });
-
+        //associate the user_project with user
+        UserProject.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
     return UserProject;
 };
+ //Insert the project seed data
+    // UserProject.sync().then(() => {
+    //     UserProject.bulkCreate(userProjectSeeds, {
+    //         ignoreDuplicates: true
+    //     });
+    // });

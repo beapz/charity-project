@@ -13,6 +13,7 @@ module.exports = function (sequelize, DataTypes) {
 
     // Category.associate = function (models) {
     //     // Associating category with Projects
+    //     //WORKING W/O POPULATING ID
     //     Category.hasMany(models.Project, {
     //         onDelete: "cascade"
     //     });

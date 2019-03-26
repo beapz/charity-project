@@ -14,6 +14,7 @@ module.exports = function (sequelize, DataTypes) {
 
   // Benefactor.associate = function (models) {
   //   // Associating Benefactor with Projects
+  //   //WORKING W/O POPULATING ID
   //   Benefactor.hasMany(models.Project, {
   //       onDelete: "cascade"
   //   });

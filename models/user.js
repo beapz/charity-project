@@ -15,12 +15,19 @@ module.exports = function (sequelize, DataTypes) {
         facebook_id: DataTypes.TEXT
     });
 
-    // User.associate = function (models) {
-    //     // Associating user with user_projects
-    //     User.belongsToMany(models.Project, {
-    //         through: 'UserProject'
-    //     });
-    // };
+    User.associate = function (models) {
+        // Associating user with user_projects
+        User.belongsToMany(models.Project, {
+            through: 'UserProject'
+        });
+        // User.hasMany(models.Project, {
+        //     onDelete: "cascade"
+        // });
+        // User.hasMany(models.UserProject, {
+        //     onDelete: "cascade"
+        // });
+
+    };
 
     // //Insert user seed data
     User.sync().then(() => {

@@ -19,18 +19,25 @@ module.exports = function (sequelize, DataTypes) {
     ownerId: {
       field: 'OwnerId',
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true,
+      defaultValue: 0
     },
     benefactorId:{
       field: 'BenefactorId',
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true,
+      defaultValue: 0
     }, 
     categoryId:{
       field: 'CategoryId',
       type: DataTypes.INTEGER,
-      allowNull: false
-    } 
+      allowNull: true,
+      defaultValue: 0
+    },
+    carousel: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false 
+    }
   });
 
   // Associate the projects with benefactor 
