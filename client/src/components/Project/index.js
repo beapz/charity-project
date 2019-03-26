@@ -3,7 +3,7 @@ import { ListItem } from "../List";
 import { Row, Col } from "../Grid";
 import "./style.css";
 
-function Project({ title, description, hoursReq }) {
+function Project({ title, description, total_hours, date, start_time, end_time, location }) {
   return (
     <ListItem>
       <Row className="flex-wrap-reverse">
@@ -14,7 +14,11 @@ function Project({ title, description, hoursReq }) {
       <Row>
         <Col size="12 sm-8 md-10">
           <p>{description}</p>
-          <p>Hours required: {hoursReq}</p>
+          <p>Hours required: {total_hours}</p>
+          <p>Date: {date}</p>
+          <p>Start Time: {start_time}</p>
+          <p>End Time: {end_time}</p>
+          <p>Location: {location}</p>
         </Col>
       </Row>
     </ListItem>

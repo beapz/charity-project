@@ -1,4 +1,4 @@
-const categorySeeds = require("./scripts/categorySeeds");
+const categorySeeds = require("../scripts/categorySeeds");
 
 module.exports = function (sequelize, DataTypes) {
     //Define the category table

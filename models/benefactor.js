@@ -1,4 +1,4 @@
-const benefactorSeeds = require("./scripts/benefactorSeeds");
+const benefactorSeeds = require("../scripts/benefactorSeeds");
 
 module.exports = function (sequelize, DataTypes) {
   //Define the benefactors table

@@ -23,6 +23,7 @@ export default {
   getUserDash: function() {
     return axios.get('/api/users/:id/dash');
   },
+}
 
 
   // Gets the book with the given id

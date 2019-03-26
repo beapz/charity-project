@@ -16,7 +16,7 @@ class Splash extends Component {
 
     state = {
         projects: [],
-        message: 'Projects Will display Here'
+        message: 'Projects Will Display Here'
     };
 
     componentDidMount() {
@@ -26,9 +26,12 @@ class Splash extends Component {
     getProjects = () => {
         API.getProjects()
             .then(res => 
+                // console.log(res.data.date)
+                
                 this.setState({
                     projects: res.data
                 })
+                
             )
             .catch(() => 
                 this.setState({
@@ -36,6 +39,7 @@ class Splash extends Component {
                     message: 'Uh oh our search is going wrong'
                 })
             );
+            
     };
 
     render() {
@@ -64,8 +68,12 @@ class Splash extends Component {
                                         <Project
                                             key={project.id}
                                             title={project.title}
-                                            description={project.description}
-                                            hoursReq={project.hoursReq}
+                                            description ={project.description}
+                                            total_hours ={project.total_hours}
+                                            date = {project.data}
+                                            start_time= {project.start_time}
+                                            end_time = {project.end_time}
+                                            location = {project.location}
                                         />
                                     ))}
                                 </List>
