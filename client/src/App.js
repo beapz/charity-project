@@ -1,12 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Books from "./pages/Books";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import history from "./history";
 // import Callback from "./Callback/Callback";
 import Auth from './Auth/Auth';
+//Page dependencies
+import UserDashboard from "./pages/UserDashboard.js";
+import NoMatch from "./pages/NoMatch";
+import Splash from "./pages/Splash";
+import Find from "./pages/Find";
+import BeginProject from "./pages/BeginProject";
+import ProjectDashboard from "./pages/ProjectDashboard";
+import ProjectDetail from "./pages/ProjectDetail";
 
 const auth = new Auth();
 // auth.login()
@@ -17,30 +22,34 @@ const handleAuthentication = ({ location }) => {
   }
 };
 
+
+
 function App() {
   return (
     <Router history={history}>
       <div>
         <Nav auth={auth} />
         <Switch>
-          <Route exact path="/" component={Books} />
-          {/* <Route exact path="/books" render={(props) => <Books auth={auth} {...props} />}  component={Books} /> */}
-          <Route exact path="/books" component={Books} />
-          <Route exact path="/books/:id" component={Detail} />
           <Route
             path="/callback"
             render={props => {
               handleAuthentication(props);
               console.log(props)
-              return <Books {...props} />;
+              return <Splash {...props} />;
               
             }}
           />
+          <Route exact path="/" component={Splash} />
+          <Route exact path="/create" component={BeginProject} />
+          <Route exact path="/find" component={Find} />
+          <Route exact path="/find/:projectId" component={ProjectDetail} />
+          <Route exact path="/:user/dash/:projectId" component={ProjectDashboard} />
+          <Route exact path="/:user/dash" component={UserDashboard} />
           <Route component={NoMatch} />
         </Switch>
       </div>
     </Router>
   );
-}
+};
 
 export default App;
