@@ -1,14 +1,30 @@
 import axios from "axios";
 
 export default {
-  // Gets all books
-  getBooks: function() {
-    return axios.get("/api/books");
-  },
 
+  //==================PROJECT METHODS===========
+
+  //To see all the available projects
   getProjects: function() {
     return axios.get('/api/projects');
-  }
+  },
+
+  getProjectDetails: function() {
+    return axios.get('/api/projects/:id');
+  },
+  
+  //=================USER METHODS===============
+
+  //To see a users page when not user
+  getUserDetail: function() {
+    return axios.get('/api/users/:id');
+  },
+  //To see your own dashboard as defined user
+  getUserDash: function() {
+    return axios.get('/api/users/:id/dash');
+  },
+
+
   // Gets the book with the given id
   // getBook: function(id) {
   //   return axios.get("/api/books/" + id);

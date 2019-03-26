@@ -1,50 +1,85 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
-import Jumbotron from "../components/Jumbotron";
-import API from "../services/API";
+//Dependencies
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+//Imports
+import API from '../services/API';
+
+//Components Needed
+import Jumbotron from '../components/Jumbotron';
+import { Col, Row, Container } from '../components/Grid';
+import { List } from '../components/List';
+import Project from '../components/Project';
+import Tiles from '../components/Tiles';
+
 
 class UserDashboard extends Component {
+
   state = {
-    book: {}
+    user: [],
+    message: 'User Dash Will display Here'
   };
-  // When this component mounts, grab the book with the _id of this.props.match.params.id
-  // e.g. localhost:3000/books/599dcb67f0f16317844583fc
+
   componentDidMount() {
-    API.getBook(this.props.match.params.id)
-      .then(res => this.setState({ book: res.data }))
-      .catch(err => console.log(err));
-  }
+    this.getUserDash()
+    };
+
+  getUserDash = () => {
+    API.getUserDash()
+      .then(res => 
+        this.setState({
+          user: res.data
+          }
+        )
+      )
+      .catch(() => 
+        this.setState({
+            user: [],
+            message: 'Uh oh our dashboard isnt loading properly'
+          }
+        )
+      );
+    };
 
   render() {
     return (
-      <Container fluid>
+      <Container>
         <Row>
-          <Col size="md-12">
+          <Col size='md-12'>
             <Jumbotron>
-              <h1>
-                {this.state.book.title} by {this.state.book.author}
+              <h1 className='text-center'>
+                <strong>THIS IS THE TEST USER DASHBOARD SECTION</strong>
               </h1>
+              <h2 className='text-center'>
+              Fingers Crossed it works?!?!?!?!
+              </h2>
             </Jumbotron>
           </Col>
         </Row>
-        <Row>
-          <Col size="md-10 md-offset-1">
-            <article>
-              <h1>Synopsis</h1>
-              <p>
-                {this.state.book.synopsis}
-              </p>
-            </article>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-2">
-            <Link to="/">← Back to Authors</Link>
-          </Col>
-        </Row>
+          <Row>
+            <Col size='md-12'>
+              <Tiles title='This is only a test'>
+                {this.state.user.length ? (
+                  <List>
+                    {this.state.user.map(project => (
+                      <Project
+                        key={project.id}
+                        title={project.title}
+                        description={project.description}
+                        hoursReq={project.hoursReq}
+                      />
+                      ))
+                    }
+                  </List>
+                ) : (
+                  <h2 className='text-center'>{this.state.message}</h2>
+                  )
+                }
+              </Tiles>
+            </Col>
+          </Row>
       </Container>
-    );
+    )
   }
 }
 

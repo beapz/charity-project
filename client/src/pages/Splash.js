@@ -50,6 +50,8 @@ class Splash extends Component {
                             <h2 className='text-center'>
                             Fingers Crossed it works?!?!?!?!
                             </h2>
+                            <button className='btn btn-primary color-prim' style={{marginRight: 25, position: 250}}>Find Ways to Help</button>
+                            <button className='btn btn-primary color-prim'>Create a Project</button>
                         </Jumbotron>
                     </Col>
                 </Row>
