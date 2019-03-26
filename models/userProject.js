@@ -24,13 +24,11 @@ module.exports = function (sequelize, DataTypes) {
             }
         });
     };
-
-    //Insert the project seed data
-    UserProject.sync().then(() => {
-        UserProject.bulkCreate(userProjectSeeds, {
-            ignoreDuplicates: true
-        });
-    });
-
     return UserProject;
 };
+ //Insert the project seed data
+    // UserProject.sync().then(() => {
+    //     UserProject.bulkCreate(userProjectSeeds, {
+    //         ignoreDuplicates: true
+    //     });
+    // });

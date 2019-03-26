@@ -20,6 +20,13 @@ module.exports = function (sequelize, DataTypes) {
         User.belongsToMany(models.Project, {
             through: 'UserProject'
         });
+        // User.hasMany(models.Project, {
+        //     onDelete: "cascade"
+        // });
+        // User.hasMany(models.UserProject, {
+        //     onDelete: "cascade"
+        // });
+
     };
 
     //Insert user seed data

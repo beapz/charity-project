@@ -12,12 +12,13 @@ module.exports = function (sequelize, DataTypes) {
     description: DataTypes.TEXT
   });
 
-  Benefactor.associate = function (models) {
-    // Associating Benefactor with Projects
-    Benefactor.hasMany(models.Project, {
-        onDelete: "cascade"
-    });
-  };
+  // Benefactor.associate = function (models) {
+  //   // Associating Benefactor with Projects
+  //   //WORKING W/O POPULATING ID
+  //   Benefactor.hasMany(models.Project, {
+  //       onDelete: "cascade"
+  //   });
+  // };
 
   //Insert benefactor seed data
   Benefactor.sync().then(() => {

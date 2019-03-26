@@ -15,15 +15,25 @@ module.exports = function (sequelize, DataTypes) {
     date: DataTypes.DATEONLY,
     start_time: DataTypes.TIME,
     end_time: DataTypes.TIME,
-    location: DataTypes.STRING
+    location: DataTypes.STRING,
+    benefactorId: {
+      field: "BenefactorId",
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    categoryId: {
+      field: "CategoryId",
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
   });
 
   //Associate the projects with benefactor 
+  //WORKING W/O POPULATING ID
   Project.associate = function (models) {
     Project.belongsTo(models.Benefactor, {
-      foreignKey: {
-        allowNull: false
-      }
+      foreignKey: "benefactorId",
+      targetKey: "id"
     });
 
     
@@ -33,11 +43,21 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     //Associating project with category
+    //WORKING W/O POPULATING ID
     Project.belongsTo(models.Category, {
-      foreignKey: {
-        allowNull: false
-      }
+      foreignKey: "categoryId",
+      targetKey: "id"
     });
+
+    // Project.belongsTo(models.User, {
+    //   foreignKey: {
+    //     allowNull: false
+    //   }
+    // });
+
+    // Project.hasMany(models.UserProject, {
+    //   onDelete: "cascade"
+    // });
   };
 
   //Insert the project seed data
