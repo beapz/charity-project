@@ -15,8 +15,8 @@ export default {
   },
 
   //Get projects by category
-   searchCategory: function(category) {
-    return axios.get('/api/projects/all/' + category);
+   searchCategory: function(categoryId) {
+    return axios.get('/api/projects/all/' + categoryId);
   },
 
   //Get details of project with given id

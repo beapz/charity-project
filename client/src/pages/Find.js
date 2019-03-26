@@ -17,7 +17,7 @@ class Find extends Component {
   //Display all projects. User can search by category if desired.
   componentDidMount() {
     //Console logging the category from URL ("/find/:category")
-     console.log(this.props.match.params.category);
+     console.log(this.props);
      this.getAllProjects()
   }
 
@@ -41,7 +41,7 @@ class Find extends Component {
   //This function runs on button click. It searches by the category in URL.
   searchCategory = () => {
    
-    API.searchCategory(this.props.match.params.category)
+    API.searchCategory(this.props.match.params.categoryId)
     .then(res => this.setState({
       projects: res.data
     }))

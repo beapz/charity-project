@@ -30,11 +30,11 @@ module.exports = {
   //Method takes in category from params and searches for all 
   //projects of that category.
   findByCategory: function(req, res) {
-    const category = req.params.category;
-    console.log(category);
+    const categoryId = req.params.categoryId;
+    console.log(categoryId);
     db.Project.findAll({
       where: {
-        CategoryId: category
+        CategoryId: categoryId
       }
     }).then(function (categoryResults) {
       res.json(categoryResults);

@@ -21,7 +21,7 @@ router.route('/:id')
 router.route('/all/carousel')
     .get(projController.findCarouselProjects);
 
-router.route('/all/:category')
+router.route('/all/:categoryId')
     .get(projController.findByCategory);
 
 module.exports = router;
