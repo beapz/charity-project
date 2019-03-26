@@ -11,12 +11,12 @@ module.exports = function (sequelize, DataTypes) {
         name: DataTypes.STRING
     });
 
-    Category.associate = function (models) {
-        // Associating category with Projects
-        Category.hasMany(models.Project, {
-            onDelete: "cascade"
-        });
-    };
+    // Category.associate = function (models) {
+    //     // Associating category with Projects
+    //     Category.hasMany(models.Project, {
+    //         onDelete: "cascade"
+    //     });
+    // };
 
     //Insert category seed data
     Category.sync().then(() => {

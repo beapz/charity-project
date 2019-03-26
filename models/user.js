@@ -15,14 +15,14 @@ module.exports = function (sequelize, DataTypes) {
         facebook_id: DataTypes.TEXT
     });
 
-    User.associate = function (models) {
-        // Associating user with user_projects
-        User.belongsToMany(models.Project, {
-            through: 'UserProject'
-        });
-    };
+    // User.associate = function (models) {
+    //     // Associating user with user_projects
+    //     User.belongsToMany(models.Project, {
+    //         through: 'UserProject'
+    //     });
+    // };
 
-    //Insert user seed data
+    // //Insert user seed data
     User.sync().then(() => {
         User.bulkCreate(userSeeds, {
             ignoreDuplicates: true

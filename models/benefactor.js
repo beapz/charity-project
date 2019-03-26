@@ -12,14 +12,14 @@ module.exports = function (sequelize, DataTypes) {
     description: DataTypes.TEXT
   });
 
-  Benefactor.associate = function (models) {
-    // Associating Benefactor with Projects
-    Benefactor.hasMany(models.Project, {
-        onDelete: "cascade"
-    });
-  };
+  // Benefactor.associate = function (models) {
+  //   // Associating Benefactor with Projects
+  //   Benefactor.hasMany(models.Project, {
+  //       onDelete: "cascade"
+  //   });
+  // };
 
-  //Insert benefactor seed data
+  // //Insert benefactor seed data
   Benefactor.sync().then(() => {
     Benefactor.bulkCreate(benefactorSeeds, {
       ignoreDuplicates: true
