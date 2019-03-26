@@ -1,8 +1,8 @@
 module.exports = [
     {
       title: "Clean Up Gompers Park",
-      benefactorId: 1,
-      categoryId: 1,
+      BenefactorId: 1,
+      CategoryId: 1,
       description: "Help your neighbors keep Gompers Park healthy and accessible this Earth day! Clean up tools and lunch will be provided.",
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553106006/LLBTWFI-picture1.jpg",
       total_hours: 30,
@@ -13,8 +13,8 @@ module.exports = [
     },
     {
       title: "Stock Shelves at Common Pantry",
-      benefactorId: 2,
-      categoryId: 2,
+      BenefactorId: 2,
+      CategoryId: 2,
       description: "Come visit our pantry on Wednesday nights to stock shelves and help our clients shop for their favorite items.",
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553106584/bazaar-bottles-business-15964.jpg",
       total_hours: 50,
@@ -25,8 +25,8 @@ module.exports = [
     },
     {
       title: "ESL and Literacy Tours Needed",
-      benefactorId: 3,
-      categoryId: 3,
+      BenefactorId: 3,
+      CategoryId: 3,
       description: "Spend time conversing with our ESL learners and helping them through literacy exercises. Tutoring is needed every Thursday beginning at 6:00pm.",
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553106249/senior-woman-learning-on-computer_4460x4460.jpg",
       total_hours: 40,
@@ -37,8 +37,8 @@ module.exports = [
     },
     {
       title: "Helping Hands Needed to Manage Flood-Damaged Items",
-      benefactorId: 4,
-      categoryId: 4,
+      BenefactorId: 4,
+      CategoryId: 4,
       description: "Join forces with Chicago Cares and the Red Cross of Greater Chicago to help families remove flood-damaged furniture and flooring from their homes.",
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553103716/collaboration-community-cooperation-461049.jpg",
       total_hours: 100,
