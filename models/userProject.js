@@ -1,3 +1,4 @@
+
 const userProjectSeeds = require("../scripts/userProjectSeeds");
 
 module.exports = function (sequelize, DataTypes) {

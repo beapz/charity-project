@@ -1,3 +1,4 @@
+
 const userSeeds = require("../scripts/userSeeds");
 
 module.exports = function (sequelize, DataTypes) {

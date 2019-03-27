@@ -1,3 +1,4 @@
+
 const projectSeeds = require("../scripts/projectSeeds");
 
 module.exports = function (sequelize, DataTypes) {
@@ -79,5 +80,4 @@ module.exports = function (sequelize, DataTypes) {
 
   return Project;
 };
-
 

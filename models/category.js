@@ -1,3 +1,4 @@
+
 const categorySeeds = require("../scripts/categorySeeds");
 
 module.exports = function (sequelize, DataTypes) {

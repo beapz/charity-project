@@ -34,5 +34,16 @@ module.exports = {
         }).then(function (userDetail) {
             res.json(userDetail)
         })
-    }
+    },
+
+    //this creates the user in the database
+    createUser: function(req, res) {
+        let id = req.params.id;
+        db.Users
+             db.Users.findOne({
+            //database search where email=email
+        }).then(function (userDetail) {
+            res.json(userDetail)
+        })
+      },
 };
