@@ -24,11 +24,15 @@ module.exports = function (sequelize, DataTypes) {
             }
         });
     };
+
+    //Insert the project seed data
+    //anonymous function is being created and declared at the same time
+    UserProject.realSync = function () {
+        UserProject.sync().then(() => {
+            UserProject.bulkCreate(userProjectSeeds, {
+                ignoreDuplicates: true
+            });
+        });
+    };
     return UserProject;
 };
- //Insert the project seed data
-    // UserProject.sync().then(() => {
-    //     UserProject.bulkCreate(userProjectSeeds, {
-    //         ignoreDuplicates: true
-    //     });
-    // });

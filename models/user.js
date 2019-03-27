@@ -20,22 +20,24 @@ module.exports = function (sequelize, DataTypes) {
         User.belongsToMany(models.Project, {
             through: 'UserProject'
         });
-        // User.hasMany(models.Project, {
-        //     onDelete: "cascade"
-        // });
-        // User.hasMany(models.UserProject, {
-        //     onDelete: "cascade"
-        // });
+        User.hasMany(models.Project, {
+            onDelete: "cascade"
+        });
+        User.hasMany(models.UserProject, {
+            onDelete: "cascade"
+        });
 
     };
 
     // //Insert user seed data
-    User.sync().then(() => {
-        User.bulkCreate(userSeeds, {
-            ignoreDuplicates: true
+    //anonymous function is being created and declared at the same time
+    User.realSync = function () {
+        User.sync().then(() => {
+            User.bulkCreate(userSeeds, {
+                ignoreDuplicates: true
+            });
         });
-    });
-
+    };
     return User;
 };
 
