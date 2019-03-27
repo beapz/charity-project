@@ -2,13 +2,19 @@ const router = require("express").Router();
 const userController = require("../../controllers/userController");
 const db = require("../../models");
 
-//this is the /users/:id route
+//find all users
 router.route('/')
-    .get(userController.findUserDetail)
-    .post(userController.createUser)
+
+    .get(userController.findAll);
+
+//this is the /users/:id route
+router.route('/:id')
+    .get(userController.findUserDetail);
+
 
 //this is the /users/:id/dash route
-router.route('/dash')
+//THIS ROUTE WILL WORK LAST
+router.route('/:id/dash')
     .get(userController.findUserDash);
 
 module.exports = router;

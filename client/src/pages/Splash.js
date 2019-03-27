@@ -20,11 +20,11 @@ class Splash extends Component {
     };
 
     componentDidMount() {
-        this.getProjects()
+        this.getCarouselProjects()
     };
 
-    getProjects = () => {
-        API.getProjects()
+    getCarouselProjects = () => {
+        API.getCarouselProjects()
             .then(res => 
                 // console.log(res.data.date)
                 

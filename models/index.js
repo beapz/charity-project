@@ -24,11 +24,21 @@ fs
     db[model.name] = model;
   });
 
+  //dynamic associate, uses file code
 Object.keys(db).forEach(function(modelName) {
+  console.log(modelName);
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
+  // if (db[modelName].realSync) {
+  //   db[modelName].realSync();
+  // }
 });
+db['Benefactor'].realSync();
+db['Category'].realSync();
+db['User'].realSync();
+db['Project'].realSync();
+db['UserProject'].realSync();
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
