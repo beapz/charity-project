@@ -4,11 +4,13 @@ const db = require("../../models");
 
 //find all users
 router.route('/')
+
     .get(userController.findAll);
 
 //this is the /users/:id route
 router.route('/:id')
     .get(userController.findUserDetail);
+
 
 //this is the /users/:id/dash route
 //THIS ROUTE WILL WORK LAST

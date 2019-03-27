@@ -1,3 +1,4 @@
+
 const projectSeeds = require("../scripts/projectSeeds");
 
 module.exports = function (sequelize, DataTypes) {
@@ -22,13 +23,13 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true,
       defaultValue: 0
     },
-    benefactorId:{
+    benefactorId: {
       field: 'BenefactorId',
       type: DataTypes.INTEGER,
       allowNull: true,
       defaultValue: 0
-    }, 
-    categoryId:{
+    },
+    categoryId: {
       field: 'CategoryId',
       type: DataTypes.INTEGER,
       allowNull: true,
@@ -36,20 +37,15 @@ module.exports = function (sequelize, DataTypes) {
     },
     carousel: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false 
+      defaultValue: false
     }
   });
-
+  //User must be in the model, and associations must be called AFTER user is executed
   // Associate the projects with benefactor 
+  //Project.associate is a function to hold the below wrapped functions of hasMany and belongsToMany and prevent them from executing prematurely
   Project.associate = function (models) {
-    // Project.belongsTo(models.Benefactor, {
 
-    //   foreignKey: {
-    //     allowNull: false
-    //   }
-    // });
 
-    
     // Associating project with user_projects
     Project.belongsToMany(models.User, {
       through: 'UserProject'
@@ -74,13 +70,14 @@ module.exports = function (sequelize, DataTypes) {
   };
 
   // // Insert the project seed data
-  Project.sync().then(() => {
-    Project.bulkCreate(projectSeeds, {
-      ignoreDuplicates: true
+  Project.realSync = function () {
+    Project.sync().then(() => {
+      Project.bulkCreate(projectSeeds, {
+        ignoreDuplicates: true
+      });
     });
-  });
+  };
 
   return Project;
 };
-
 
