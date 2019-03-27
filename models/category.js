@@ -22,12 +22,11 @@ module.exports = function (sequelize, DataTypes) {
 
     //Insert category seed data
     //anonymous function is being created and declared at the same time
-    Category.realSync = function () {
-        Category.sync().then(() => {
-            Category.bulkCreate(categorySeeds, {
+    Category.realSync = async () => {
+        await Category.sync()
+           return await Category.bulkCreate(categorySeeds, {
                 ignoreDuplicates: true
             });
-        });
     };
     return Category;
 };

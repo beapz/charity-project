@@ -22,11 +22,12 @@ module.exports = function (sequelize, DataTypes) {
 
   // //Insert benefactor seed data
   //anonymous function is being created and declared at the same time
-  Benefactor.realSync = function () {
-    Benefactor.sync().then(() => {
-      Benefactor.bulkCreate(benefactorSeeds, {
-        ignoreDuplicates: true
-      });
+
+
+  Benefactor.realSync = async () => {
+    await Benefactor.sync()
+    return await Benefactor.bulkCreate(benefactorSeeds, {
+      ignoreDuplicates: true
     });
   };
   return Benefactor;
