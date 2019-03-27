@@ -34,11 +34,18 @@ Object.keys(db).forEach(function(modelName) {
   //   db[modelName].realSync();
   // }
 });
-db['Benefactor'].realSync();
-db['Category'].realSync();
-db['User'].realSync();
-db['Project'].realSync();
-db['UserProject'].realSync();
+
+
+const syncDB = async () => {
+  await db['Benefactor'].realSync();
+  await db['Category'].realSync();
+  await db['User'].realSync();
+  await db['Project'].realSync();
+  await db['UserProject'].realSync();
+}
+
+syncDB();
+
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

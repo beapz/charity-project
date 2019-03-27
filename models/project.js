@@ -70,12 +70,11 @@ module.exports = function (sequelize, DataTypes) {
   };
 
   // // Insert the project seed data
-  Project.realSync = function () {
-    Project.sync().then(() => {
-      Project.bulkCreate(projectSeeds, {
+  Project.realSync = async () => {
+    await Project.sync()
+      return await Project.bulkCreate(projectSeeds, {
         ignoreDuplicates: true
       });
-    });
   };
 
   return Project;
