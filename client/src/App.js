@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./components/Nav";
 import history from "./history";
 // import Callback from "./Callback/Callback";
-import Auth from './Auth/Auth';
+
+import Auth from "./Auth/Auth";
+
 //Page dependencies
 import UserDashboard from "./pages/UserDashboard.js";
 import NoMatch from "./pages/NoMatch";
@@ -22,7 +24,6 @@ const handleAuthentication = ({ location }) => {
 };
 
 
-
 function App() {
   return (
     <Router history={history}>
@@ -33,9 +34,9 @@ function App() {
             path="/callback"
             render={props => {
               handleAuthentication(props);
-              console.log(props)
+              console.log(props);
               return <Splash {...props} />;
-              
+
             }}
           />
           <Route exact path="/" component={Splash} />
@@ -49,6 +50,6 @@ function App() {
       </div>
     </Router>
   );
-};
+}
 
 export default App;

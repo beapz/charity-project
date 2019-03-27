@@ -35,19 +35,26 @@ export default class Auth {
 
   handleAuthentication() {
     this.auth0.parseHash((err, authResult) => {
-      let {email, family_name, given_name, nickname, picture} = authResult.idTokenPayload;
+
+      let {
+        email,
+        family_name,
+        given_name,
+        nickname,
+        picture
+      } = authResult.idTokenPayload;
+
       console.log(email);
       console.log(family_name);
       console.log(given_name);
       console.log(nickname);
       console.log(picture);
 
-      
 
-      console.log("authResult",authResult)
+      console.log("authResult", authResult);
       //setting the returned user information to the session storage
-      localStorage.setItem("userObject",authResult)
-      localStorage.setItem('profile', JSON.stringify(authResult));
+      localStorage.setItem("profile", JSON.stringify(authResult));
+
       // debugger;
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
@@ -68,15 +75,15 @@ export default class Auth {
   }
 
   setSession(authResult) {
-    console.log('in set session', authResult);
-    
+
+    console.log("in set session", authResult);
+
     // Set isLoggedIn flag in localStorage
     localStorage.setItem("isLoggedIn", "true");
- 
 
-    
     // Set the time that the access token will expire at
-    let expiresAt = (authResult.expiresIn * 1000) + new Date().getTime();
+    let expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
+
     this.accessToken = authResult.accessToken;
     this.idToken = authResult.idToken;
     this.expiresAt = expiresAt;
@@ -85,28 +92,32 @@ export default class Auth {
     history.replace("/");
   }
 
-  getProfile(cb) { console.log('htting the get profile method')
+
+  getProfile(cb) {
+    console.log("htting the get profile method");
     this.auth0.client.userInfo(this.accessToken, (err, profile) => {
       if (profile) {
         this.userProfile = profile;
-        console.log(profile)
+        console.log(profile);
+
       }
       cb(err, profile);
     });
   }
 
   renewSession() {
-    
+
     this.auth0.checkSession({}, (err, authResult) => {
-      console.log('before if renewSession', authResult);
+      console.log("before if renewSession", authResult);
 
       if (authResult && authResult.accessToken && authResult.idToken) {
-        console.log('in if renewSession', authResult);
-        
+        console.log("in if renewSession", authResult);
+
         this.setSession(authResult);
       } else if (err) {
         this.logout();
-        console.log('renew ses err', err);
+        console.log("renew ses err", err);
+
         alert(
           `Could not get a new token (${err.error}: ${err.error_description}).`
         );
@@ -115,8 +126,10 @@ export default class Auth {
   }
 
   logout() {
-    console.log('fire logout');
-    
+
+    console.log("fire logout");
+
+
     // Remove tokens and expiry time
     this.accessToken = null;
     this.idToken = null;
@@ -131,7 +144,9 @@ export default class Auth {
   }
 
   isAuthenticated() {
-    console.log("isauthenticating is firing")
+
+    console.log("isauthenticating is firing");
+
     // Check whether the current time is past the
     // access token's expiry time
     let expiresAt = this.expiresAt;
