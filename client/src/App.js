@@ -1,7 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./components/Nav";
-
+import history from "./history";
+// import Callback from "./Callback/Callback";
+import Auth from "./Auth/Auth";
 //Page dependencies
 import UserDashboard from "./pages/UserDashboard.js";
 import NoMatch from "./pages/NoMatch";
@@ -10,12 +12,29 @@ import Find from "./pages/Find";
 import BeginProject from "./pages/BeginProject";
 import ProjectDetail from "./pages/ProjectDetail";
 
+const auth = new Auth();
+// auth.login()
+
+const handleAuthentication = ({ location }) => {
+  if (/access_token|id_token|error/.test(location.hash)) {
+    auth.handleAuthentication();
+  }
+};
+
 function App() {
   return (
-    <Router>
+    <Router history={history}>
       <div>
-        <Nav />
+        <Nav auth={auth} />
         <Switch>
+          <Route
+            path="/callback"
+            render={props => {
+              handleAuthentication(props);
+              console.log(props);
+              return <Splash {...props} />;
+            }}
+          />
           <Route exact path="/" component={Splash} />
           <Route exact path="/create" component={BeginProject} />
           <Route exact path="/find" component={Find} />
@@ -27,6 +46,6 @@ function App() {
       </div>
     </Router>
   );
-};
+}
 
 export default App;
