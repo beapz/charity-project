@@ -20,7 +20,7 @@ class CreateProject {
 
     handleFormSubmit = event => {
         //we don't want the form to submit, so we prevent the default behavior
-        e.preventDefault();
+        event.preventDefault();
         
         let projectName = this.state.projectName.trim();
         let location = this.state.location.trim();
@@ -35,7 +35,7 @@ class CreateProject {
         let number = this.state.number.trim()
           return;
         };
-
+    
     render() {
         return (
   <Form>
