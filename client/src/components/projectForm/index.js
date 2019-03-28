@@ -17,8 +17,8 @@ class CreateProject {
       number:""
 
     };
-}
-    handleSubmit: form() {
+
+    handleFormSubmit = event => {
         //we don't want the form to submit, so we prevent the default behavior
         e.preventDefault();
         
@@ -34,7 +34,7 @@ class CreateProject {
         let email = this.state.email.trim()
         let number = this.state.number.trim()
           return;
-        }
+        };
 
     render() {
         return (
