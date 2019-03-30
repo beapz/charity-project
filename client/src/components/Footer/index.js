@@ -44,9 +44,11 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
         <div className="row copyright ">
           <div className='col-12-md copyright'>
-            <p> &copy; Timelenders</p>
+            <div> &copy; Timelenders</div>
+
           </div>
         </div>
       </div>

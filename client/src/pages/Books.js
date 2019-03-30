@@ -100,11 +100,11 @@ class Books extends Component {
                       <strong>
                         {book.name} by {book.owner_name}
                       </strong>
-                      <p>{book.description}</p>
-                      <p>Hours Recieved So Far:{book.hours_received}</p>
-                      <p>Hours Needed:{book.total_hours}</p>
+                      <div>{book.description}</div>
+                      <div>Hours Recieved So Far:{book.hours_received}</div>
+                      <div>Hours Needed:{book.total_hours}</div>
                       
-                      <p>Project Category: {book.category}</p>
+                      <div>Project Category: {book.category}</div>
                     </Link>
                     <DeleteBtn onClick={() => this.deleteBook(book._id)} />
                   </ListItem>
