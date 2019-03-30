@@ -14,6 +14,9 @@ import Find from "./pages/Find";
 import BeginProject from "./pages/BeginProject";
 import ProjectDetail from "./pages/ProjectDetail";
 
+// TEST COMPONENT PAGE
+import Test from './pages/ComponentTester';
+
 const auth = new Auth();
 // auth.login()
 
@@ -44,8 +47,12 @@ function App() {
           <Route exact path="/find" component={Find} />
           <Route exact path="/find/:categoryId" component={Find} />
           <Route exact path="/find/:projectId" component={ProjectDetail} />
+          {/* This route is for testing components */}
+          <Route exact path='/testroute' component={Test} />
+          
           {/* <Route exact path="/:user/dash" component={UserDashboard} /> */}
           <Route component={NoMatch} />
+
         </Switch>
       </div>
     </Router>

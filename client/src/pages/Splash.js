@@ -74,6 +74,7 @@ class Splash extends Component {
                                             start_time= {project.start_time}
                                             end_time = {project.end_time}
                                             location = {project.location}
+                                            photo_url = {project.photo_url}
                                         />
                                     ))}
                                 </List>
