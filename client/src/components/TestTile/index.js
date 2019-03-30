@@ -10,13 +10,13 @@ function TestTile({ title, category, date, photo_url }) {
             <Row className="flex-wrap-reverse">
                 <Col size='md-12'>
                     <img className='img-fluid tile-image' src={photo_url} alt={title}></img>
-                    <p className='tile-date'><Moment format="YYYY/MM/DD">{date}</Moment></p>
+                    <div className='tile-date'><Moment format="YYYY/MM/DD">{date}</Moment></div>
                 </Col>
             </Row>
             <Row>
                 <Col size="md-12 tile-content">
-                    <p className="tile-title">{title}</p>
-                    <p className='tile-category'>{category}</p>
+                    <div className="tile-title">{title}</div>
+                    <div className='tile-category'>{category}</div>
                 </Col>
             </Row>
         </div>

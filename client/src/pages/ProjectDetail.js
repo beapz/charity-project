@@ -39,21 +39,21 @@ class ProjectDetail extends Component {
           <Col size="md-10 md-offset-1">
             <article>
               <h1> {this.state.project.title} </h1>
-              <p>
+              <div>
               {this.state.project.description}
-              </p>
-              <p>
+              </div>
+              <div>
               {this.state.project.location}
-              </p>
-              <p>
+              </div>
+              <div>
               {this.state.project.start_time}
-              </p>
-              <p>
+              </div>
+              <div>
               {this.state.project.end_time}
-              </p>
-              <p>
+              </div>
+              <div>
               {this.state.project.total_hours}
-              </p>
+              </div>
               <img src={this.state.project.photo_url} alt="{this.state.project.title}" height="200px" width="300px"/>
               
              
