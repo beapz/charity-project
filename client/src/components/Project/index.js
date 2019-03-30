@@ -8,6 +8,7 @@ import "./style.css";
 
 function Project({ title, description, total_hours, date, start_time, end_time, location }) {
   return (
+    
     <ListItem>
       <Row className="flex-wrap-reverse">
         <Col size="md-8">

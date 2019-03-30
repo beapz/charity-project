@@ -34,6 +34,8 @@
     "mongoose": "^5.3.16",
     "mysql2": "^1.6.5",
     "react-moment": "^0.8.4",
-    "sequelize": "^5.1.0"
+    "react-slick": "^0.23.2",
+    "sequelize": "^5.1.0",
+    "slick-carousel": "^1.8.1"
   }
 }
