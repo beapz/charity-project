@@ -8,8 +8,8 @@ module.exports = [
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553106006/LLBTWFI-picture1.jpg",
       total_hours: 30,
       date: "4/21/2019",
-      start_time: "9:00 AM",
-      end_time: "12:00 PM",
+      start_time: "1969-04-20 09:00:00",
+      end_time: "1969-04-20 12:00:00",
       location: "Gompers Park Soccer Field"
     },
     {
@@ -21,8 +21,8 @@ module.exports = [
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553106584/bazaar-bottles-business-15964.jpg",
       total_hours: 50,
       date: "5/20/2019",
-      start_time: "6:00 PM",
-      end_time: "8:00 PM",
+      start_time: "1969-04-20 18:00:00",
+      end_time: "1969-04-20 20:00:00",
       location: "Common Pantry North Center"
     },
     {
@@ -34,8 +34,8 @@ module.exports = [
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553106249/senior-woman-learning-on-computer_4460x4460.jpg",
       total_hours: 40,
       date: "9/6/2019",
-      start_time: "6:00 PM",
-      end_time: "9:00 PM",
+      start_time: "1969-04-20 18:00:00",
+      end_time: "1969-04-20 21:00:00",
       location: "Albany Park Community Center"
     },
     {
@@ -47,8 +47,8 @@ module.exports = [
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553103716/collaboration-community-cooperation-461049.jpg",
       total_hours: 100,
       date: "4/28/2019",
-      start_time: "10:00 AM",
-      end_time: "5:00 PM",
+      start_time: "1969-04-20 10:00:00",
+      end_time: "1969-04-20 17:00:00",
       location: "Various"
     },
     {
@@ -60,8 +60,8 @@ module.exports = [
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553104848/action-adult-affection-339620.jpg",
       total_hours: 50,
       date: "4/2/2019",
-      start_time: "11:00 AM",
-      end_time: "12:30 PM",
+      start_time: "1969-04-20 11:00:00",
+      end_time: "1969-04-20 12:30:00",
       location: "Swedish Covenant Hospital"
     },
     {
@@ -73,8 +73,8 @@ module.exports = [
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553107528/GettyImages-584219268.jpg",
       total_hours: 100,
       date: "4/15/2019",
-      start_time: "3:00 PM",
-      end_time: "4:00 PM",
+      start_time: "1969-04-20 15:00:00",
+      end_time: "1969-04-20 16:00:00",
       location: "Dorothy's Can-Do Cafe"
     },
     {
@@ -86,8 +86,8 @@ module.exports = [
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553105788/animal-black-and-white-close-up-37401.jpg",
       total_hours: 20,
       date: "4/30/2019",
-      start_time: "1:00 PM",
-      end_time: "3:00 PM",
+      start_time: "1969-04-20 13:00:00",
+      end_time: "1969-04-20 15:00:00",
       location: "Doggie Heaven"
     },
     {
@@ -99,8 +99,8 @@ module.exports = [
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553105492/adult-beggar-begging-1058068.jpg",
       total_hours: 30,
       date: "4/12/2019",
-      start_time: "7:00 PM",
-      end_time: "9:00 PM",
+      start_time: "1969-04-20 19:00:00",
+      end_time: "1969-04-20 21:00:00",
       location: "St. Mark's Church"
     },
     {
@@ -112,8 +112,8 @@ module.exports = [
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553103816/charity-cheerful-community-1374360.jpg",
       total_hours: 9,
       date: "4/6/2019",
-      start_time: "4:00 PM",
-      end_time: "6:00 PM",
+      start_time: "1969-04-20 16:00:00",
+      end_time: "1969-04-20 18:00:00",
       location: "Chatham"
     },
     {
@@ -125,8 +125,8 @@ module.exports = [
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553104008/adolescent-adult-back-view-710743.jpg",
       total_hours: 25,
       date: "4/10/2019",
-      start_time: "3:00 PM",
-      end_time: "4:00 PM",
+      start_time: "1969-04-20 15:00:00",
+      end_time: "1969-04-20 16:00:00",
       location: "Fuller School of Excellence"
     }
   ]
