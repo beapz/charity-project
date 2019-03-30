@@ -15,6 +15,8 @@ import SplashCarousel from '../components/Carousel';
 
 
 
+
+
 class Splash extends Component {
 
     state = {
@@ -74,6 +76,7 @@ class Splash extends Component {
                     <Col size='md-12'>
                         <Tiles title='This is only a test'>
                             {this.state.projects.length ? (
+
                                 <SplashCarousel>
                                         {this.state.projects.map(project => (
                                             <Project
