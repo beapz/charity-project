@@ -11,9 +11,10 @@ class Nav extends Component {
 
   componentWillMount(){
     const isAuth = this.props.auth.isAuthenticated();
-    this.state = {
+    //this set state removes the mutable error but it leads login to incorrect page after login
+    this.setState({
       isLoggedIn: isAuth
-    }
+    })
     // debugger;
   }
 
@@ -55,7 +56,7 @@ class Nav extends Component {
           <Navbar.Header>
             <Navbar.Brand>
               
-              <a href="#">TimeLender</a>
+              <a href="/">TimeLender</a>
             </Navbar.Brand>
             {/* <Button
               bsStyle="primary"

@@ -1,6 +1,6 @@
 //Dependencies
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 //Imports
 import API from '../services/API';
@@ -8,9 +8,9 @@ import API from '../services/API';
 //Components Needed
 import Jumbotron from '../components/Jumbotron';
 import { Col, Row, Container } from '../components/Grid';
-import { List } from '../components/List';
+// import { List } from '../components/List';
 import Project from '../components/Project';
-import Tiles from '../components/Tiles';
+// import Tiles from '../components/Tiles';
 import SplashCarousel from '../components/Carousel';
 
 
@@ -68,8 +68,8 @@ class Splash extends Component {
                     </Row>
                 </Jumbotron>
                 <Container>
-                    {/* testing space */}
-                    {/* <Row>
+                {/* testing space */}
+                {/* <Row>
 
                     <Col size='md-12'>
                         <SplashCarousel>
@@ -92,6 +92,7 @@ class Splash extends Component {
                                                 start_time={project.start_time}
                                                 end_time={project.end_time}
                                                 location={project.location}
+                                                photo_url={project.photo_url}
                                             />
                                         ))}
                                     </SplashCarousel>
