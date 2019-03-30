@@ -37,6 +37,7 @@ class Nav extends Component {
 
   componentDidMount() {
     console.log('authenticated', this.props.auth.isAuthenticated());
+    console.log("setsession storage profile", sessionStorage.profile)
     
     const { renewSession } = this.props.auth;
 
