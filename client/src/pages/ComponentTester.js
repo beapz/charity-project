@@ -50,8 +50,9 @@ class Test extends Component {
                             <TestTile
                             key={project.id}
                             title={project.title}
-                            date = {project.data}
+                            date = {project.date}
                             photo_url = {project.photo_url}
+                            category = {project.categoryId}
                         />                                
                         </Col>                        
                     ))}
