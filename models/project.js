@@ -14,8 +14,8 @@ module.exports = function (sequelize, DataTypes) {
     photo_url: DataTypes.TEXT,
     total_hours: DataTypes.INTEGER,
     date: DataTypes.DATE,
-    start_time: DataTypes.TIME,
-    end_time: DataTypes.TIME,
+    start_time: DataTypes.DATE,
+    end_time: DataTypes.DATE,
     location: DataTypes.STRING,
     ownerId: {
       field: 'OwnerId',
@@ -70,12 +70,11 @@ module.exports = function (sequelize, DataTypes) {
   };
 
   // // Insert the project seed data
-  Project.realSync = function () {
-    Project.sync().then(() => {
-      Project.bulkCreate(projectSeeds, {
+  Project.realSync = async () => {
+    await Project.sync()
+      return await Project.bulkCreate(projectSeeds, {
         ignoreDuplicates: true
       });
-    });
   };
 
   return Project;

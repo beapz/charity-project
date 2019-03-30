@@ -21,9 +21,12 @@ module.exports = {
     db.Project.findAll({
       where: {
         carousel: 1
-      }
+      },
+      include: [db.Category]
+
     }).then(function (projects) {
       res.json(projects);
+      console.log(projects)
     });
   },
 

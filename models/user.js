@@ -32,11 +32,10 @@ module.exports = function (sequelize, DataTypes) {
 
     // //Insert user seed data
     //anonymous function is being created and declared at the same time
-    User.realSync = function () {
-        User.sync().then(() => {
-            User.bulkCreate(userSeeds, {
-                ignoreDuplicates: true
-            });
+    User.realSync = async () => {
+        await User.sync()
+        return await User.bulkCreate(userSeeds, {
+            ignoreDuplicates: true
         });
     };
     return User;

@@ -28,12 +28,11 @@ module.exports = function (sequelize, DataTypes) {
 
     //Insert the project seed data
     //anonymous function is being created and declared at the same time
-    UserProject.realSync = function () {
-        UserProject.sync().then(() => {
-            UserProject.bulkCreate(userProjectSeeds, {
+    UserProject.realSync = async () => {
+        await UserProject.sync()
+            return await UserProject.bulkCreate(userProjectSeeds, {
                 ignoreDuplicates: true
             });
-        });
     };
     return UserProject;
 };
