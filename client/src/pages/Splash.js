@@ -12,6 +12,8 @@ import { List } from '../components/List';
 import Project from '../components/Project';
 import Tiles from '../components/Tiles';
 
+
+
 class Splash extends Component {
 
     state = {
@@ -70,7 +72,7 @@ class Splash extends Component {
                                             title={project.title}
                                             description ={project.description}
                                             total_hours ={project.total_hours}
-                                            date = {project.data}
+                                            date = {project.date}
                                             start_time= {project.start_time}
                                             end_time = {project.end_time}
                                             location = {project.location}
