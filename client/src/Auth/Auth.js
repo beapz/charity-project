@@ -7,6 +7,7 @@ export default class Auth {
   idToken;
   expiresAt;
   userProfile;
+  isLoggedIn = false;
 
   auth0 = new auth0.WebAuth({
     domain: AUTH_CONFIG.domain,
@@ -34,8 +35,8 @@ export default class Auth {
   }
 
   handleAuthentication() {
+    // debugger;
     this.auth0.parseHash((err, authResult) => {
-
       let {
         email,
         family_name,
@@ -49,7 +50,6 @@ export default class Auth {
       console.log(given_name);
       console.log(nickname);
       console.log(picture);
-
 
       console.log("authResult", authResult);
       //setting the returned user information to the session storage
@@ -75,14 +75,20 @@ export default class Auth {
   }
 
   setSession(authResult) {
-
     console.log("in set session", authResult);
 
     // Set isLoggedIn flag in localStorage
     localStorage.setItem("isLoggedIn", "true");
 
     // Set the time that the access token will expire at
-    let expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
+    //let expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
+
+    let expiresAt = JSON.stringify(
+      authResult.expiresIn * 1000 + new Date().getTime()
+    );
+    localStorage.setItem("access_token", authResult.accessToken);
+    localStorage.setItem("id_token", authResult.idToken);
+    localStorage.setItem("expires_at", expiresAt);
 
     this.accessToken = authResult.accessToken;
     this.idToken = authResult.idToken;
@@ -92,21 +98,18 @@ export default class Auth {
     history.replace("/");
   }
 
-
   getProfile(cb) {
     console.log("htting the get profile method");
     this.auth0.client.userInfo(this.accessToken, (err, profile) => {
       if (profile) {
         this.userProfile = profile;
         console.log(profile);
-
       }
       cb(err, profile);
     });
   }
 
   renewSession() {
-
     this.auth0.checkSession({}, (err, authResult) => {
       console.log("before if renewSession", authResult);
 
@@ -137,19 +140,23 @@ export default class Auth {
     this.userProfile = null;
 
     // Remove isLoggedIn flag from localStorage
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('id_token');
+    localStorage.removeItem('expires_at');
     localStorage.removeItem("isLoggedIn");
 
     // navigate to the home route
     history.replace("/");
   }
 
-  isAuthenticated() {
-
+  isAuthenticated = () => {
     console.log("isauthenticating is firing");
 
     // Check whether the current time is past the
     // access token's expiry time
-    let expiresAt = this.expiresAt;
-    return new Date().getTime() < expiresAt;
-  }
+    let expiresAt = JSON.parse(localStorage.getItem("expires_at"));
+    this.isLoggedIn = new Date().getTime() < expiresAt;
+    
+    return this.isLoggedIn;
+  };
 }
