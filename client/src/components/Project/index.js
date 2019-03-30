@@ -6,7 +6,7 @@ import { ListItem } from "../List";
 import { Row, Col } from "../Grid";
 import "./style.css";
 
-function Project({ title, description, total_hours, date, start_time, end_time, location, photo_url }) {
+function Project({ title, description, total_hours, date, start_time, end_time, location, category }) {
   return (
     
     <ListItem>
@@ -20,6 +20,7 @@ function Project({ title, description, total_hours, date, start_time, end_time, 
           <p><h3 className="font-italic">{title}</h3></p>
           <p>{description}</p>
           <p>Hours required: {total_hours}</p>
+          <p>Category: {category}</p>
           <p>Date: <Moment format="dddd, MMMM Do" date={date} /></p>
           <p>Start Time: <Moment format="LT" date={start_time} /></p>
           <p>End Time: <Moment format="LT" date={end_time}/></p>

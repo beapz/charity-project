@@ -15,8 +15,6 @@ import SplashCarousel from '../components/Carousel';
 
 
 
-
-
 class Splash extends Component {
 
     state = {
@@ -25,18 +23,16 @@ class Splash extends Component {
     };
 
     componentDidMount() {
-        this.getCarouselProjects()
+        this.getCarouselProjects();
     };
 
     getCarouselProjects = () => {
         API.getCarouselProjects()
             .then(res =>
-                // console.log(res.data.date)
-
                 this.setState({
                     projects: res.data
                 })
-
+                
             )
             .catch(() =>
                 this.setState({
@@ -49,26 +45,22 @@ class Splash extends Component {
 
     render() {
         return (
+            <div>
+            <Jumbotron>
+            <h1 className='text-center'>
+                <strong>THIS IS THE TEST DISPLAY SECTION</strong>
+            </h1>
+            <h2 className='text-center'>
+                Fingers Crossed it works?!?!?!?!
+            </h2>
+            <button className='btn btn-primary color-prim' style={{ marginRight: 25, position: 250 }}>Find Ways to Help</button>
+            <button className='btn btn-primary color-prim'>Create a Project</button>
+        </Jumbotron>
             <Container>
-                <Row>
-                    <Col size='md-12'>
-                        <Jumbotron>
-                            <h1 className='text-center'>
-                                <strong>THIS IS THE TEST DISPLAY SECTION</strong>
-                            </h1>
-                            <h2 className='text-center'>
-                                Fingers Crossed it works?!?!?!?!
-                            </h2>
-                            <button className='btn btn-primary color-prim' style={{ marginRight: 25, position: 250 }}>Find Ways to Help</button>
-                            <button className='btn btn-primary color-prim'>Create a Project</button>
-                        </Jumbotron>
-                    </Col>
-                </Row>
                 {/* testing space */}
                 {/* <Row>
                     <Col size='md-12'>
                         <SplashCarousel>
-
                         </SplashCarousel>
                     </Col>
                 </Row> */}
@@ -76,12 +68,12 @@ class Splash extends Component {
                     <Col size='md-12'>
                         <Tiles title='This is only a test'>
                             {this.state.projects.length ? (
-
                                 <SplashCarousel>
                                         {this.state.projects.map(project => (
                                             <Project
                                                 key={project.id}
                                                 title={project.title}
+                                                category={project.Category.name}
                                                 description={project.description}
                                                 total_hours={project.total_hours}
                                                 date={project.data}
@@ -99,6 +91,7 @@ class Splash extends Component {
                     </Col>
                 </Row>
             </Container>
+            </div>
         )
     }
 }

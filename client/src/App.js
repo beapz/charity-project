@@ -23,6 +23,7 @@ const auth = new Auth();
 const handleAuthentication = ({ location }) => {
   if (/access_token|id_token|error/.test(location.hash)) {
     auth.handleAuthentication();
+    console.log("workkkkk")
   }
 };
 
@@ -34,12 +35,11 @@ function App() {
         <Nav auth={auth} />
         <Switch>
           <Route
-            path="/callback"
+            // path="/callback"
             render={props => {
               handleAuthentication(props);
               console.log(props);
-              return <Splash {...props} />;
-
+              return <Splash {...props} isLoggedIn={true} />;
             }}
           />
           <Route exact path="/" component={Splash} />
