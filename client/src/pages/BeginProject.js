@@ -4,10 +4,9 @@ import Jumbotron from "../components/Jumbotron";
 import API from "../services/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-// import { List, ListItem } from "../components/List";
-import { Input, 
-  //TextArea, 
-  FormBtn } from "../components/Form";
+import { List, ListItem } from "../components/List";
+import { Input, TextArea, FormBtn } from "../components/Form";
+// import NewForm from "../components/NewForm";
 
 class BeginProject extends Component {
   state = {
@@ -109,7 +108,7 @@ class BeginProject extends Component {
             <Jumbotron>
               <h1>Create a Project</h1>
             </Jumbotron>
-
+            {/* <NewForm/> */}
             {/* Test form */}
             <form>
               <Input

@@ -39,7 +39,7 @@ function SplashCarousel({ children }) {
   };
   return (
     <div>
-      <h2> 3x3 Carousel </h2>
+      <h2> Highlighted Projects</h2>
       <Slider {...settings}>
         {children}
       </Slider>

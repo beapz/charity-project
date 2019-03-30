@@ -38,6 +38,7 @@ class Nav extends Component {
 
   componentDidMount() {
     console.log('authenticated', this.props.auth.isAuthenticated());
+    console.log("setsession storage profile", sessionStorage.profile)
     
     const { renewSession } = this.props.auth;
 
@@ -54,8 +55,8 @@ class Nav extends Component {
         <Navbar fluid>
           <Navbar.Header>
             <Navbar.Brand>
-              <img src="https://res.cloudinary.com/dlfl6vj4n/image/upload/c_thumb,w_200,g_face/v1553552037/timelenders.png" width="30" height="30" alt=""></img>
-              <a href="#">Timelenders</a>
+              
+              <a href="#">TimeLender</a>
             </Navbar.Brand>
             {/* <Button
               bsStyle="primary"
@@ -64,11 +65,13 @@ class Nav extends Component {
             >
               Home
             </Button> */}
-            {
+            
+          </Navbar.Header>
+          {
               !this.isAuthenticated() && (
                   <Button
                     bsStyle="primary"
-                    className="btn-margin nav-btn"
+                    className="btn-margin nav-btn float-right"
                     onClick={this.login.bind(this)}
                   >
                     Log In
@@ -80,7 +83,7 @@ class Nav extends Component {
               this.isAuthenticated() && (
                   <Button
                     bsStyle="primary"
-                    className="btn-margin nav-btn"
+                    className="btn-margin nav-btn float-right"
                     onClick={this.logout.bind(this)}
                   >
                     Log Out
@@ -90,7 +93,6 @@ class Nav extends Component {
                   </Button>
                 )
             }
-          </Navbar.Header>
         </Navbar>
       </div>
     );

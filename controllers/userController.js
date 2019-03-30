@@ -38,12 +38,23 @@ module.exports = {
 
     //this creates the user in the database
     createUser: function(req, res) {
-        let id = req.params.id;
-        db.Users
-             db.Users.findOne({
-            //database search where email=email
-        }).then(function (userDetail) {
+        let newUser = req.body;
+        
+        db.User.create(newUser)
+            .then(userDetail => {
+                 res.send(userDetail)
+            })
+    },
+
+    checkUserByEmail: function(req, res) {
+        let email = req.params.email;
+        console.log('email ', email);
+        db.User.findAll({
+            where: {
+                email: email
+            }
+        }).then(userDetail => {
             res.json(userDetail)
         })
-      },
+    },
 };
