@@ -21,7 +21,9 @@ const auth = new Auth();
 const handleAuthentication = ({ location }) => {
   if (/access_token|id_token|error/.test(location.hash)) {
     auth.handleAuthentication();
+
     console.log("workkkkk");
+
   }
 };
 
@@ -35,11 +37,15 @@ function App() {
             // path="/callback"
             render={props => {
               handleAuthentication(props);
+              // createUser(props);  //
               console.log(props);
+
               return <Splash {...props} isLoggedIn={true} />;
+
             }}
           />
           <Route exact path="/" component={Splash} />
+          <Route exact path="/:email" component={Splash} />
           <Route exact path="/create" component={BeginProject} />
           <Route exact path="/find" component={Find} />
           <Route exact path="/find/:categoryId" component={Find} />

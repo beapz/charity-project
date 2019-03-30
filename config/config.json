@@ -1,7 +1,9 @@
 {
   "development": {
     "username": "root",
+
     "password": "dewey0908",
+
 
     "database": "charityproject",
     "host": "localhost",
