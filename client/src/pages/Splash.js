@@ -34,7 +34,7 @@ class Splash extends Component {
                 this.setState({
                     projects: res.data
                 })
-                
+
             )
             .catch(() =>
                 this.setState({
@@ -50,30 +50,37 @@ class Splash extends Component {
 
         return (
             <div>
-            <Jumbotron>
-            <h1 className='text-center'>
-                <strong>THIS IS THE TEST DISPLAY SECTION</strong>
-            </h1>
-            <h2 className='text-center'>
-                Fingers Crossed it works?!?!?!?!
-            </h2>
-            <button className='btn btn-primary color-prim' style={{ marginRight: 25, position: 250 }}>Find Ways to Help</button>
-            <button className='btn btn-primary color-prim'>Create a Project</button>
-        </Jumbotron>
+                <Jumbotron>
+                    <Row>
+                        <Col size='md-6'>
+                            <button className='btn btn-primary color-prim' style={{ marginRight: 25, position: 250 }}>Find Ways to Help</button>
+                            <button className='btn btn-primary color-prim'>Create a Project</button>
+                        </Col>
+                        <Col size='md-6'>
+                            <h1 className='text-center'>
+                                Create a project to change your world
+                            </h1>
+                            <h2 className='text-center'>
+                                And help others on the same path
+                            </h2>
+                        </Col>
 
-            <Container>
-                {/* testing space */}
-                {/* <Row>
+                    </Row>
+                </Jumbotron>
+                <Container>
+                    {/* testing space */}
+                    {/* <Row>
+
                     <Col size='md-12'>
                         <SplashCarousel>
                         </SplashCarousel>
                     </Col>
                 </Row> */}
-                <Row>
-                    <Col size='md-12'>
-                        <Tiles title='This is only a test'>
-                            {this.state.projects.length ? (
-                                <SplashCarousel>
+                    <Row>
+                        <Col size='md-12'>
+                            
+                                {this.state.projects.length ? (
+                                    <SplashCarousel>
                                         {this.state.projects.map(project => (
                                             <Project
                                                 key={project.id}
@@ -87,15 +94,15 @@ class Splash extends Component {
                                                 location={project.location}
                                             />
                                         ))}
-                                </SplashCarousel>
-                            ) : (
-                                    <h2 className='text-center'>{this.state.message}</h2>
-                                )
-                            }
-                        </Tiles>
-                    </Col>
-                </Row>
-            </Container>
+                                    </SplashCarousel>
+                                ) : (
+                                        <h2 className='text-center'>{this.state.message}</h2>
+                                    )
+                                }
+                           
+                        </Col>
+                    </Row>
+                </Container>
             </div>
         )
     }
