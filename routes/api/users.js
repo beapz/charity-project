@@ -4,8 +4,12 @@ const db = require("../../models");
 
 //find all users
 router.route('/')
+    .get(userController.findAll)
+    .post(userController.createUser);
 
-    .get(userController.findAll);
+router.route('/:email')
+    .get(userController.checkUserByEmail);
+    
 
 //this is the /users/:id route
 router.route('/:id')

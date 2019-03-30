@@ -1,7 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "W84dinner!",
+
+    "password": "yourRootPassword",
 
     "database": "charityproject",
     "host": "localhost",
