@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
+// import NewForm from "../components/NewForm";
 
 class BeginProject extends Component {
   state = {
@@ -66,8 +67,8 @@ class BeginProject extends Component {
         benefactorId: this.state.benefactorId,
         categoryId: this.state.categoryId,
         ownerId: this.state.ownerId,
-        description: this.state.author,
-        photo_url: this.state.synopsis,
+        description: this.state.description,
+        photo_url: this.state.photo_url,
         total_hours: this.state.total_hours,
         date: this.state.date,
         start_time: this.state.start_time,
@@ -85,8 +86,8 @@ class BeginProject extends Component {
         benefactorId: this.state.benefactorId,
         categoryId: this.state.categoryId,
         ownerId: this.state.ownerId,
-        description: this.state.author,
-        photo_url: this.state.synopsis,
+        description: this.state.description,
+        photo_url: this.state.photo_url,
         total_hours: this.state.total_hours,
         date: this.state.date,
         start_time: this.state.start_time,
@@ -107,7 +108,7 @@ class BeginProject extends Component {
             <Jumbotron>
               <h1>Create a Project</h1>
             </Jumbotron>
-
+            {/* <NewForm/> */}
             {/* Test form */}
             <form>
               <Input

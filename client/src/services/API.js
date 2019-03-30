@@ -15,7 +15,7 @@ export default {
   },
 
   //Get projects by category
-   searchCategory: function(categoryId) {
+  searchCategory: function(categoryId) {
     return axios.get('/api/projects/all/' + categoryId);
   },
 
@@ -27,18 +27,28 @@ export default {
   createProject: function(projectData) {
     return axios.post('/api/projects/', projectData);
   },
-  
+
   //=================USER METHODS===============
 
   //To see a users page when not user
-  getUserDetail: function(id) {
-    return axios.get('/api/users/' + id);
-  },
+  // getUserDetail: function(id) {
+  //   return axios.get('/api/users/' + id);
+  // },
 
   //To see your own dashboard as defined user
-  getUserDash: function() {
-    return axios.get('/api/users/:id/dash');
+  // getUserDash: function() {
+  //   return axios.get('/api/users/:id/dash');
+  // },
+
+  //To create new user
+  createUser: function(UserData) {
+    return axios.post('/api/users/', UserData);
   },
+
+  //To search whether user of a certain email exists
+  searchUserEmail: function(email) {
+    return axios.get('/api/users/' + email);
+  }
 }
 
 

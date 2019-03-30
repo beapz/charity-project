@@ -66,7 +66,6 @@ module.exports = {
         .then(() => {
           res.send(dbProj);
         })
-        
       });
   }
 
