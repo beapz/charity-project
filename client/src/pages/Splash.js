@@ -22,6 +22,7 @@ class Splash extends Component {
         message: 'Projects Will Display Here'
     };
 
+
     componentDidMount() {
         this.getCarouselProjects();
     };
@@ -29,6 +30,7 @@ class Splash extends Component {
     getCarouselProjects = () => {
         API.getCarouselProjects()
             .then(res =>
+
                 this.setState({
                     projects: res.data
                 })
@@ -44,6 +46,8 @@ class Splash extends Component {
     };
 
     render() {
+
+
         return (
             <div>
             <Jumbotron>
@@ -56,6 +60,7 @@ class Splash extends Component {
             <button className='btn btn-primary color-prim' style={{ marginRight: 25, position: 250 }}>Find Ways to Help</button>
             <button className='btn btn-primary color-prim'>Create a Project</button>
         </Jumbotron>
+
             <Container>
                 {/* testing space */}
                 {/* <Row>
