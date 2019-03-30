@@ -5,11 +5,11 @@ import React, { Component } from 'react';
 import API from '../services/API';
 
 //Components Needed
-import Jumbotron from '../components/Jumbotron';
+// import Jumbotron from '../components/Jumbotron';
 import { Col, Row, Container } from '../components/Grid';
-import { List } from '../components/List';
+// import { List } from '../components/List';
 import TestTile from '../components/TestTile';
-import Tiles from '../components/Tiles';
+// import Tiles from '../components/Tiles';
 
 class Test extends Component {
 
@@ -52,7 +52,7 @@ class Test extends Component {
                             title={project.title}
                             date = {project.date}
                             photo_url = {project.photo_url}
-                            category = {project.categoryId}
+                            category={project.Category.name}
                         />                                
                         </Col>                        
                     ))}

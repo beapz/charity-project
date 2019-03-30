@@ -1,6 +1,6 @@
 import React from "react";
 import Moment from 'react-moment';
-import { ListItem } from "../List";
+// import { ListItem } from "../List";
 import { Row, Col } from "../Grid";
 import "./style.css";
 

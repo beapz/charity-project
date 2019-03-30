@@ -6,7 +6,7 @@ import { ListItem } from "../List";
 import { Row, Col } from "../Grid";
 import "./style.css";
 
-function Project({ title, description, total_hours, date, start_time, end_time, location, category }) {
+function Project({ title, description, total_hours, date, start_time, end_time, location, category, photo_url }) {
   return (
     
     <ListItem>

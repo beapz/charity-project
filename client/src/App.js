@@ -7,7 +7,7 @@ import history from "./history";
 import Auth from "./Auth/Auth";
 
 //Page dependencies
-import UserDashboard from "./pages/UserDashboard.js";
+// import UserDashboard from "./pages/UserDashboard.js";
 import NoMatch from "./pages/NoMatch";
 import Splash from "./pages/Splash";
 import Find from "./pages/Find";
@@ -35,7 +35,7 @@ function App() {
         <Nav auth={auth} />
         <Switch>
           <Route
-            // path="/callback"
+            path="/callback"
             render={props => {
               handleAuthentication(props);
               console.log(props);
@@ -52,7 +52,6 @@ function App() {
           
           {/* <Route exact path="/:user/dash" component={UserDashboard} /> */}
           <Route component={NoMatch} />
-
         </Switch>
       </div>
     </Router>
