@@ -1,99 +1,152 @@
-import React from 'react'
-import { Form } from 'semantic-ui-react'
-import { Button } from 'semantic-ui-react'
-import { TextArea } from 'semantic-ui-react'
+import React from 'react';
+import { Button } from 'semantic-ui-react';
+import API from "../services/API";
+import { Input} from "../components/Form";
 class CreateProject {
     state = {
-      projectName:"",
-      location: "",
-      projectDesc: "",
-      startDate: "",
-      endDate:"",
-      startTime:"",
-      endTime:"",
-      hoursNeed:"",
-      name:"",
-      email:"",
-      number:""
+        projects: [],
+        title: "",
+        description: "",
+        photo_url: "",
+        total_hours: "",
+        date: "",
+        start_time: "",
+        end_time: "",
+        location: "",
+        ownerId: "",
+        benefactorId: "",
+        categoryId: ""
 
     };
-
-    handleFormSubmit = event => {
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+          [name]: value
+        });
+        console.log("Inside handle input change");
+      };
+    handlehandleFormSubmit = event => {
         //we don't want the form to submit, so we prevent the default behavior
+        console.log("Inside handle Submit");
+        console.log(this.state.title);
+        console.log(this.state.description);
+        console.log(this.state.photo_url);
+        console.log(this.state.categoryId);
+        console.log(this.state.benefactorId);
+        console.log(this.state.ownerId);
         event.preventDefault();
+        //Saving all states in a dummy object to see what is contained
+        const newProj = {
+            title: this.state.title,
+            benefactorId: this.state.benefactorId,
+            categoryId: this.state.categoryId,
+            ownerId: this.state.ownerId,
+            description: this.state.description,
+            photo_url: this.state.photo_url,
+            total_hours: this.state.total_hours,
+            date: this.state.date,
+            start_time: this.state.start_time,
+            end_time: this.state.end_time,
+            location: this.state.location
+        }
+        console.log(newProj);
+        //If there is a title and a description, run API call
+        if (this.state.title && this.state.description) {
+          
+          //API call to create project.
+          API.createProject({
+            title: this.state.title,
+            benefactorId: this.state.benefactorId,
+            categoryId: this.state.categoryId,
+            ownerId: this.state.ownerId,
+            description: this.state.description,
+            photo_url: this.state.photo_url,
+            total_hours: this.state.total_hours,
+            date: this.state.date,
+            start_time: this.state.start_time,
+            end_time: this.state.end_time,
+            location: this.state.location
+          })
+            .then(res => 
+              console.log("Project create successful."))
+            .catch(err => console.log(err));
+        }
+      };
         
-        let projectName = this.state.projectName.trim();
-        let location = this.state.location.trim();
-        let projectDesc = this.state.projectDesc.trim()
-        let startDate = this.state.startDate.trim()
-        let endDate = this.state.endDate.trim()
-        let startTime = this.state.startTime.trim()
-        let endTime= this.state.endTime.trim()
-        let hoursNeed = this.state.hoursNeed.trim()
-        let name = this.state.name.trim()
-        let email = this.state.email.trim()
-        let number = this.state.number.trim()
-          return;
-        };
-    
-    render() {
-        return (
-  <Form>
-   
-    <Form.Field>
-    value={this.state.projectName}
-      <label>Project Information</label>
-      <input placeholder='Project name' />
-    </Form.Field>
-    <Form.Field>
-    value={this.state.location}
-      <input placeholder='Location' />
-    </Form.Field>
-    
-    <TextArea placeholder='Project Decription' />
-    <Form.Field>
-    value={this.state.startDate}
-      <label>Start date</label>
-      <input placeholder='Start Date (MM/DD/YY)' />
-    </Form.Field>
-    <Form.Field>
-    value={this.state.endDate}
-      <label>End date</label>
-      <input placeholder='Start Date (MM/DD/YY)' />
-    </Form.Field>
-    <Form.Field>
-    value={this.state.startTime}
-      <label>Start Time</label>
-      <input placeholder='Start Time (HH:MM) (AM/PM)' />
-    </Form.Field>
-    <Form.Field>
-    value={this.state.endTime}
-      <label>End Time</label>
-      <input placeholder='End Time (HH:MM) (AM/PM)' />
-    </Form.Field>
-    
-    <Form.Field>
-    value={this.state.hoursNeed}
-      <label>Total Hours Needed</label>
-      <input placeholder='Total Hours Needed' />
-    </Form.Field>
-    <Form.Field>
-    value={this.state.name}
-      <label>Contact Information</label>
-      <input placeholder='Name' />
-      </Form.Field>
-      <Form.Field>
-      value={this.state.email}
-      <input placeholder='Email' />
-      </Form.Field>
-      <Form.Field>
-      value={this.state.number}
-      <input placeholder='Phone Number' />
-    </Form.Field>
-    <Button type='submit'>Submit</Button>
-    
-  </Form>
+
+        render() {
+            return(
+        
+            <form>
+            <Input
+              value={this.state.title}
+              onChange={this.handleInputChange}
+              name="title"
+              placeholder="Title (required)"
+            />
+            <Input
+              value={this.state.description}
+              onChange={this.handleInputChange}
+              name="description"
+              placeholder="Description (required)"
+            />
+            <Input
+              value={this.state.photo_url}
+              onChange={this.handleInputChange}
+              name="photo_url"
+              placeholder="Photo Url (Optional)"
+            />
+            <Input
+              value={this.state.total_hours}
+              onChange={this.handleInputChange}
+              name="total_hours"
+              placeholder="Total Hours (Optional)"
+            />
+            <Input
+              value={this.state.date}
+              onChange={this.handleInputChange}
+              name="date"
+              placeholder="Date (Optional)"
+            />
+            <Input
+              value={this.state.start_time}
+              onChange={this.handleInputChange}
+              name="start_time"
+              placeholder="Start Time (Optional)"
+            />
+            <Input
+              value={this.state.end_time}
+              onChange={this.handleInputChange}
+              name="end_time"
+              placeholder="End Time (Optional)"
+            />
+            <Input
+              value={this.state.location}
+              onChange={this.handleInputChange}
+              name="location"
+              placeholder="Location (Optional)"
+            />
+            <Input
+              value={this.state.ownerId}
+              onChange={this.handleInputChange}
+              name="ownerId"
+              placeholder="Owner Id (REQUIRED)"
+            />
+            <Input
+              value={this.state.benefactorId}
+              onChange={this.handleInputChange}
+              name="benefactorId"
+              placeholder="Benefactor Id (REQUIRED)"
+            />
+            <Input
+              value={this.state.categoryId}
+              onChange={this.handleInputChange}
+              name="categoryId"
+              placeholder="Category Id (REQUIRED)"
+            />
+            <Button onclick={this.handlehandleFormSubmit}>Create Project!</Button>
+            </form>
         );
     }
 }
-export default CreateProject
+export default CreateProject 
