@@ -13,6 +13,7 @@ import Splash from "./pages/Splash";
 import Find from "./pages/Find";
 import BeginProject from "./pages/BeginProject";
 import ProjectDetail from "./pages/ProjectDetail";
+import Footer from "./components/Footer";
 
 const auth = new Auth();
 // auth.login()
@@ -20,10 +21,9 @@ const auth = new Auth();
 const handleAuthentication = ({ location }) => {
   if (/access_token|id_token|error/.test(location.hash)) {
     auth.handleAuthentication();
-    console.log("workkkkk")
+    console.log("workkkkk");
   }
 };
-
 
 function App() {
   return (
@@ -47,6 +47,7 @@ function App() {
           {/* <Route exact path="/:user/dash" component={UserDashboard} /> */}
           <Route component={NoMatch} />
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

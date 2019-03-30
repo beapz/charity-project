@@ -23,15 +23,9 @@ class Splash extends Component {
     this.getCarouselProjects();
   }
 
-  getCarouselProjects = () => {
-    API.getCarouselProjects()
-      .then(res =>
-        // console.log(res.data.date)
-
     getCarouselProjects = () => {
         API.getCarouselProjects()
             .then(res =>
-                // console.log(res.data.date)
 
                 this.setState({
                     projects: res.data
@@ -48,6 +42,7 @@ class Splash extends Component {
     };
 
     render() {
+        return(
             <Container>
                 <Row>
                     <Col size='md-12'>
