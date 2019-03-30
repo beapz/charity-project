@@ -56,7 +56,7 @@ class Nav extends Component {
           <Navbar.Header>
             <Navbar.Brand>
               
-              <a href="#">TimeLender</a>
+              <a href="/">TimeLender</a>
             </Navbar.Brand>
             {/* <Button
               bsStyle="primary"

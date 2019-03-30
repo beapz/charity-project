@@ -10,7 +10,7 @@ import Jumbotron from '../components/Jumbotron';
 import { Col, Row, Container } from '../components/Grid';
 // import { List } from '../components/List';
 import Project from '../components/Project';
-import Tiles from '../components/Tiles';
+// import Tiles from '../components/Tiles';
 import SplashCarousel from '../components/Carousel';
 
 
@@ -68,8 +68,8 @@ class Splash extends Component {
                     </Row>
                 </Jumbotron>
                 <Container>
-                    {/* testing space */}
-                    {/* <Row>
+                {/* testing space */}
+                {/* <Row>
 
                     <Col size='md-12'>
                         <SplashCarousel>
