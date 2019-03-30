@@ -36,17 +36,17 @@ function App() {
       <div>
         <Nav auth={auth} />
         <Switch>
-          <Route
+          {/* <Route
             path="/callback"
             render={props => {
               handleAuthentication(props);
-              // createUser(props);  //
+              //createUser(props);
               console.log(props);
 
               return <Splash {...props} isLoggedIn={true} />;
 
             }}
-          />
+          /> */}
           <Route exact path="/" component={Splash} />
           <Route exact path="/:email" component={Splash} />
           <Route exact path="/create" component={BeginProject} />
