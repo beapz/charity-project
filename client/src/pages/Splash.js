@@ -88,7 +88,7 @@ class Splash extends Component {
                                                 category={project.Category.name}
                                                 description={project.description}
                                                 total_hours={project.total_hours}
-                                                date={project.data}
+                                                date={project.date}
                                                 start_time={project.start_time}
                                                 end_time={project.end_time}
                                                 location={project.location}

@@ -9,8 +9,8 @@ router.route('/')
     .get(projController.findAll)
     .post(projController.create);
     
-// router.route('/create')
-//     .post(projController.create);
+router.route('/create')
+    .post(projController.create);
 
 //Route to see a specific project details
 //this is api/projects/id
@@ -23,6 +23,8 @@ router.route('/all/carousel')
 
 router.route('/all/:categoryId')
     .get(projController.findByCategory);
+
+
 
 module.exports = router;
 

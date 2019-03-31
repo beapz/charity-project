@@ -12,6 +12,7 @@ const db = require("../models");
 module.exports = {
   findAll: function (req, res) {
     db.Project.findAll({
+      include: [db.Category]
     }).then(function (projects) {
       res.json(projects);
     });
@@ -32,16 +33,17 @@ module.exports = {
 
   //Method takes in category from params and searches for all 
   //projects of that category.
-  findByCategory: function(req, res) {
+  findByCategory: function (req, res) {
     const categoryId = req.params.categoryId;
     console.log(categoryId);
     db.Project.findAll({
       where: {
         CategoryId: categoryId
-      }
+      },
+      include: [db.Category]
     }).then(function (categoryResults) {
       res.json(categoryResults);
-    } )
+    })
   },
 
   findProjDetail: function (req, res) {
@@ -66,9 +68,9 @@ module.exports = {
           is_owner: true
         }
         db.UserProject.create(UserProject)
-        .then(() => {
-          res.send(dbProj);
-        })
+          .then(() => {
+            res.send(dbProj);
+          })
       });
   }
 
@@ -122,16 +124,16 @@ module.exports = {
   // createMany: async function (req, res) {
   //   const newProj = req.body;
   //   const dbProj = await db.Project.create(newProj)
-      
+
   //   console.log('db project created');
-        
+
   //   const dbuserProj = await db.UserProject.create({
   //         userId:123,
   //         projectId: dbProj.id
   //       });
 
   //   res.json(dbuserProj);
-    
+
   //   console.log('hello');
   // }
 };
