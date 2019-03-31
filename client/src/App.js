@@ -50,9 +50,9 @@ function App() {
           <Route exact path="/" component={Splash} />
           <Route exact path="/users/:email" component={Splash} />
           <Route exact path="/create" component={BeginProject} />
-          <Route exact path="/find" component={Find} />
-          <Route exact path="/find/:categoryId" component={Find} />
-          <Route exact path="/find/:projectId" component={ProjectDetail} />
+          <Route exact path="/find/all" component={Find} />
+          <Route exact path="/find/category/:categoryId" component={Find} />
+          <Route exact path="/find/projects/:projectId" component={ProjectDetail} />
           {/* This route is for testing components */}
           <Route exact path='/testroute' component={Test} />
           
