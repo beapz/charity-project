@@ -36,7 +36,7 @@ function App() {
       <div>
         <Nav auth={auth} />
         <Switch>
-          {/* <Route
+          <Route
             path="/callback"
             render={props => {
               handleAuthentication(props);
@@ -46,9 +46,9 @@ function App() {
               return <Splash {...props} isLoggedIn={true} />;
 
             }}
-          /> */}
+          />
           <Route exact path="/" component={Splash} />
-          <Route exact path="/:email" component={Splash} />
+          <Route exact path="/users/:email" component={Splash} />
           <Route exact path="/create" component={BeginProject} />
           <Route exact path="/find" component={Find} />
           <Route exact path="/find/:categoryId" component={Find} />
