@@ -26,7 +26,7 @@ class Test extends Component {
         API.getCarouselProjects()
             .then(res =>{ 
                 
-                console.log(res.data);
+                // console.log(res.data);
 
                 this.setState({
                     projects: res.data
