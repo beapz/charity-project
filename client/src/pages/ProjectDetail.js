@@ -24,7 +24,8 @@ class ProjectDetail extends Component {
         this.setState({
           project: res.data,
           benefactorName: res.data.Benefactor.name,
-          benefactorDescription: res.data.Benefactor.description
+          benefactorDescription: res.data.Benefactor.description,
+          category: res.data.Benefactor.name
         })
       )
       .catch(err => console.log(err));
@@ -54,6 +55,7 @@ class ProjectDetail extends Component {
                 {/* <h1> {this.state.project.title} </h1> */}
                 <img className="projDetailImage" src={this.state.project.photo_url} alt="{this.state.project.title}" width="100%"
                 />
+               <div><h5>{this.state.benefactorDescription}</h5></div> 
               </article>
             </Tiles>
             <Tiles title="Project Details">
@@ -63,17 +65,26 @@ class ProjectDetail extends Component {
                   {this.state.project.description}
                 </div>
                 <div>
-                  {this.state.project.location}
+                  Where: {this.state.project.location}
                 </div>
                 <div>
-                  <Moment format="LT" date={this.state.project.start_time} />
+                 When: <Moment format="LT" date={this.state.project.start_time} />
                   -
                 <Moment format="LT" date={this.state.project.end_time} />
                 </div>
                 <div>
                   Total Hours Needed: {this.state.project.total_hours}
                 </div>
+                <hr/>
+                <div>
+                  Category: {this.state.category}
+                </div>
                 {/* <img src={this.state.project.photo_url} alt="{this.state.project.title}" height="200px" width="300px" /> */}
+              </article>
+            </Tiles>
+            <Tiles title="Current Volunteer Hours">
+              <article className="userTimeTile">
+              
               </article>
             </Tiles>
           </Col>
