@@ -2,6 +2,9 @@ nav {
     background-color: #A6C36F;
    
 }
+a{
+    color: #447604  !important;
+}
 .nav-btn{
     margin: 10px 10px 10px 10px;
     width: 100px;
