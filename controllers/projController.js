@@ -12,7 +12,7 @@ const db = require("../models");
 module.exports = {
   findAll: function (req, res) {
     db.Project.findAll({
-      include: [db.Category]
+      include: [db.Category, db.Benefactor]
     }).then(function (projects) {
       res.json(projects);
     });
@@ -23,7 +23,7 @@ module.exports = {
       where: {
         carousel: 1
       },
-      include: [db.Category]
+      include: [db.Category, db.Benefactor]
 
     }).then(function (projects) {
       res.json(projects);
@@ -46,6 +46,19 @@ module.exports = {
     })
   },
 
+  findByBenefactor: function (req, res) {
+    const benefactorId = req.params.categoryId;
+    console.log(benefactorId);
+    db.Project.findAll({
+      where: {
+        BenefactorId: benefactorId
+      },
+      include: [db.Benefactor]
+    }).then(function (benefactorResults) {
+      res.json(benefactorResults);
+    })
+  },
+
   findProjDetail: function (req, res) {
     const id = req.params.id;
     db.Project.findOne({
@@ -65,6 +78,7 @@ module.exports = {
         const UserProject = {
           ProjectId: dbProj.id,
           UserId: dbProj.ownerId,
+          BenefactorId: dbProj.benefactorId,
           is_owner: true
         }
         db.UserProject.create(UserProject)
