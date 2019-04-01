@@ -11,6 +11,7 @@ import { Col, Row, Container } from '../components/Grid';
 // import { List } from '../components/List';
 import Project from '../components/Project';
 // import Tiles from '../components/Tiles';
+import TestTile from '../components/TestTile';
 import SplashCarousel from '../components/Carousel';
 
 
@@ -86,19 +87,13 @@ class Splash extends Component {
                                 {this.state.projects.length ? (
                                     <SplashCarousel>
                                         {this.state.projects.map(project => (
-                                            <Project
-                                                key={project.id}
-                                                title={project.title}
-                                                category={project.Category.name}
-                                                benefactor={project.Benefactor.name}
-                                                description={project.description}
-                                                total_hours={project.total_hours}
-                                                date={project.date}
-                                                start_time={project.start_time}
-                                                end_time={project.end_time}
-                                                location={project.location}
-                                                photo_url={project.photo_url}
-                                            />
+                                  <TestTile
+                                  key={project.id}
+                                  title={project.title}
+                                  date = {project.date}
+                                  photo_url = {project.photo_url}
+                                  category={project.Category.name}
+                              />             
                                         ))}
                                     </SplashCarousel>
                                 ) : (
