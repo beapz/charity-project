@@ -28,13 +28,7 @@ const Footer = () => {
             <h5 className="card-title">Contact</h5>
             <div className="card-body contact">nuevaproject3@gmail.com</div>
             <div id="social">
-              <i className="fab fa-instagram" />
-            </div>
-            <div id="social">
-              <i className="fab fa-facebook" />
-            </div>
-            <div id="social">
-              <i className="fab fa-twitter" />
+              <i className="fab fa-instagram" />  <i className="fab fa-facebook" /> <i className="fab fa-twitter" />
             </div>
           </div>
           <div className="col-4-md card ms-card foot-card">
