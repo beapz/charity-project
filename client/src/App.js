@@ -41,7 +41,7 @@ function App() {
             render={props => {
               handleAuthentication(props);
               //createUser(props);
-              console.log(props);
+              // console.log(props);
 
               return <Splash {...props} isLoggedIn={true} />;
 

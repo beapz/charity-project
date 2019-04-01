@@ -27,7 +27,7 @@ module.exports = {
 
     }).then(function (projects) {
       res.json(projects);
-      console.log(projects)
+      // console.log(projects)
     });
   },
 
