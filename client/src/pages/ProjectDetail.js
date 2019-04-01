@@ -6,6 +6,7 @@ import API from "../services/API";
 // import TestTile from "../components/TestTile";
 import Tiles from "../components/Tiles";
 // import Project from '../components/Project';
+import Moment from 'react-moment';
 
 class ProjectDetail extends Component {
   state = {
@@ -22,7 +23,8 @@ class ProjectDetail extends Component {
       .then(res =>
         this.setState({
           project: res.data,
-
+          benefactorName: res.data.Benefactor.name,
+          benefactorDescription: res.data.Benefactor.description
         })
       )
       .catch(err => console.log(err));
@@ -37,7 +39,7 @@ class ProjectDetail extends Component {
             <Jumbotron>
 
               <h2>
-                Learn More About {this.state.project.title}
+                Learn More About Lending Your Time to {this.state.benefactorName}
                 {/* TODO: investigate grabbing benefactor data */}
               </h2>
 
@@ -46,18 +48,17 @@ class ProjectDetail extends Component {
           </Col>
         </Row>
         <Row>
-          <Col size="md-6 md-offset-1" className="flexbox">
+          <Col size="md-6 md-offset-1">
             <Tiles title={this.state.project.title}>
-            
               <article className="projectImageTile">
                 {/* <h1> {this.state.project.title} </h1> */}
                 <img className="projDetailImage" src={this.state.project.photo_url} alt="{this.state.project.title}" width="100%"
                 />
               </article>
             </Tiles>
-            <Tiles>
+            <Tiles title="Project Details">
               <article className="projectDetailTile">
-                <h1> {this.state.project.title} </h1>
+                {/* <h1> {this.state.project.title} </h1> */}
                 <div>
                   {this.state.project.description}
                 </div>
@@ -65,15 +66,14 @@ class ProjectDetail extends Component {
                   {this.state.project.location}
                 </div>
                 <div>
-                  {this.state.project.start_time}
+                  <Moment format="LT" date={this.state.project.start_time} />
+                  -
+                <Moment format="LT" date={this.state.project.end_time} />
                 </div>
                 <div>
-                  {this.state.project.end_time}
+                  Total Hours Needed: {this.state.project.total_hours}
                 </div>
-                <div>
-                  {this.state.project.total_hours}
-                </div>
-                <img src={this.state.project.photo_url} alt="{this.state.project.title}" height="200px" width="300px" />
+                {/* <img src={this.state.project.photo_url} alt="{this.state.project.title}" height="200px" width="300px" /> */}
               </article>
             </Tiles>
           </Col>
