@@ -1,3 +1,11 @@
 body{
   background-color: #D8D3C8 !important;
 }
+
+.body-btn{
+  margin: 10px 10px 10px 10px;
+  width: 150px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #447604 !important;
+  border-color:#447604 !important;
+}

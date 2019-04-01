@@ -53,16 +53,17 @@ class Splash extends Component {
                 <Jumbotron>
                     <Row>
                         <Col size='md-6'>
-                            <button className='btn btn-primary color-prim' style={{ marginRight: 25, position: 250 }}>Find Ways to Help</button>
-                            <button className='btn btn-primary color-prim'>Create a Project</button>
+                            <h2 className='text-center'>
+                                Create a project to change your world
+                            </h2>
+                            <h3 className='text-center'>
+                                And help others on the same path
+                            </h3>
+                            <a className='btn btn-primary body-btn' href="testroute"> Find Ways to Help </a>
+                            <a className='btn btn-primary body-btn' href="/create">Create a Project</a>
                         </Col>
                         <Col size='md-6'>
-                            <h1 className='text-center'>
-                                Create a project to change your world
-                            </h1>
-                            <h2 className='text-center'>
-                                And help others on the same path
-                            </h2>
+
                         </Col>
 
                     </Row>

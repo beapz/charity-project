@@ -28,11 +28,13 @@ const Footer = () => {
             <h5 className="card-title">Contact</h5>
             <div className="card-body contact">Timelender@gmail.com</div>
             <div id="social">
+
               <span className="fab fa-instagram" />
         
               <span className="fab fa-facebook" />
            
               <span className="fab fa-twitter" />
+
             </div>
           </div>
           <div className="col-4-md card ms-card foot-card">
