@@ -20,7 +20,7 @@ function Project({ title, description, total_hours, date, start_time, end_time, 
           <div><h3 className="font-italic">{title}</h3></div>
           <div>{description}</div>
           <div>Hours required: {total_hours}</div>
-          {/* <div>Benefactor: {benefactor} </div> */}
+          <div>Benefactor: {benefactor} </div>
           <div>Date: <Moment format="dddd, MMMM Do" date={date} /></div>
           <div>Start Time: <Moment format="LT" date={start_time} /></div>
           <div>End Time: <Moment format="LT" date={end_time}/></div>

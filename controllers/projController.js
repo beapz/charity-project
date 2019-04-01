@@ -27,7 +27,7 @@ module.exports = {
 
     }).then(function (projects) {
       res.json(projects);
-      console.log(projects)
+      // console.log(projects)
     });
   },
 
@@ -65,10 +65,12 @@ module.exports = {
       //query by id
       where: {
         id: id
-      }
+      },
+      include: [db.Category, db.Benefactor]
     }).then(function (projectDetails) {
       res.json(projectDetails);
     })
+   
   },
 
   create: function (req, res) {
