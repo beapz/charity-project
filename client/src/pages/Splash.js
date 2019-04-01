@@ -86,6 +86,7 @@ class Splash extends Component {
                                                 key={project.id}
                                                 title={project.title}
                                                 category={project.Category.name}
+                                                benefactor={project.Benefactor.name}
                                                 description={project.description}
                                                 total_hours={project.total_hours}
                                                 date={project.date}

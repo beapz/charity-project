@@ -51,7 +51,7 @@ module.exports = function (sequelize, DataTypes) {
       through: 'UserProject'
     });
 
-    //Associating project with category
+    //Associating project with benefactor
     Project.belongsTo(models.Benefactor, {
       foreignKey: 'benefactorId',
       targetKey: 'id'
