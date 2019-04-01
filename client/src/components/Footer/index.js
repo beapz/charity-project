@@ -3,7 +3,7 @@ import "./style.css";
 
 const Footer = () => {
   return (
-    <nav className="navbar  navbar-light bg-light">
+    <nav className="navbar">
       <div className="container">
         <div className="row">
           <div className="col-4-md card foot-card">
@@ -26,9 +26,15 @@ const Footer = () => {
           </div>
           <div className="col-4-md card contact-card foot-card ">
             <h5 className="card-title">Contact</h5>
-            <div className="card-body contact">nuevaproject3@gmail.com</div>
+            <div className="card-body contact">Timelender@gmail.com</div>
             <div id="social">
-              <i className="fab fa-instagram" />  <i className="fab fa-facebook" /> <i className="fab fa-twitter" />
+
+              <span className="fab fa-instagram" />
+        
+              <span className="fab fa-facebook" />
+           
+              <span className="fab fa-twitter" />
+
             </div>
           </div>
           <div className="col-4-md card ms-card foot-card">
@@ -41,7 +47,7 @@ const Footer = () => {
 
         <div className="row copyright ">
           <div className='col-12-md copyright'>
-            <div> &copy; Timelenders</div>
+            <div> &copy; Timelender</div>
 
           </div>
         </div>
