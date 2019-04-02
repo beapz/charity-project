@@ -7,42 +7,40 @@ class Nav extends Component {
     isLoggedIn: this.props.auth.isAuthenticated()
   };
 
-  componentWillMount() {
+  componentWillMount = () => {
+
     const isAuth = this.props.auth.isAuthenticated();
+    console.log("authenticated",  isAuth);
+    console.log("setsession storage profile", sessionStorage.profile);
+
     //this set state removes the mutable error but it leads login to incorrect page after login
     this.setState({
       isLoggedIn: isAuth
     });
-    // debugger;
-  }
-
-  isAuthenticated() {
-    return this.state.isLoggedIn || this.props.isLoggedIn;
-  }
-
-  goTo(route) {
-    this.props.history.replace(`/${route}`);
-  }
-
-  login() {
-    this.props.auth.login();
-    this.setState({ isLoggedIn: true });
-  }
-
-  logout() {
-    this.props.auth.logout();
-    this.setState({ isLoggedIn: false });
-  }
-
-  componentDidMount() {
-    console.log("authenticated", this.props.auth.isAuthenticated());
-    console.log("setsession storage profile", sessionStorage.profile);
 
     const { renewSession } = this.props.auth;
 
     if (localStorage.getItem("isLoggedIn") === "true") {
       renewSession();
     }
+  }
+
+  isAuthenticated = () => {
+    return this.state.isLoggedIn || this.props.isLoggedIn;
+  }
+
+  goTo = (route) => {
+    this.props.history.replace(`/${route}`);
+  }
+
+  login = () => {
+    this.props.auth.login();
+    this.setState({ isLoggedIn: true });
+  }
+
+  logout = () => {
+    this.props.auth.logout();
+    this.setState({ isLoggedIn: false });
   }
 
   render() {
@@ -68,7 +66,7 @@ class Nav extends Component {
             <Button
               bsStyle="primary"
               className="btn-margin nav-btn float-right"
-              onClick={this.login.bind(this)}
+              onClick={this.login}
             >
               Log In
               {/* {isAuthenticated().toString()} */}
@@ -78,7 +76,7 @@ class Nav extends Component {
             <Button
               bsStyle="primary"
               className="btn-margin nav-btn float-right"
-              onClick={this.logout.bind(this)}
+              onClick={this.logout}
             >
               Log Out
               {/* {isAuthenticated().toString()} */}

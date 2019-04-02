@@ -9,50 +9,38 @@ export default class Auth {
   idToken;
   expiresAt; 
   userProfile;
-
-
   isLoggedIn = false;
-
-
-  
-
-  //object below links the app access to Auth0 application
-  auth0 = new auth0.WebAuth({
-    domain: AUTH_CONFIG.domain,
-    clientID: AUTH_CONFIG.clientId,
-    clientSecret: AUTH_CONFIG.clientSecret,
-    redirectUri: AUTH_CONFIG.callbackUrl,
-    responseType: "token id_token",
-    //we are asking for these specifics to be returned from Google (openid is general, profile and email we are asking for specifically)
-    scope: "openid profile email"
-  });
 
   constructor() {
 
-    this.login = this.login.bind(this);
-    this.logout = this.logout.bind(this);
-    this.handleAuthentication = this.handleAuthentication.bind(this);
-    this.isAuthenticated = this.isAuthenticated.bind(this);
-    this.getAccessToken = this.getAccessToken.bind(this);
-    this.getIdToken = this.getIdToken.bind(this);
-    this.renewSession = this.renewSession.bind(this);
-    this.getProfile = this.getProfile.bind(this);
-    
-    this.state = {
-      email: "dummyemail" 
-    };
-
+    this.auth0 = new auth0.WebAuth({
+      domain: AUTH_CONFIG.domain,
+      clientID: AUTH_CONFIG.clientId,
+      clientSecret: AUTH_CONFIG.clientSecret,
+      redirectUri: AUTH_CONFIG.callbackUrl,
+      responseType: "token id_token",
+      //we are asking for these specifics to be returned from Google (openid is general, profile and email we are asking for specifically)
+      scope: "openid profile email"
+    });
   }
 
-
-  login() {
+  login = () => {
     // console.log(' hit Auth Login')
-    this.auth0.authorize();
+    this.auth0.authorize({connection: 'google-oauth2'});
   }
 
-  handleAuthentication() {
-    // debugger;
+  handleAuthentication = () => {
+    debugger;
     this.auth0.parseHash((err, authResult) => {
+
+      if(err) {
+        console.log(err);
+        return;
+      }
+
+      localStorage.setItem("isLoggedIn", "true");
+      this.isLoggedIn = true;
+      
       let {
         email,
         family_name,
@@ -95,12 +83,16 @@ export default class Auth {
 
     let returningEmail = "placholder";
 
+    console.log(db_email);
     //API CALL
     API.searchUserEmail(db_email)
     .then(res => {
       
         console.log(res)
-        returningEmail = res.data[0].email
+
+        if(res.data.length === 1) {
+          returningEmail = res.data[0].email
+        }
 
         console.log("existingEmail second log in then promise", returningEmail);
       
@@ -133,24 +125,18 @@ export default class Auth {
           }
           });
       }
-    )
-    .catch(err => console.log(err));
-
-    
-  
-
-    
+    );
   }
 
-  getAccessToken() {
+  getAccessToken = () => {
     return this.accessToken;
   }
 
-  getIdToken() {
+  getIdToken = () => {
     return this.idToken;
   }
 
-  setSession(authResult) {
+  setSession = (authResult) => {
     console.log("in set session", authResult);
 
     // Set isLoggedIn flag in localStorage
@@ -174,7 +160,7 @@ export default class Auth {
     history.replace("/");
   }
 
-  getProfile(cb) {
+  getProfile = (cb) => {
     console.log("hitting the get profile method");
     this.auth0.client.userInfo(this.accessToken, (err, profile) => {
       if (profile) {
@@ -185,7 +171,7 @@ export default class Auth {
     });
   }
 
-  renewSession() {
+  renewSession = () => {
     this.auth0.checkSession({}, (err, authResult) => {
       console.log("before if renewSession", authResult);
 
@@ -204,7 +190,7 @@ export default class Auth {
     });
   }
 
-  logout() {
+  logout = () => {
 
     console.log("fire logout");
 
