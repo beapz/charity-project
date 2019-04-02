@@ -1,0 +1,20 @@
+.forms {
+    position: relative;
+    top: .5in;
+    padding-left: .3in;
+    padding-top: 42n;
+}
+
+.splitRight{
+    position: relative;
+   left: 4in;
+   bottom: 6in;
+}
+.button {
+    position: relative;
+    bottom: 5.2in;
+    right: 3.9in;
+}
+.wholePage {
+    background: #a6c36f;
+}
