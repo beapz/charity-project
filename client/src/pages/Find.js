@@ -3,15 +3,15 @@ import React, { Component } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import API from "../services/API";
-import { List } from '../components/List';
-import Tiles from '../components/Tiles';
-import Project from '../components/Project';
+
 import { FormBtn } from "../components/Form";
+import TestTile from '../components/TestTile';
+// import Dropdown from '../components/Dropdown';
 
 
 class Find extends Component {
   state = {
-    projects: {}
+    projects: []
   };
 
   //Display all projects. User can search by category if desired.
@@ -56,47 +56,60 @@ class Find extends Component {
 
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <Col size="md-12">
-            <Jumbotron>
-              <h1>
-                This page loads all projects. Search by a category (in url) if desired.
-              </h1>
+      <div className='bg-color' style={{
+        backgroundColor: '#D8D3C8'
+      }}>
 
-              <FormBtn onClick={this.searchCategory} type="success" className="input-lg">Search By Category</FormBtn>
-            </Jumbotron>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-12 md-offset-1">
-            <Tiles title='This is only a test'>
-              {this.state.projects.length ? (
-                <List>
-                  {this.state.projects.map(project => (
-                    <Project
-                      key={project.id}
-                      title={project.title}
-                      description={project.description}
-                      total_hours={project.total_hours}
-                      date={project.date}
-                      start_time={project.start_time}
-                      end_time={project.end_time}
-                      location={project.location}
-                      category={project.Category.name}
-                    />
-                  ))}
-                </List>
-              ) : (
-                  <h2 className='text-center'>{this.state.message}</h2>
-                )
-              }
-            </Tiles>
-          </Col>
-        </Row>
+        <Jumbotron>
+          <h1>
+            This page loads all projects. Search by a category (in url) if desired.
+          </h1>
 
-      </Container>
-    );
+          {/* <FormBtn onClick={this.searchCategory} type="success" className="input-lg body-btn">Search By Category</FormBtn> */}
+          {/* <Dropdown /> */}
+        </Jumbotron>
+        {/* aria-haspopup="true" aria-expanded="false" */}
+        {/* aria-labelledby="dropdownMenuLink" */}
+        <Container>
+          <Row>
+            <div className="dropdown">
+              <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" >
+                Category Filter</button>
+
+              <ul className="dropdown-menu" >
+                <li><a href="/find/all">None</a></li>
+                <li><a  href="/find/category/1">Environmental</a></li>
+                <li><a  href="/find/category/2">Hunger and Food Security</a></li>
+                <li><a  href="/find/category/3">Education and Literacy</a></li>
+                <li><a  href="/find/category/4">Crisis Support and Disaster Relief</a></li>
+                <li><a  href="/find/category/5">Elder Care</a></li>
+                <li><a  href="/find/category/6">Vulnerable Groups</a></li>
+                <li><a  href="/find/category/7">Animal Welfare</a></li>
+                <li><a href="/find/category/8">Housing and Shelter</a></li>
+                <li><a  href="/find/category/9">Community Projects</a></li>
+                <li><a  href="/find/category/10">Children and Youth</a></li>
+              </ul>
+            </div>
+          </Row>
+          <Row>
+            {this.state.projects.map(project => (
+              <Col size='md-4'>
+                <TestTile
+                  id={project.id}
+
+                  title={project.title}
+                  date={project.date}
+                  photo_url={project.photo_url}
+                  category={project.Category.name}
+                />
+              </Col>
+            ))}
+          </Row>
+
+        </Container>
+
+      </div>
+    )
   }
 }
 

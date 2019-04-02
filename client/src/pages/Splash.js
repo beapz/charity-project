@@ -26,6 +26,7 @@ class Splash extends Component {
 
     componentDidMount() {
         this.getCarouselProjects();
+        
     };
 
     getCarouselProjects = () => {
@@ -48,7 +49,6 @@ class Splash extends Component {
 
     render() {
 
-
         return (
             <div>
                 <Jumbotron>
@@ -63,7 +63,7 @@ class Splash extends Component {
                                 </h4>
                             </div>
                             
-                            <a className='btn btn-primary body-btn' href="testroute"> Find Ways to Help </a>
+                            <a className='btn btn-primary body-btn' href="/find/all"> Find Ways to Help </a>
                             <a className='btn btn-primary body-btn' href="/create">Create a Project</a>
                         </Col>
                         <Col size='md-6'>
@@ -93,7 +93,9 @@ class Splash extends Component {
                                   date = {project.date}
                                   photo_url = {project.photo_url}
                                   category={project.Category.name}
+                                  id={project.id}
                               />             
+                              
                                         ))}
                                     </SplashCarousel>
                                 ) : (
