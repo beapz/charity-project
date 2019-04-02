@@ -71,6 +71,13 @@ class Find extends Component {
 
         <Container>
           <Row>
+          <select size="1" name="links" onchange="window.location.href=this.value;">
+<option value="http://www.google.com">Google</option>
+<option value="http://www.yahoo.com">Yahoo</option>
+</select>
+            <select className='catFilterDrop' onchange='window.location.href=this.value;'>
+              <option value='/find/category/1'>Environmental</option>
+            </select>
             <div className="dropdown show">
               <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Category Filter</button>
