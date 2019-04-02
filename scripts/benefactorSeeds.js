@@ -38,5 +38,13 @@ module.exports = [
     {
       name: "Girls Who Code",
       description: "Girls Who Code was founded with a single mission: \nto close the gender gap in technology."
+    },
+    {
+      name: "Operation Gratitude",
+      description: "Operation Gratitude has delivered more than 2.1 million Care Packages filled with letters and items donated by grateful citizens and service-friendly companies that want to express their support for members serving overseas and here at home."
+    },
+    {
+      name: "Albany Park Theatre Project",
+      description: "We cultivate a community where teens engage critically and creatively with the world as artists, thereby embarking on purposeful lives as adventurous dreamers and accomplished achievers. Teens emerge from APTP as young leaders with the vision and capacity for a lifetime of personal success and community engagement."
     }
   ];

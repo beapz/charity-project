@@ -68,5 +68,12 @@ module.exports = [
         email: "zazie@gwcode.com",
         phone: "767-333-2343",
         facebook_id: "dWEUoE"
+    },
+    {
+        first_name: "Roger",
+        last_name: "Anderson",
+        email: "rog@vet.com",
+        phone: "342-237-7767",
+        facebook_id: "wWeow"
     }
 ]
