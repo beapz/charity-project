@@ -63,7 +63,7 @@ class Splash extends Component {
                                 </h4>
                             </div>
                             
-                            <a className='btn btn-primary body-btn' href="testroute"> Find Ways to Help </a>
+                            <a className='btn btn-primary body-btn' href="/find/all"> Find Ways to Help </a>
                             <a className='btn btn-primary body-btn' href="/create">Create a Project</a>
                         </Col>
                         <Col size='md-6'>
