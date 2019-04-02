@@ -11,3 +11,11 @@
 .slick-next{
     right: -20px;
 }
+
+.carousel-div{
+    margin-top: 20px;
+}
+
+#carousel-title{
+    font-family: 'Oswald', sans-serif;
+}

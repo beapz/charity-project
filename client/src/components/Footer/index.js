@@ -3,7 +3,7 @@ import "./style.css";
 
 const Footer = () => {
   return (
-    <nav className="navbar">
+    <nav className="navbar footer-nav">
       <div className="container">
         <div className="row">
           <div className="col-4-md card foot-card">
