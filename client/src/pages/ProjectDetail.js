@@ -18,7 +18,7 @@ class ProjectDetail extends Component {
   // When this component mounts, grab the PROJECT with the id of this.props.match.params.id
   //(this.props.match.params.id) <--- is how we get the ID from URL
   componentDidMount() {
-    // console.log(this.props.match.params.projectId);
+    console.log(this.props.match.params.projectId);
     API.getProjectDetails(this.props.match.params.projectId)
       .then(res =>
         this.setState({

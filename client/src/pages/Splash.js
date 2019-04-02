@@ -26,6 +26,7 @@ class Splash extends Component {
 
     componentDidMount() {
         this.getCarouselProjects();
+        
     };
 
     getCarouselProjects = () => {
@@ -47,7 +48,6 @@ class Splash extends Component {
     };
 
     render() {
-
 
         return (
             <div>
@@ -93,7 +93,9 @@ class Splash extends Component {
                                   date = {project.date}
                                   photo_url = {project.photo_url}
                                   category={project.Category.name}
+                                  id={project.id}
                               />             
+                              
                                         ))}
                                     </SplashCarousel>
                                 ) : (
