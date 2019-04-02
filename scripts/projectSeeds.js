@@ -128,5 +128,44 @@ module.exports = [
       start_time: "1969-04-20 15:00:00",
       end_time: "1969-04-20 16:00:00",
       location: "Fuller School of Excellence"
+    },
+    {
+      title: "Service Member Letter Writing Campaign",
+      benefactorId: 11,
+      categoryId: 9,
+      ownerId: 11,
+      description: "Come together with your neighbors to write encouraging letters to active service members.",
+      photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1554141577/business-calligraphy-close-up-1809346.jpg",
+      total_hours: 10,
+      date: "5/4/2019",
+      start_time: "1969-04-20 17:30:00",
+      end_time: "1969-04-20 18:30:00",
+      location: "VA Regional Office"
+    },
+    {
+      title: "Bake A Treat for Community Theatre",
+      benefactorId: 12,
+      categoryId: 9,
+      ownerId: 2,
+      description: "Donate your time as a baker or baked goods seller at our fundraiser for a new stage at the Albany Park Theatre Project.",
+      photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1554141626/baked-bakery-baking-230743.jpg",
+      total_hours: 25,
+      date: "5/22/2019",
+      start_time: "1969-04-20 10:00:00",
+      end_time: "1969-04-20 15:00:00",
+      location: "Ravenswood Event Center"
+    },
+    {
+      title: "Knit For A Cause",
+      benefactorId: 5,
+      categoryId: 9,
+      ownerId: 5,
+      description: "Come meet with communities members to knit hats and clothing for newborns at Swedish.",
+      photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1554141380/adult-art-blue-312591.jpg",
+      total_hours: 20,
+      date: "5/1/2019",
+      start_time: "1969-04-20 18:00:00",
+      end_time: "1969-04-20 21:00:00",
+      location: "Swedish Covenant Hospital"
     }
   ]

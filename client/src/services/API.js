@@ -5,26 +5,31 @@ export default {
   //==================PROJECT METHODS===========
 
   //To see all the available projects
-  getProjects: function() {
+  getProjects: function () {
     return axios.get('/api/projects/');
   },
 
   //To see all carousel projects
-  getCarouselProjects: function() {
+  getCarouselProjects: function () {
     return axios.get('/api/projects/all/carousel');
   },
 
   //Get projects by category
-  searchCategory: function(categoryId) {
-    return axios.get('/api/projects/all/' + categoryId);
+  searchCategory: function (categoryId) {
+    return axios.get('/api/projects/all/category/' + categoryId);
+  },
+
+  //Get projects by benefactor
+  searchBenefactor: function (benefactorId) {
+    return axios.get('/api/projects/all/benefactor/' + benefactorId);
   },
 
   //Get details of project with given id
-  getProjectDetails: function(id) {
+  getProjectDetails: function (id) {
     return axios.get('/api/projects/' + id);
   },
 
-  createProject: function(projectData) {
+  createProject: function (projectData) {
     return axios.post('/api/projects/', projectData);
   },
 
@@ -41,12 +46,12 @@ export default {
   // },
 
   //To create new user
-  createUser: function(UserData) {
+  createUser: function (UserData) {
     return axios.post('/api/users/', UserData);
   },
 
   //To search whether user of a certain email exists
-  searchUserEmail: function(email) {
+  searchUserEmail: function (email) {
     return axios.get('/api/users/' + email);
   }
 }
