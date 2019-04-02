@@ -41,26 +41,21 @@ class ProjectDetail extends Component {
 
               <h2>
                 Learn More About Lending Your Time to {this.state.benefactorName}
-               
               </h2>
-
-
             </Jumbotron>
           </Col>
         </Row>
         <Row>
           <Col size="md-6 md-offset-1">
-            <Tiles title={this.state.project.title}>
-              <article className="projectImageTile">
-                {/* <h1> {this.state.project.title} </h1> */}
+            <Tiles title={this.state.project.title} className="body-quote rounded">
+              <div className="projectImageTile">
                 <img className="projDetailImage" src={this.state.project.photo_url} alt="{this.state.project.title}" width="100%"
                 />
-               <div><h5>{this.state.benefactorDescription}</h5></div> 
-              </article>
+                <div><h5>{this.state.benefactorDescription}</h5></div>
+              </div>
             </Tiles>
             <Tiles title="Project Details">
-              <article className="projectDetailTile">
-                {/* <h1> {this.state.project.title} </h1> */}
+              <div className="projectDetailTile">
                 <div>
                   {this.state.project.description}
                 </div>
@@ -68,23 +63,23 @@ class ProjectDetail extends Component {
                   Where: {this.state.project.location}
                 </div>
                 <div>
-                 When: <Moment format="LT" date={this.state.project.start_time} />
+                  When: <Moment format="LT" date={this.state.project.start_time} />
                   -
                 <Moment format="LT" date={this.state.project.end_time} />
                 </div>
                 <div>
                   Total Hours Needed: {this.state.project.total_hours}
                 </div>
-                <hr/>
+                <hr />
                 <div>
                   Category: {this.state.category}
                 </div>
                 {/* <img src={this.state.project.photo_url} alt="{this.state.project.title}" height="200px" width="300px" /> */}
-              </article>
+              </div>
             </Tiles>
             <Tiles title="Current Volunteer Hours">
               <article className="userTimeTile">
-              
+
               </article>
             </Tiles>
           </Col>

@@ -18,6 +18,18 @@ module.exports = {
     });
   },
 
+  findAllUsersForProject: function (req, res) {
+    db.UserProject.findAll({
+      include: [db.User, db.Project],
+      where: {
+        project_id : req.params.projectId
+      }
+      //TODO: come back to this
+    }).then(function (users) {
+      res.json(users);
+    });
+  },
+
   findCarouselProjects: function (req, res) {
     db.Project.findAll({
       where: {

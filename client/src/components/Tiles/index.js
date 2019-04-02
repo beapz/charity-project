@@ -3,6 +3,10 @@ import './style.css';
 
 function Tiles({ title, children }) {
   return (
+
+
+
+
     <div className="card mt-4">
       <div className="card-header">
         <h3>
