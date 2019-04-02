@@ -14,5 +14,9 @@ body{
 .body-quote{
   background-color: #45760475;
   font-family: 'Montserrat', sans-serif;
-  padding: 20px 0px
+  padding: 20px 0px;
+}
+
+.bg-color{
+  background-color: #D8D3C8 !important;
 }
