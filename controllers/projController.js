@@ -18,17 +18,17 @@ module.exports = {
     });
   },
 
-  findAllUsersForProject: function (req, res) {
-    db.UserProject.findAll({
-      include: [db.User, db.Project],
-      where: {
-        project_id : req.params.projectId
-      }
-      //TODO: come back to this
-    }).then(function (users) {
-      res.json(users);
-    });
-  },
+  // findAllUsersForProject: function (req, res) {
+  //   db.UserProject.findAll({
+  //     include: [db.User, db.Project, db.Category],
+  //     where: {
+  //       project_id : req.params.projectId
+  //     }
+  
+  //   }).then(function (userResults) {
+  //     res.json(userResults);
+  //   });
+  // },
 
   findCarouselProjects: function (req, res) {
     db.Project.findAll({

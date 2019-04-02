@@ -26,6 +26,8 @@ class ProjectDetail extends Component {
           benefactorName: res.data.Benefactor.name,
           benefactorDescription: res.data.Benefactor.description,
           category: res.data.Category.name
+          // ,
+          // userFirst: res.data.User.first_name
         })
       )
       .catch(err => console.log(err));
@@ -78,9 +80,9 @@ class ProjectDetail extends Component {
               </div>
             </Tiles>
             <Tiles title="Current Volunteer Hours">
-              <article className="userTimeTile">
-
-              </article>
+              {/* <article className="userTimeTile">
+              Test: {this.state.userFirst}
+              </article> */}
             </Tiles>
           </Col>
         </Row>
