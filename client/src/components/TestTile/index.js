@@ -15,7 +15,7 @@ function TestTile({ title, category, date, photo_url }) {
             </Row>
             <Row>
                 <Col size="md-12 tile-content">
-                    <div className="tile-title">{title}</div>
+                    <div className="tile-title"><strong>{title}</strong></div>
                     <div className='tile-category'>{category}</div>
                 </Col>
             </Row>
