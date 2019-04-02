@@ -25,7 +25,7 @@ class ProjectDetail extends Component {
           project: res.data,
           benefactorName: res.data.Benefactor.name,
           benefactorDescription: res.data.Benefactor.description,
-          category: res.data.Benefactor.name
+          category: res.data.Category.name
         })
       )
       .catch(err => console.log(err));
@@ -41,7 +41,7 @@ class ProjectDetail extends Component {
 
               <h2>
                 Learn More About Lending Your Time to {this.state.benefactorName}
-                {/* TODO: investigate grabbing benefactor data */}
+               
               </h2>
 
 
