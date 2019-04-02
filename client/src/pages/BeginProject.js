@@ -4,9 +4,10 @@ import Jumbotron from "../components/Jumbotron";
 import API from "../services/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-// import { List, ListItem } from "../components/List";
-import { Input, FormBtn } from "../components/Form";
-// import NewForm from "../components/NewForm";
+import { List, ListItem } from "../components/List";
+import { Input, TextArea, FormBtn } from "../components/Form";
+import { cpus } from "os";
+import "./form.css"
 
 class BeginProject extends Component {
   state = {
@@ -102,92 +103,135 @@ class BeginProject extends Component {
 
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <Col size="md-6">
-            <Jumbotron>
+     <section className="wholePage">
+          
+          <Row>
+          <Col size="md-12">
+            <Jumbotron  className="Jumbo">
               <h1>Create a Project</h1>
             </Jumbotron>
-            {/* <NewForm/> */}
-            {/* Test form */}
-            <form>
+        
+            </Col>
+        </Row>
+         
+            <Row>
+          <Col size="md-6">
+            <form span className="forms">
+            <label>Project Information:
               <Input
+                text="Title"
                 value={this.state.title}
                 onChange={this.handleInputChange}
                 name="title"
                 placeholder="Title (required)"
               />
-              <Input
+              </label>
+              <div className="textArea">
+              <textarea rows={10} cols={40}
                 value={this.state.description}
                 onChange={this.handleInputChange}
                 name="description"
                 placeholder="Description (required)"
               />
+              
+              </div>
+              <label> Photo Url:
               <Input
                 value={this.state.photo_url}
                 onChange={this.handleInputChange}
                 name="photo_url"
                 placeholder="Photo Url (Optional)"
               />
+              </label>
+              <div>
+              <label> Total Hours:
               <Input
                 value={this.state.total_hours}
                 onChange={this.handleInputChange}
                 name="total_hours"
                 placeholder="Total Hours (Optional)"
               />
+              </label>
+              </div>
+              
+              <label> Start Date:
               <Input
                 value={this.state.date}
                 onChange={this.handleInputChange}
                 name="date"
                 placeholder="Date (Optional)"
               />
+              </label>
+              <section className="splitRight">
+              <div>
+              <label> Start Time:
               <Input
                 value={this.state.start_time}
                 onChange={this.handleInputChange}
                 name="start_time"
                 placeholder="Start Time (Optional)"
               />
+              </label>
+              </div>
+              <label> End Time:
               <Input
                 value={this.state.end_time}
                 onChange={this.handleInputChange}
                 name="end_time"
                 placeholder="End Time (Optional)"
               />
+              </label>
+              
+              <div>
+                <label> Location:
               <Input
                 value={this.state.location}
                 onChange={this.handleInputChange}
                 name="location"
                 placeholder="Location (Optional)"
               />
+              </label>
+              </div>
+              <label> Owner ID:
               <Input
                 value={this.state.ownerId}
                 onChange={this.handleInputChange}
                 name="ownerId"
                 placeholder="Owner Id (REQUIRED)"
               />
+              </label>
+              <div>
+                <label> Benefactor ID:
               <Input
                 value={this.state.benefactorId}
                 onChange={this.handleInputChange}
                 name="benefactorId"
                 placeholder="Benefactor Id (REQUIRED)"
               />
+              </label>
+              </div>
+              <label>Category ID
               <Input
                 value={this.state.categoryId}
                 onChange={this.handleInputChange}
                 name="categoryId"
                 placeholder="Category Id (REQUIRED)"
               />
-              <FormBtn
+              </label>
+              </section>
+              <section className="button">
+              <FormBtn 
                 disabled={!(this.state.description && this.state.title)}
                 onClick={this.handleFormSubmit}
               >
                 Create Project
               </FormBtn>
+              </section>
             </form>
-          </Col>
-          
+            </Col>
         </Row>
-      </Container>
+            </section>
+   
     );
   }
 }
