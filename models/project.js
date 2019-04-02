@@ -45,13 +45,12 @@ module.exports = function (sequelize, DataTypes) {
   //Project.associate is a function to hold the below wrapped functions of hasMany and belongsToMany and prevent them from executing prematurely
   Project.associate = function (models) {
 
-
     // Associating project with user_projects
     Project.belongsToMany(models.User, {
       through: 'UserProject'
     });
 
-    //Associating project with category
+    //Associating project with benefactor
     Project.belongsTo(models.Benefactor, {
       foreignKey: 'benefactorId',
       targetKey: 'id'

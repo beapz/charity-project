@@ -16,17 +16,17 @@ if (config.use_env_variable) {
 
 fs
   .readdirSync(__dirname)
-  .filter(function(file) {
+  .filter(function (file) {
     return (file.indexOf(".") !== 0) && (file !== basename) && (file.slice(-3) === ".js");
   })
-  .forEach(function(file) {
+  .forEach(function (file) {
     var model = sequelize["import"](path.join(__dirname, file));
     db[model.name] = model;
   });
 
-  //dynamic associate, uses file code
-Object.keys(db).forEach(function(modelName) {
-  console.log(modelName);
+//dynamic associate, uses file code
+Object.keys(db).forEach(function (modelName) {
+  // console.log(modelName);
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
@@ -45,6 +45,17 @@ const syncDB = async () => {
 }
 
 syncDB();
+
+
+// db['Project'].count({
+//   distinct: true,
+//   col: 'id'
+// })
+// .then(function(count) {
+// if (count < 1) {
+// syncDB();
+// }
+// });
 
 
 db.sequelize = sequelize;

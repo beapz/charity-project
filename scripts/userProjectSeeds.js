@@ -65,5 +65,42 @@ module.exports =
       UserId: 4,
       hours_pledged: 5,
       is_owner: false
+    },
+    {
+      ProjectId: 11,
+      UserId: 3,
+      hours_pledged: 1,
+      is_owner: false
+    },
+    {
+      ProjectId: 12,
+      UserId: 2,
+      hours_pledged: 1,
+      is_owner: true
+    },
+    {
+      ProjectId: 12,
+      UserId: 10,
+      hours_pledged: 5,
+      is_owner: false
+    },
+    {
+      ProjectId: 13,
+      UserId: 5,
+      hours_pledged: 0,
+      is_owner: true
+    },
+    {
+      ProjectId: 12,
+      UserId: 7,
+      hours_pledged: 3,
+      is_owner: false
+    },
+    {
+      ProjectId: 12,
+      UserId: 3,
+      hours_pledged: 5,
+      is_owner: false
     }
+
   ]

@@ -1,4 +1,5 @@
 import React from "react";
+import './style.css';
 
 function Tiles({ title, children }) {
   return (
@@ -6,7 +7,8 @@ function Tiles({ title, children }) {
       <div className="card-header">
         <h3>
           <strong>
-            <i aria-hidden="true" /> {title}
+            <i aria-hidden="true" /> 
+            {title}
           </strong>
         </h3>
       </div>
@@ -16,3 +18,4 @@ function Tiles({ title, children }) {
 }
 
 export default Tiles;
+

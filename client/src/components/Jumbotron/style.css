@@ -1,11 +1,16 @@
 .hiRes {
-    background: url(https://res.cloudinary.com/dlfl6vj4n/image/upload/v1552960567/sample.jpg) !important;
+    background: url(https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553106611/apples-business-buy-95425.jpg) !important;
     background-repeat: no-repeat !important;
     background-size: 100% auto !important;
-    height: 500px !important;
+    height: 350px !important;
     width: 100% !important;
+  
 }
 
 .jumbotron-fluid {
     color: white !important;
+}
+
+.body-content{
+    padding: 90px
 }

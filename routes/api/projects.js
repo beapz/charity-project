@@ -8,9 +8,9 @@ const db = require("../../models");
 router.route('/')
     .get(projController.findAll)
     .post(projController.create);
-    
-// router.route('/create')
-//     .post(projController.create);
+
+router.route('/create')
+    .post(projController.create);
 
 //Route to see a specific project details
 //this is api/projects/id
@@ -21,8 +21,13 @@ router.route('/:id')
 router.route('/all/carousel')
     .get(projController.findCarouselProjects);
 
-router.route('/all/:categoryId')
+router.route('/all/category/:categoryId')
     .get(projController.findByCategory);
+
+router.route('/all/benefactor/:benefactorId')
+    .get(projController.findByBenefactor);
+
+
 
 module.exports = router;
 

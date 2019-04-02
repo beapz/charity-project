@@ -1,74 +1,89 @@
-import React, { Component } from 'react';
-import { Navbar, Button } from 'react-bootstrap';
-import './style.css';
+import React, { Component } from "react";
+import { Navbar, Button } from "react-bootstrap";
+import "./style.css";
 
 class Nav extends Component {
+  state = {
+    isLoggedIn: this.props.auth.isAuthenticated()
+  };
+
+  componentWillMount() {
+    const isAuth = this.props.auth.isAuthenticated();
+    //this set state removes the mutable error but it leads login to incorrect page after login
+    this.setState({
+      isLoggedIn: isAuth
+    });
+    // debugger;
+  }
+
+  isAuthenticated() {
+    return this.state.isLoggedIn || this.props.isLoggedIn;
+  }
+
   goTo(route) {
-    this.props.history.replace(`/${route}`)
+    this.props.history.replace(`/${route}`);
   }
 
   login() {
     this.props.auth.login();
+    this.setState({ isLoggedIn: true });
   }
 
   logout() {
     this.props.auth.logout();
+    this.setState({ isLoggedIn: false });
   }
 
   componentDidMount() {
-    console.log('authenticated', this.props.auth.isAuthenticated());
-    
+    console.log("authenticated", this.props.auth.isAuthenticated());
+    console.log("setsession storage profile", sessionStorage.profile);
+
     const { renewSession } = this.props.auth;
 
-    if (localStorage.getItem('isLoggedIn') === 'true') {
+    if (localStorage.getItem("isLoggedIn") === "true") {
       renewSession();
     }
   }
 
   render() {
-    const { isAuthenticated } = this.props.auth;
+    //const { isAuthenticated } = this.props.auth;
 
     return (
       <div>
         <Navbar fluid>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#">Timelenders</a>
+              <a className="navbar-brand" href="/">
+                <img
+                  src="https://res.cloudinary.com/dlfl6vj4n/image/upload/v1554142559/timelenders.png"
+                  width="40"
+                  height="40"
+                  alt=""
+                />
+              </a>
+              <a href="/">TimeLender</a>
             </Navbar.Brand>
+          </Navbar.Header>
+          {!this.isAuthenticated() && (
             <Button
               bsStyle="primary"
-              className="btn-margin"
-              onClick={this.goTo.bind(this, 'home')}
+              className="btn-margin nav-btn float-right"
+              onClick={this.login.bind(this)}
             >
-              Home
+              Log In
+              {/* {isAuthenticated().toString()} */}
             </Button>
-            {
-              !isAuthenticated() && (
-                  <Button
-                    bsStyle="primary"
-                    className="btn-margin"
-                    onClick={this.login.bind(this)}
-                  >
-                    Log In
-                    {/* {isAuthenticated().toString()} */}
-                  </Button>
-                )
-            }
-            {
-              !isAuthenticated() && (
-                  <Button
-                    bsStyle="primary"
-                    className="btn-margin"
-                    onClick={this.logout.bind(this)}
-                  >
-                    Log Out
-                    {/* {isAuthenticated().toString()} */}
-
-                    
-                  </Button>
-                )
-            }
-          </Navbar.Header>
+          )}
+          {this.isAuthenticated() && (
+            <Button
+              bsStyle="primary"
+              className="btn-margin nav-btn float-right"
+              onClick={this.logout.bind(this)}
+            >
+              Log Out
+              {/* {isAuthenticated().toString()} */}
+            </Button>
+          )}
         </Navbar>
       </div>
     );

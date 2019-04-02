@@ -5,7 +5,8 @@ import loading from "./loading.svg";
 
 
 class Callback extends Component {
-  render() {
+  
+  render() {console.log("this is where the callback happens");
     const style = {
 
       position: "absolute",

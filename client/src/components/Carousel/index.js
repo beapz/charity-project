@@ -38,8 +38,8 @@ function SplashCarousel({ children }) {
 
   };
   return (
-    <div>
-      <h2> 3x3 Carousel </h2>
+    <div className = 'carousel-div'>
+      <h2 id='carousel-title'> Highlighted Projects</h2>
       <Slider {...settings}>
         {children}
       </Slider>
