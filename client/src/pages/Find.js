@@ -73,22 +73,23 @@ class Find extends Component {
         <Container>
           <Row>
             <div className="dropdown">
-              <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" >
-                Category Filter</button>
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Category Filter
+              </button>
 
-              <ul className="dropdown-menu" >
-                <li><a href="/find/all">None</a></li>
-                <li><a  href="/find/category/1">Environmental</a></li>
-                <li><a  href="/find/category/2">Hunger and Food Security</a></li>
-                <li><a  href="/find/category/3">Education and Literacy</a></li>
-                <li><a  href="/find/category/4">Crisis Support and Disaster Relief</a></li>
-                <li><a  href="/find/category/5">Elder Care</a></li>
-                <li><a  href="/find/category/6">Vulnerable Groups</a></li>
-                <li><a  href="/find/category/7">Animal Welfare</a></li>
-                <li><a href="/find/category/8">Housing and Shelter</a></li>
-                <li><a  href="/find/category/9">Community Projects</a></li>
-                <li><a  href="/find/category/10">Children and Youth</a></li>
-              </ul>
+              <div className="dropdown-menu" ariaLabelledby="dropdownMenuLink">
+                <a className="dropdown-item" href="/find/all">None</a>
+                <a className="dropdown-item" href="/find/category/1">Environmental</a>
+                <a className="dropdown-item" href="/find/category/2">Hunger and Food Security</a>
+                <a className="dropdown-item" href="/find/category/3">Education and Literacy</a>
+                <a className="dropdown-item" href="/find/category/4">Crisis Support and Disaster Relief</a>
+                <a className="dropdown-item" href="/find/category/5">Elder Care</a>
+                <a className="dropdown-item" href="/find/category/6">Vulnerable Groups</a>
+                <a className="dropdown-item" href="/find/category/7">Animal Welfare</a>
+                <a className="dropdown-item" href="/find/category/8">Housing and Shelter</a>
+                <a className="dropdown-item" href="/find/category/9">Community Projects</a>
+                <a className="dropdown-item" href="/find/category/10">Children and Youth</a>
+              </div>
             </div>
           </Row>
           <Row>
