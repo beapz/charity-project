@@ -7,11 +7,14 @@ import API from "../services/API";
 import Tiles from "../components/Tiles";
 // import Project from '../components/Project';
 import Moment from 'react-moment';
+import TestTile from "../components/TestTile";
+import Pledges from "../components/Pledges";
 
 class ProjectDetail extends Component {
   state = {
     project: {},
-    userProject: {}
+    userProject: {},
+    userProjects: []
   };
 
   // When this component mounts, grab the PROJECT with the id of this.props.match.params.id
@@ -26,28 +29,26 @@ class ProjectDetail extends Component {
           benefactorName: res.data.Benefactor.name,
           benefactorDescription: res.data.Benefactor.description,
           category: res.data.Category.name,
-          // userProject: res.data,
 
 
-          // ,
-          // userFirst: res.data.User.first_name
         })
       )
       .catch(err => console.log(err));
     API.findAllUsersForProject(this.props.match.params.projectId)
       .then(res =>
         this.setState({
-          userProject: res.data,
+          userProjects: res.data,
           user: res.data[0].User.first_name + " " + res.data[0].User.last_name,
-          userHours: res.data[0].hours_pledged
+          userHours: res.data[0].hours_pledged,
+
         })
       )
       .catch(err => console.log(err));
   }
 
   render() {
-    console.log(this.state.userHours);
-    // console.log(this.state.userProject);
+    // console.log(this.state.userHours);
+    // console.log(this.state.userProjects);
     return (
       <Container fluid>
         <Row>
@@ -93,11 +94,26 @@ class ProjectDetail extends Component {
               </div>
             </Tiles>
             <Tiles title="Current Volunteer Hours">
-              <article className="userTimeTile">
-               <div> Volunteer: {this.state.user} </div>
-               <div> Hours Pledged: {this.state.userHours}</div>
-              
-              </article>
+              {/* <div className="userTimeTile"> */}
+
+
+              {this.state.userProjects.map(userProject => (
+                <Pledges
+                  first_name={userProject.User.first_name}
+                  last_name={userProject.User.last_name}
+                  hours_pledged={userProject.hours_pledged}
+                />
+
+              ))}
+
+
+
+
+              {/* {this.state.userHours} */}
+            </Tiles>
+            <Tiles title="Commit To This Project">
+              <input></input>
+              <button>Commit!</button>
             </Tiles>
           </Col>
         </Row>
