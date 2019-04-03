@@ -8,7 +8,7 @@ import Tiles from "../components/Tiles";
 // import Project from '../components/Project';
 import Moment from 'react-moment';
 import TestTile from "../components/TestTile";
-import Pledges from "../components/Pledges";
+import {PledgesHeader, PledgesData, PledgesFooter} from "../components/PledgesTable";
 
 class ProjectDetail extends Component {
   state = {
@@ -25,7 +25,6 @@ class ProjectDetail extends Component {
       .then(res =>
         this.setState({
           project: res.data,
-          // user: res.data,
           benefactorName: res.data.Benefactor.name,
           benefactorDescription: res.data.Benefactor.description,
           category: res.data.Category.name,
@@ -95,21 +94,24 @@ class ProjectDetail extends Component {
             </Tiles>
             <Tiles title="Current Volunteer Hours">
               {/* <div className="userTimeTile"> */}
-
-
+              
+                <PledgesHeader/>
+              
               {this.state.userProjects.map(userProject => (
-                <Pledges
+                <PledgesData
                   first_name={userProject.User.first_name}
                   last_name={userProject.User.last_name}
                   hours_pledged={userProject.hours_pledged}
                 />
-
+              
               ))}
 
+              <hr />
+              <PledgesFooter
 
-
-
-              {/* {this.state.userHours} */}
+                  hours_pledged={this.state.userProjects.reduce((hours_pledged, userProject) => hours_pledged + userProject.hours_pledged, 0)}
+                  total_hours={this.state.project.total_hours}
+                />
             </Tiles>
             <Tiles title="Commit To This Project">
               <input></input>
