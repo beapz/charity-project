@@ -24,20 +24,4 @@ export function FormBtn(props) {
       {props.children}
     </button>
   );
-
-
 }
-export function SelectDropDown(props){
-  return (
-    <select className="custom-select" {...props} >
-                {props.children}
-  </select>);
-  
-}
-  export function SelectDropDownOption(props){
-    return (
-        // <option selected>{props.displaytext}</option>
-        
-        <option value={props.value}>{props.opt}</option>
-    );
-    }

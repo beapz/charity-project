@@ -3,8 +3,8 @@ const db = require("../models");
 // Defining methods for the booksController
 module.exports = {
 
-   
-    
+
+
     findAll: function (req, res) {
         db.User.findAll({
             // GET ALL USERS  
@@ -12,8 +12,8 @@ module.exports = {
             res.json(userInfo);
         });
     },
-    
-     //this finds the dashboard of specific user (self)
+
+    //this finds the dashboard of specific user (self)
     findUserDash: function (req, res) {
         let id = req.params.id;
         db.User.findOne({
@@ -22,6 +22,21 @@ module.exports = {
             res.json(userInfo);
         });
     },
+
+    findAllUsersForProject: function (req, res) {
+        console.log("this is user project check", req.params.projectId);
+        db.UserProject.findAll({
+            where: {
+                ProjectId: req.params.projectId
+            },
+            include: [db.User]
+
+
+        }).then(function (userProjectResults) {
+            res.json(userProjectResults);
+        });
+    },
+
 
     //this finds the details of specific user (not self)
     findUserDetail: function (req, res) {
@@ -37,16 +52,16 @@ module.exports = {
     },
 
     //this creates the user in the database
-    createUser: function(req, res) {
+    createUser: function (req, res) {
         let newUser = req.body;
-        
+
         db.User.create(newUser)
             .then(userDetail => {
-                 res.send(userDetail)
+                res.send(userDetail)
             })
     },
 
-    checkUserByEmail: function(req, res) {
+    checkUserByEmail: function (req, res) {
         let email = req.params.email;
         console.log('email ', email);
         db.User.findAll({

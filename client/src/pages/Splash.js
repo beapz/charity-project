@@ -9,7 +9,7 @@ import API from '../services/API';
 import Jumbotron from '../components/Jumbotron';
 import { Col, Row, Container } from '../components/Grid';
 // import { List } from '../components/List';
-import Project from '../components/Project';
+// import Project from '../components/Project';
 // import Tiles from '../components/Tiles';
 import TestTile from '../components/TestTile';
 import SplashCarousel from '../components/Carousel';
@@ -26,6 +26,7 @@ class Splash extends Component {
 
     componentDidMount() {
         this.getCarouselProjects();
+        
     };
 
     getCarouselProjects = () => {
@@ -47,7 +48,6 @@ class Splash extends Component {
     };
 
     render() {
-
 
         return (
             <div>
@@ -93,7 +93,9 @@ class Splash extends Component {
                                   date = {project.date}
                                   photo_url = {project.photo_url}
                                   category={project.Category.name}
+                                  id={project.id}
                               />             
+                              
                                         ))}
                                     </SplashCarousel>
                                 ) : (

@@ -18,6 +18,18 @@ module.exports = {
     });
   },
 
+  // findAllUsersForProject: function (req, res) {
+  //   db.UserProject.findAll({
+  //     include: [db.User, db.Project, db.Category],
+  //     where: {
+  //       project_id : req.params.projectId
+  //     }
+  
+  //   }).then(function (userResults) {
+  //     res.json(userResults);
+  //   });
+  // },
+
   findCarouselProjects: function (req, res) {
     db.Project.findAll({
       where: {
@@ -81,7 +93,8 @@ module.exports = {
           ProjectId: dbProj.id,
           UserId: dbProj.ownerId,
           BenefactorId: dbProj.benefactorId,
-          is_owner: true
+          is_owner: true,
+          hours_pledged: 0
         }
         db.UserProject.create(UserProject)
           .then(() => {

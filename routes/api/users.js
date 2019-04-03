@@ -21,5 +21,9 @@ router.route('/:id')
 router.route('/:id/dash')
     .get(userController.findUserDash);
 
+//this gets users associated with a project
+router.route('/userProject/:projectId')
+.get(userController.findAllUsersForProject);
+
 module.exports = router;
 
