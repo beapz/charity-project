@@ -14,8 +14,8 @@ module.exports = function (sequelize, DataTypes) {
     photo_url: DataTypes.TEXT,
     total_hours: DataTypes.INTEGER,
     date: DataTypes.DATE,
-    start_time: DataTypes.DATE,
-    end_time: DataTypes.DATE,
+    start_time: DataTypes.TIME,
+    end_time: DataTypes.TIME,
     location: DataTypes.STRING,
     ownerId: {
       field: 'OwnerId',

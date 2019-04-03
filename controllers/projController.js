@@ -93,7 +93,8 @@ module.exports = {
           ProjectId: dbProj.id,
           UserId: dbProj.ownerId,
           BenefactorId: dbProj.benefactorId,
-          is_owner: true
+          is_owner: true,
+          hours_pledged: 0
         }
         db.UserProject.create(UserProject)
           .then(() => {

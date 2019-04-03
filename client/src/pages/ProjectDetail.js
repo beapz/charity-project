@@ -114,7 +114,7 @@ class ProjectDetail extends Component {
                 />
             </Tiles>
             <Tiles title="Commit To This Project">
-              <input></input>
+              <input id="hoursinput"></input>
               <button>Commit!</button>
             </Tiles>
           </Col>
