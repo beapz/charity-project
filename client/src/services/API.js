@@ -53,6 +53,10 @@ export default {
   //To search whether user of a certain email exists
   searchUserEmail: function (email) {
     return axios.get('/api/users/' + email);
+  },
+
+  findAllUsersForProject: function (projectData) {
+    return axios.get('/api/users/userProject/' + projectData);
   }
 }
 

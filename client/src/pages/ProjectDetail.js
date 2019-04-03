@@ -11,8 +11,7 @@ import Moment from 'react-moment';
 class ProjectDetail extends Component {
   state = {
     project: {},
-
-
+    userProject: {}
   };
 
   // When this component mounts, grab the PROJECT with the id of this.props.match.params.id
@@ -23,18 +22,32 @@ class ProjectDetail extends Component {
       .then(res =>
         this.setState({
           project: res.data,
+          // user: res.data,
           benefactorName: res.data.Benefactor.name,
           benefactorDescription: res.data.Benefactor.description,
-          category: res.data.Category.name
+          category: res.data.Category.name,
+          // userProject: res.data,
+
+
           // ,
           // userFirst: res.data.User.first_name
+        })
+      )
+      .catch(err => console.log(err));
+    API.findAllUsersForProject(this.props.match.params.projectId)
+      .then(res =>
+        this.setState({
+          userProject: res.data,
+          user: res.data[0].User.first_name + " " + res.data[0].User.last_name,
+          userHours: res.data[0].hours_pledged
         })
       )
       .catch(err => console.log(err));
   }
 
   render() {
-    // console.log(this.state.project);
+    console.log(this.state.userHours);
+    // console.log(this.state.userProject);
     return (
       <Container fluid>
         <Row>
@@ -80,9 +93,11 @@ class ProjectDetail extends Component {
               </div>
             </Tiles>
             <Tiles title="Current Volunteer Hours">
-              {/* <article className="userTimeTile">
-              Test: {this.state.userFirst}
-              </article> */}
+              <article className="userTimeTile">
+               <div> Volunteer: {this.state.user} </div>
+               <div> Hours Pledged: {this.state.userHours}</div>
+              
+              </article>
             </Tiles>
           </Col>
         </Row>
