@@ -9,7 +9,7 @@ import API from '../services/API';
 import Jumbotron from '../components/Jumbotron';
 import { Col, Row, Container } from '../components/Grid';
 // import { List } from '../components/List';
-import Project from '../components/Project';
+// import Project from '../components/Project';
 // import Tiles from '../components/Tiles';
 import TestTile from '../components/TestTile';
 import SplashCarousel from '../components/Carousel';

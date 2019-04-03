@@ -72,7 +72,9 @@ class Find extends Component {
         {/* aria-labelledby="dropdownMenuLink" */}
         <Container>
           <Row>
-            <div className="dropdown">
+
+          <div className="dropdown">
+
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Category Filter
               </button>
