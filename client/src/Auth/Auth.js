@@ -27,9 +27,10 @@ export default class Auth {
   login = () => {
     // console.log(' hit Auth Login')
     this.auth0.authorize({connection: 'google-oauth2'});
+    console.log('this is the login method')
   }
 
-  handleAuthentication = () => {
+  handleAuthentication = () => { console.log('this is the handleAuthentication method')
     debugger;
     this.auth0.parseHash((err, authResult) => {
 
@@ -126,17 +127,18 @@ export default class Auth {
           });
       }
     );
+    window.location.replace(window.location.pathname);
   }
 
-  getAccessToken = () => {
+  getAccessToken = () => {console.log('this is the getAccessToken method')
     return this.accessToken;
   }
 
-  getIdToken = () => {
+  getIdToken = () => { console.log('this is the getIdToken method')
     return this.idToken;
   }
 
-  setSession = (authResult) => {
+  setSession = (authResult) => { console.log('this is the setSession method')
     console.log("in set session", authResult);
 
     // Set isLoggedIn flag in localStorage
@@ -157,10 +159,12 @@ export default class Auth {
     this.expiresAt = expiresAt;
 
     // navigate to the home route
+    console.log("pathname", window.location.pathname)
     history.replace("/");
+    
   }
 
-  getProfile = (cb) => {
+  getProfile = (cb) => { console.log('this is the getProfile method')
     console.log("hitting the get profile method");
     this.auth0.client.userInfo(this.accessToken, (err, profile) => {
       if (profile) {
@@ -171,7 +175,7 @@ export default class Auth {
     });
   }
 
-  renewSession = () => {
+  renewSession = () => { console.log('this is the renewSession method')
     this.auth0.checkSession({}, (err, authResult) => {
       console.log("before if renewSession", authResult);
 
@@ -190,7 +194,7 @@ export default class Auth {
     });
   }
 
-  logout = () => {
+  logout = () => { console.log('this is the logout method')
 
     console.log("fire logout");
 
@@ -211,7 +215,7 @@ export default class Auth {
     history.replace("/");
   }
 
-  isAuthenticated = () => {
+  isAuthenticated = () => { console.log('this is the isAuthenticated method')
     console.log("isauthenticating is firing");
 
     // Check whether the current time is past the
