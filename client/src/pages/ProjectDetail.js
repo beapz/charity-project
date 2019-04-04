@@ -45,6 +45,10 @@ class ProjectDetail extends Component {
       .catch(err => console.log(err));
   }
 
+  timeCalculate() {
+   
+  }
+
   render() {
     // console.log(this.state.userHours);
     // console.log(this.state.userProjects);
@@ -78,7 +82,10 @@ class ProjectDetail extends Component {
                   Where: {this.state.project.location}
                 </div>
                 <div>
-                  When: <Moment format="LT" date={this.state.project.start_time} />
+                  
+                  When: 
+                  <Moment format="LT" date={this.state.project.start_time} />
+
                   -
                 <Moment format="LT" date={this.state.project.end_time} />
                 </div>

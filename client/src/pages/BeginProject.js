@@ -5,9 +5,11 @@ import API from "../services/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn, SelectDropDown, SelectDropDownOption } from "../components/Form";
+import { Input, TextArea, FormBtn, SelectDropDown, SelectDropDownOption} from "../components/Form";
 import { cpus } from "os";
-import "./form.css"
+import "./form.css";
+import DateTimePicker from '../components/DatePicker';
+
 
 class BeginProject extends Component {
   state = {
@@ -51,12 +53,12 @@ class BeginProject extends Component {
     console.log("Inside handle input change");
   };
 
-  handleSelectorInputChange = event => {
-    const name = event.target.name;
-    const value = event.target.value;
+  // handleSelectorInputChange = event => {
+  //   const name = event.target.name;
+  //   const value = event.target.value;
     
-    console.log("Inside SelectorHIC", name, value);
-  };
+  //   console.log("Inside SelectorHIC", name, value);
+  // };
 
   handleFormSubmit = event => {
     console.log("Inside handle Submit");
@@ -167,12 +169,14 @@ class BeginProject extends Component {
                 onChange={this.handleInputChange}
                 name="date"
                 placeholder="Date (Optional)"
+                type="datetime-local"
               />
               </label>
               <section className="splitRight">
-              <div>
-              <label> Start Time:
-              <Input
+            
+             <div>
+              <label> Start Time (Enter the format: YYYY-MM-DD HH:mm:SS):
+               <Input
                 value={this.state.start_time}
                 onChange={this.handleInputChange}
                 name="start_time"
@@ -180,7 +184,9 @@ class BeginProject extends Component {
               />
               </label>
               </div>
-              <label> End Time:
+              
+              
+              <label> End Time (Enter the format: YYYY-MM-DD HH:mm:SS):
               <Input
                 value={this.state.end_time}
                 onChange={this.handleInputChange}
@@ -208,8 +214,8 @@ class BeginProject extends Component {
               />
               </label>
 
-              <div>
-                <label> Benefactor ID:
+              {/* <div>
+              <label> Benefactor ID:
               <Input
                 value={this.state.benefactorId}
                 onChange={this.handleInputChange}
@@ -217,8 +223,8 @@ class BeginProject extends Component {
                 placeholder="Benefactor Id (REQUIRED)"
               />
               </label>
-              </div>
-              {/* <div>
+              </div> */}
+              <div>
                 <label> What benefactor are you associated with?</label>
                 <SelectDropDown 
               onChange={this.handleInputChange}
@@ -274,16 +280,16 @@ class BeginProject extends Component {
                 value="12"
                 />
               </SelectDropDown>
-               </div> */}
-                       <label>Category ID
+               </div>
+                       {/* <label>Category ID
               <Input
                 value={this.state.categoryId}
                 onChange={this.handleInputChange}
                 name="categoryId"
                 placeholder="Category Id (REQUIRED)"
               />
-              </label>
-              {/* <label>Category:</label>
+              </label> */}
+              <label>Category:</label>
               <SelectDropDown 
               onChange={this.handleInputChange}
               name="categoryId"
@@ -329,8 +335,25 @@ class BeginProject extends Component {
                 opt="Children and Youth"
                 value="10"
                 />
-              </SelectDropDown> */}
-              
+              </SelectDropDown>
+             
+              {/* <DateTimePicker
+              onChange={this.handleInputChange}
+              name="start_time"
+              value={this.state.start_time}
+              />
+              <DateTimePicker
+              onChange={this.handleInputChange}
+              name="end_time"
+              value={this.state.end_time}
+              /> */}
+              {/* <div class="form-group row">
+                <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
+                <div class="col-10">
+                  <input class="form-control" type="time" value="" min="9:00" max="18:00" id="example-datetime-local-input"></input>
+                </div>
+              </div> */}
+
               <FormBtn 
                 disabled={!(this.state.description && this.state.title)}
                 onClick={this.handleFormSubmit}
@@ -340,7 +363,7 @@ class BeginProject extends Component {
               </section>
             </form>
             </Col>
-        </Row>
+          </Row>
             </section>
    
     );
