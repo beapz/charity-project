@@ -15,14 +15,14 @@ class BeginProject extends Component {
     title: "",
     description: "",
     photo_url: "",
-    total_hours: "",
-    date: "",
-    start_time: "",
-    end_time: "",
+    total_hours: 0,
+    date: 0,
+    start_time: 0,
+    end_time: 0,
     location: "",
-    ownerId: "",
-    benefactorId: "",
-    categoryId: ""
+    ownerId: 0,
+    benefactorId: 0,
+    categoryId: 0
   };
 
   // componentDidMount() {
@@ -207,7 +207,18 @@ class BeginProject extends Component {
                 placeholder="Owner Id (REQUIRED)"
               />
               </label>
+
               <div>
+                <label> Benefactor ID:
+              <Input
+                value={this.state.benefactorId}
+                onChange={this.handleInputChange}
+                name="benefactorId"
+                placeholder="Benefactor Id (REQUIRED)"
+              />
+              </label>
+              </div>
+              {/* <div>
                 <label> What benefactor are you associated with?</label>
                 <SelectDropDown 
               onChange={this.handleInputChange}
@@ -263,9 +274,16 @@ class BeginProject extends Component {
                 value="12"
                 />
               </SelectDropDown>
-               </div>
-             
-              <label>Category:</label>
+               </div> */}
+                       <label>Category ID
+              <Input
+                value={this.state.categoryId}
+                onChange={this.handleInputChange}
+                name="categoryId"
+                placeholder="Category Id (REQUIRED)"
+              />
+              </label>
+              {/* <label>Category:</label>
               <SelectDropDown 
               onChange={this.handleInputChange}
               name="categoryId"
@@ -311,7 +329,7 @@ class BeginProject extends Component {
                 opt="Children and Youth"
                 value="10"
                 />
-              </SelectDropDown>
+              </SelectDropDown> */}
               
               <FormBtn 
                 disabled={!(this.state.description && this.state.title)}
