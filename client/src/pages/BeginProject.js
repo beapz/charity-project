@@ -5,7 +5,7 @@ import API from "../services/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn } from "../components/Form";
+import { Input, TextArea, FormBtn, SelectDropDown, SelectDropDownOption } from "../components/Form";
 import { cpus } from "os";
 import "./form.css"
 
@@ -15,14 +15,14 @@ class BeginProject extends Component {
     title: "",
     description: "",
     photo_url: "",
-    total_hours: "",
-    date: "",
-    start_time: "",
-    end_time: "",
+    total_hours: 0,
+    date: 0,
+    start_time: 0,
+    end_time: 0,
     location: "",
-    ownerId: "",
-    benefactorId: "",
-    categoryId: ""
+    ownerId: 0,
+    benefactorId: 0,
+    categoryId: 0
   };
 
   // componentDidMount() {
@@ -49,6 +49,13 @@ class BeginProject extends Component {
       [name]: value
     });
     console.log("Inside handle input change");
+  };
+
+  handleSelectorInputChange = event => {
+    const name = event.target.name;
+    const value = event.target.value;
+    
+    console.log("Inside SelectorHIC", name, value);
   };
 
   handleFormSubmit = event => {
@@ -200,6 +207,7 @@ class BeginProject extends Component {
                 placeholder="Owner Id (REQUIRED)"
               />
               </label>
+
               <div>
                 <label> Benefactor ID:
               <Input
@@ -210,7 +218,64 @@ class BeginProject extends Component {
               />
               </label>
               </div>
-              <label>Category ID
+              {/* <div>
+                <label> What benefactor are you associated with?</label>
+                <SelectDropDown 
+              onChange={this.handleInputChange}
+              name="benefactorId"
+              value={this.state.benefactorId}
+              >
+                <SelectDropDownOption
+                opt="Friends of the Parks Chicago"
+                value="1"
+                />
+                <SelectDropDownOption
+                opt="Common Pantry"
+                value="2"
+                />
+                <SelectDropDownOption
+                opt="Albany Park Community Center"
+                value="3"
+                />
+                <SelectDropDownOption
+                opt="Chicago Cares"
+                value="4"
+                />
+                <SelectDropDownOption
+                opt="Swedish Covenant"
+                value="5"
+                />
+                <SelectDropDownOption
+                opt="Dorothy's Can-Do Cafe"
+                value="6"
+                />
+                <SelectDropDownOption
+                opt="Doggie Heaven"
+                value="7"
+                />
+                <SelectDropDownOption
+                opt="PADS Chicago"
+                value="8"
+                />
+                <SelectDropDownOption
+                opt="My Block My Hood My City"
+                value="9"
+                />
+                <SelectDropDownOption
+                opt="Girls Who Code"
+                value="10"
+                />
+                <SelectDropDownOption
+                opt="Operation Gratitude"
+                value="11"
+                />
+                <SelectDropDownOption
+                opt="Albany Park Theatre Project"
+                value="12"
+                />
+              </SelectDropDown>
+               </div> */}
+                       <label>Category ID
               <Input
                 value={this.state.categoryId}
                 onChange={this.handleInputChange}
@@ -218,8 +283,54 @@ class BeginProject extends Component {
                 placeholder="Category Id (REQUIRED)"
               />
               </label>
-              </section>
-              <section className="button">
+              {/* <label>Category:</label>
+              <SelectDropDown 
+              onChange={this.handleInputChange}
+              name="categoryId"
+              value={this.state.categoryId}
+              >
+                <SelectDropDownOption
+                opt="Environmental"
+                value="1"
+                />
+                <SelectDropDownOption
+                opt="Hunger and Food Security"
+                value="2"
+                />
+                <SelectDropDownOption
+                opt="Education and Literacy"
+                value="3"
+                />
+                <SelectDropDownOption
+                opt="Crisis Support and Disaster Relief"
+                value="4"
+                />
+                <SelectDropDownOption
+                opt="Elder Care"
+                value="5"
+                />
+                <SelectDropDownOption
+                opt="Vulnerable Groups"
+                value="6"
+                />
+                <SelectDropDownOption
+                opt="Animal Welfare"
+                value="7"
+                />
+                <SelectDropDownOption
+                opt="Housing and Shelter"
+                value="8"
+                />
+                <SelectDropDownOption
+                opt="Community Projects"
+                value="9"
+                />
+                <SelectDropDownOption
+                opt="Children and Youth"
+                value="10"
+                />
+              </SelectDropDown> */}
+              
               <FormBtn 
                 disabled={!(this.state.description && this.state.title)}
                 onClick={this.handleFormSubmit}

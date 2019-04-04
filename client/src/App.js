@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./components/Nav";
 import history from "./history";
+import "./App.css"
 // import Callback from "./Callback/Callback";
 
 import Auth from "./Auth/Auth";
