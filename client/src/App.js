@@ -51,8 +51,22 @@ function App() {
           <Route exact path="/find/all" component={Find} />
           <Route exact path="/find/benefactor/:benefactorId" component={Find} />
           <Route exact path="/find/category/:categoryId" component={Find} />
-          <Route exact path="/find/projects/:projectId" component={ProjectDetail} />
+          {/* <Route exact path="/find/projects/:projectId" component={ProjectDetail} /> */}
           {/* This route is for testing components */}
+          <Route
+            path="/find/projects/:projectId"
+            render={props => {
+              handleAuthentication(props);
+              //createUser(props);
+              // console.log(props);
+
+              return <ProjectDetail {...props} auth={auth}/>;
+
+            }}
+          />
+
+
+
           <Route exact path='/testroute' component={Test} />
           
           {/* <Route exact path="/:user/dash" component={UserDashboard} /> */}

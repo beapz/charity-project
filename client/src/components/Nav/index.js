@@ -3,8 +3,9 @@ import { Navbar, Button } from "react-bootstrap";
 import "./style.css";
 
 class Nav extends Component {
-  state = {
+  state = { 
     isLoggedIn: this.props.auth.isAuthenticated()
+
   };
 
   componentWillMount = () => {
@@ -69,7 +70,6 @@ class Nav extends Component {
               onClick={this.login}
             >
               Log In
-              {/* {isAuthenticated().toString()} */}
             </Button>
           )}
           {this.isAuthenticated() && (
@@ -79,7 +79,6 @@ class Nav extends Component {
               onClick={this.logout}
             >
               Log Out
-              {/* {isAuthenticated().toString()} */}
             </Button>
           )}
         </Navbar>

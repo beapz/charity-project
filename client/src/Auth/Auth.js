@@ -31,7 +31,7 @@ export default class Auth {
   }
 
   handleAuthentication = () => { console.log('this is the handleAuthentication method')
-    debugger;
+    // debugger;
     this.auth0.parseHash((err, authResult) => {
 
       if(err) {
@@ -65,7 +65,7 @@ export default class Auth {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
       } else if (err) {
-        history.replace("/");
+        history.replace(window.location.pathname);
         console.log(err);
         alert(`Error: ${err.error}. Check the console for further details.`);
       }
@@ -160,7 +160,7 @@ export default class Auth {
 
     // navigate to the home route
     console.log("pathname", window.location.pathname)
-    history.replace("/");
+    history.replace(window.location.pathname);
     
   }
 
@@ -212,7 +212,7 @@ export default class Auth {
     localStorage.removeItem("isLoggedIn");
 
     // navigate to the home route
-    history.replace("/");
+    history.replace(window.location.pathname);
   }
 
   isAuthenticated = () => { console.log('this is the isAuthenticated method')
