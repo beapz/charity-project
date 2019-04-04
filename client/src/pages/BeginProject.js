@@ -153,7 +153,7 @@ class BeginProject extends Component {
               />
               </label>
               <div>
-              <label> Total Hours:
+              <label> Total Hours Needed:
               <Input
                 value={this.state.total_hours}
                 onChange={this.handleInputChange}
@@ -164,6 +164,7 @@ class BeginProject extends Component {
               </div>
               
               <label> Start Date and Time:
+                <p id="descriptorText">(ex., 04/06/2019 9:00 AM)</p>
               <Input
                 value={this.state.start_time}
                 onChange={this.handleInputChange}
@@ -176,6 +177,7 @@ class BeginProject extends Component {
             
              <div>
              <label> End Date and Time:
+             <p id="descriptorText">(ex., 04/07/2019 3:00 PM)</p>
               <Input
                 value={this.state.end_time}
                 onChange={this.handleInputChange}
@@ -185,16 +187,6 @@ class BeginProject extends Component {
               />
               </label>
               </div>
-              
-              
-              <label> End Time (Enter the format: YYYY-MM-DD HH:mm:SS):
-              <Input
-                value={this.state.end_time}
-                onChange={this.handleInputChange}
-                name="end_time"
-                placeholder="End Time (Optional)"
-              />
-              </label>
               
               <div>
                 <label> Location:

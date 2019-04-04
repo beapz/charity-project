@@ -84,7 +84,8 @@ class ProjectDetail extends Component {
                 <div>
                   
                   When: 
-                  <Moment format="MMM DD YYYY HH:mm" date={this.state.project.start_time} />
+                  
+                <Moment format="MMM DD YYYY HH:mm" date={this.state.project.start_time} />
 
                   -
                 <Moment format="MMM DD YYYY HH:mm" date={this.state.project.end_time} />

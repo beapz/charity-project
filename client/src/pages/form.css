@@ -18,3 +18,7 @@
 .wholePage {
     background: #a6c36f;
 }
+#descriptorText{
+    font-size: 11px;
+    font-style: italic;
+}
