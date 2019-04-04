@@ -96,10 +96,10 @@ console.log(localStorageObject.idTokenPayload)
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h2>
-                Learn More About Lending Your Time to{" "}
-                {this.state.benefactorName}
-              </h2>
+
+              <h1>
+                Learn More About Lending Your Time to {this.state.benefactorName}
+              </h1>
             </Jumbotron>
           </Col>
         </Row>
@@ -161,8 +161,8 @@ console.log(localStorageObject.idTokenPayload)
               />
             </Tiles>
             <Tiles title="Commit To This Project">
-              <input></input>    
-                <Button onClick={this.commitButton}>Commit</Button>
+              <input id="hoursinput"></input>
+              <button className='btn'>Commit!</button>
             </Tiles>
           </Col>
         </Row>
