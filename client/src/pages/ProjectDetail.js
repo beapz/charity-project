@@ -54,9 +54,9 @@ class ProjectDetail extends Component {
           <Col size="md-12">
             <Jumbotron>
 
-              <h2>
+              <h1>
                 Learn More About Lending Your Time to {this.state.benefactorName}
-              </h2>
+              </h1>
             </Jumbotron>
           </Col>
         </Row>
@@ -115,7 +115,7 @@ class ProjectDetail extends Component {
             </Tiles>
             <Tiles title="Commit To This Project">
               <input id="hoursinput"></input>
-              <button>Commit!</button>
+              <button className='btn'>Commit!</button>
             </Tiles>
           </Col>
         </Row>
