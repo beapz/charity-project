@@ -163,9 +163,9 @@ class BeginProject extends Component {
               </label>
               </div>
               
-              <label> Start Date:
+              <label> Start Date and Time:
               <Input
-                value={this.state.date}
+                value={this.state.start_time}
                 onChange={this.handleInputChange}
                 name="date"
                 placeholder="Date (Optional)"
@@ -175,12 +175,13 @@ class BeginProject extends Component {
               <section className="splitRight">
             
              <div>
-              <label> Start Time (Enter the format: YYYY-MM-DD HH:mm:SS):
-               <Input
-                value={this.state.start_time}
+             <label> End Date and Time:
+              <Input
+                value={this.state.end_time}
                 onChange={this.handleInputChange}
-                name="start_time"
-                placeholder="Start Time (Optional)"
+                name="date"
+                placeholder="Date (Optional)"
+                type="datetime-local"
               />
               </label>
               </div>
