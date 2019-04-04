@@ -3,23 +3,60 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import API from "../services/API";
+import { Button } from "react-bootstrap";
 // import TestTile from "../components/TestTile";
 import Tiles from "../components/Tiles";
 // import Project from '../components/Project';
-import Moment from 'react-moment';
+import Moment from "react-moment";
 import TestTile from "../components/TestTile";
-import {PledgesHeader, PledgesData, PledgesFooter} from "../components/PledgesTable";
+import {
+  PledgesHeader,
+  PledgesData,
+  PledgesFooter
+} from "../components/PledgesTable";
 
 class ProjectDetail extends Component {
   state = {
     project: {},
     userProject: {},
-    userProjects: []
+    userProjects: [],
+    isLoggedIn: this.props.auth.isAuthenticated()
+  }
+  componentWillMount = () => {
+console.log('comp will mount fird')
+    const isAuth = this.props.auth.isAuthenticated();
+    // console.log("authenticated", isAuth);
+    // console.log("setsession storage profile", sessionStorage.profile);
+
+    //this set state removes the mutable error but it leads login to incorrect page after login
+    this.setState({
+      isLoggedIn: isAuth,
+
+    });
+
+    const { renewSession } = this.props.auth;
+
+    if (localStorage.getItem("isLoggedIn") === "true") {
+      renewSession();
+    }
+  };
+
+  isAuthenticated = () => {
+    return this.state.isLoggedIn || this.props.isLoggedIn;
+  };
+
+  goTo = route => {
+    this.props.history.replace(`/${route}`);
+  };
+
+  login = () => {
+    this.props.auth.login();
+    this.setState({ isLoggedIn: true });
   };
 
   // When this component mounts, grab the PROJECT with the id of this.props.match.params.id
   //(this.props.match.params.id) <--- is how we get the ID from URL
-  componentDidMount() {
+  componentDidMount() {console.log('componentDidMount')
     console.log(this.props.match.params.projectId);
     API.getProjectDetails(this.props.match.params.projectId)
       .then(res =>
@@ -27,9 +64,7 @@ class ProjectDetail extends Component {
           project: res.data,
           benefactorName: res.data.Benefactor.name,
           benefactorDescription: res.data.Benefactor.description,
-          category: res.data.Category.name,
-
-
+          category: res.data.Category.name
         })
       )
       .catch(err => console.log(err));
@@ -38,11 +73,19 @@ class ProjectDetail extends Component {
         this.setState({
           userProjects: res.data,
           user: res.data[0].User.first_name + " " + res.data[0].User.last_name,
-          userHours: res.data[0].hours_pledged,
-
+          userHours: res.data[0].hours_pledged
         })
       )
       .catch(err => console.log(err));
+  }
+
+  commitButton = () => {
+    if(!this.isAuthenticated()){console.log("should show login page")
+    this.login()
+    }else{console.log('commit user hours to database')
+let localStorageObject = (JSON.parse(localStorage.getItem('profile')))
+console.log(localStorageObject.idTokenPayload)
+    }
   }
 
   render() {
@@ -53,69 +96,73 @@ class ProjectDetail extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-
               <h2>
-                Learn More About Lending Your Time to {this.state.benefactorName}
+                Learn More About Lending Your Time to{" "}
+                {this.state.benefactorName}
               </h2>
             </Jumbotron>
           </Col>
         </Row>
         <Row>
           <Col size="md-6 md-offset-1">
-            <Tiles title={this.state.project.title} className="body-quote rounded">
+            <Tiles
+              title={this.state.project.title}
+              className="body-quote rounded"
+            >
               <div className="projectImageTile">
-                <img className="projDetailImage" src={this.state.project.photo_url} alt="{this.state.project.title}" width="100%"
+                <img
+                  className="projDetailImage"
+                  src={this.state.project.photo_url}
+                  alt="{this.state.project.title}"
+                  width="100%"
                 />
-                <div><h5>{this.state.benefactorDescription}</h5></div>
+                <div>
+                  <h5>{this.state.benefactorDescription}</h5>
+                </div>
               </div>
             </Tiles>
             <Tiles title="Project Details">
               <div className="projectDetailTile">
+                <div>{this.state.project.description}</div>
+                <div>Where: {this.state.project.location}</div>
                 <div>
-                  {this.state.project.description}
-                </div>
-                <div>
-                  Where: {this.state.project.location}
-                </div>
-                <div>
-                  When: <Moment format="LT" date={this.state.project.start_time} />
+                  When:{" "}
+                  <Moment format="LT" date={this.state.project.start_time} />
                   -
-                <Moment format="LT" date={this.state.project.end_time} />
+                  <Moment format="LT" date={this.state.project.end_time} />
                 </div>
-                <div>
-                  Total Hours Needed: {this.state.project.total_hours}
-                </div>
+                <div>Total Hours Needed: {this.state.project.total_hours}</div>
                 <hr />
-                <div>
-                  Category: {this.state.category}
-                </div>
+                <div>Category: {this.state.category}</div>
                 {/* <img src={this.state.project.photo_url} alt="{this.state.project.title}" height="200px" width="300px" /> */}
               </div>
             </Tiles>
             <Tiles title="Current Volunteer Hours">
               {/* <div className="userTimeTile"> */}
-              
-                <PledgesHeader/>
-              
+
+              <PledgesHeader />
+
               {this.state.userProjects.map(userProject => (
                 <PledgesData
                   first_name={userProject.User.first_name}
                   last_name={userProject.User.last_name}
                   hours_pledged={userProject.hours_pledged}
                 />
-              
               ))}
 
               <hr />
               <PledgesFooter
-
-                  hours_pledged={this.state.userProjects.reduce((hours_pledged, userProject) => hours_pledged + userProject.hours_pledged, 0)}
-                  total_hours={this.state.project.total_hours}
-                />
+                hours_pledged={this.state.userProjects.reduce(
+                  (hours_pledged, userProject) =>
+                    hours_pledged + userProject.hours_pledged,
+                  0
+                )}
+                total_hours={this.state.project.total_hours}
+              />
             </Tiles>
             <Tiles title="Commit To This Project">
-              <input></input>
-              <button>Commit!</button>
+              <input></input>    
+                <Button onClick={this.commitButton}>Commit</Button>
             </Tiles>
           </Col>
         </Row>
