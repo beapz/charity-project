@@ -20,3 +20,28 @@ body{
 .bg-color{
   background-color: #D8D3C8 !important;
 }
+
+.btn {
+  background-color: #447604 !important;
+  border-color: #447604 !important;
+  margin-top: 1rem;
+  color: white !important;
+}
+
+.card {
+  background-color: #A6C36F !important;
+  color: #447604 !important;
+  border-color: #A6C36F !important;
+}
+
+.card-header {
+  border-bottom: 0px !important;
+  background-color: #447604 !important;
+  color: white !important;
+}
+
+h1 {
+  background-color: #45760475;
+  font-family: 'Montserrat', sans-serif;
+  padding: 20px 20px;
+}
