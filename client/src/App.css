@@ -1,0 +1,22 @@
+body{
+  background-color: #D8D3C8 !important;
+}
+
+.body-btn{
+  margin: 10px 10px 10px 10px;
+  width: 250px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #447604 !important;
+  border-color:#447604 !important;
+  color: white !important;
+}
+
+.body-quote{
+  background-color: #45760475;
+  font-family: 'Montserrat', sans-serif;
+  padding: 20px 0px;
+}
+
+.bg-color{
+  background-color: #D8D3C8 !important;
+}
