@@ -54,8 +54,8 @@ class ProjectDetail extends Component {
           <Col size="md-12">
             <Jumbotron>
 
-              <h1>
-                Learn More About Lending Your Time to {this.state.benefactorName}
+              <h1 class="text-center">
+                Learn More About Lending Your Time to <br/><b>{this.state.benefactorName}</b>
               </h1>
             </Jumbotron>
           </Col>
