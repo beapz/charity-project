@@ -156,7 +156,7 @@ class ProjectDetail extends Component {
               <button>Commit!</button>
             </Tiles>
           </Col>
-        </Row>
+        </Row> 
         <Row>
           <Col size="md-2">
             <Link to="/">← Back to Home Page</Link>
