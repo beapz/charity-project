@@ -10,6 +10,9 @@ import Moment from 'react-moment';
 import TestTile from "../components/TestTile";
 import {PledgesHeader, PledgesData, PledgesFooter} from "../components/PledgesTable";
 import Auth from "../Auth/Auth";
+import {Elements, StripeProvider} from 'react-stripe-elements';
+import CheckoutForm from '../components/CheckoutForm';
+
 
 class ProjectDetail extends Component {
   
@@ -17,7 +20,7 @@ class ProjectDetail extends Component {
   constructor(props){
     
     super(props);
-    
+
     this.state = {
       project: {},
       userProject: {},
@@ -155,6 +158,14 @@ class ProjectDetail extends Component {
               <input id="hoursinput"></input>
               <button>Commit!</button>
             </Tiles>
+            <StripeProvider apiKey="pk_test_K3KYvZ9DLO8ZE1pjNNaAq5Ru00FHcCuRjC">
+                <div className="example">
+                <h1>React Stripe Elements Example</h1>
+                  <Elements>
+                    <CheckoutForm />
+                  </Elements>
+                </div>
+            </StripeProvider>
           </Col>
         </Row> 
         <Row>
