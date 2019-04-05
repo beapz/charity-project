@@ -72,4 +72,10 @@ module.exports = {
             res.json(userDetail)
         })
     },
+
+    addVolunteerToProject: function(req, res) {
+        let userProjectData = req.body;
+        //console.log(userProjectData);
+        db.UserProject.create(userProjectData);
+    }
 };

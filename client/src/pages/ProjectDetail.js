@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import API from "../services/API";
-// import TestTile from "../components/TestTile";
 import Tiles from "../components/Tiles";
 // import Project from '../components/Project';
 import Moment from 'react-moment';
 import TestTile from "../components/TestTile";
 import {PledgesHeader, PledgesData, PledgesFooter} from "../components/PledgesTable";
+import {Button} from 'react-bootstrap';
+import {AddUserToProject} from '../components/Project';
 
 class ProjectDetail extends Component {
   state = {
@@ -113,15 +114,20 @@ class ProjectDetail extends Component {
                   total_hours={this.state.project.total_hours}
                 />
             </Tiles>
-            <Tiles title="Commit To This Project">
+            <AddUserToProject 
+            email={getEmailFromLocalStorage()}
+            projectId={this.state.project.id}
+            />
+            {/* <Tiles title="Commit To This Project">
               <input id="hoursinput"></input>
-              <button className='btn'>Commit!</button>
-            </Tiles>
+              <AddUserToProject />            
+            </Tiles> */}
           </Col>
         </Row>
         <Row>
           <Col size="md-2">
-            <Link to="/">← Back to Home Page</Link>
+          <Link to="/"></Link>
+            {/* <Link to="/">← Back to Home Page</Link> */}
           </Col>
         </Row>
       </Container>
@@ -130,3 +136,8 @@ class ProjectDetail extends Component {
 }
 
 export default ProjectDetail;
+
+function getEmailFromLocalStorage (){
+  let localStorageObject = (JSON.parse(localStorage.getItem('profile')));
+  return localStorageObject.idTokenPayload.email
+}

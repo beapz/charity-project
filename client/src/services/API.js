@@ -52,14 +52,18 @@ export default {
 
   //To search whether user of a certain email exists
   searchUserEmail: function (email) {
-    return axios.get('/api/users/' + email);
+    return axios.get('/api/users/email/' + email);
   },
 
   findAllUsersForProject: function (projectData) {
     return axios.get('/api/users/userProject/' + projectData);
+  },
+
+  AddUserToProject: function(userProjectData) {
+    return axios.post('../../api/users/create/userProject/', userProjectData);
   }
 }
-
+//TODO: investigate route to hit api earlier on
 
   // Gets the book with the given id
   // getBook: function(id) {

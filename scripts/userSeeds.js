@@ -75,5 +75,12 @@ module.exports = [
         email: "rog@vet.com",
         phone: "342-237-7767",
         facebook_id: "wWeow"
+    },
+    {
+        first_name: "Brit",
+        last_name: "Aitch",
+        email: "bamhiggin@gmail.com",
+        phone: "3435",
+        facebook_id: "whatev"
     }
 ]
