@@ -85,10 +85,10 @@ class ProjectDetail extends Component {
                   
                   When: 
                   
-                <Moment format="MMM DD YYYY HH:mm" date={this.state.project.start_time} />
+                <Moment format="LLL" date={this.state.project.start_time} />
 
                   -
-                <Moment format="MMM DD YYYY HH:mm" date={this.state.project.end_time} />
+                <Moment format="LLL" date={this.state.project.end_time} />
                 </div>
                 <div>
                   Total Hours Needed: {this.state.project.total_hours}
