@@ -1,24 +1,27 @@
 import React, { Component } from "react";
-// import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../services/API";
-// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn, SelectDropDown, SelectDropDownOption} from "../components/Form";
-import { cpus } from "os";
 import "./form.css";
-import DateTimePicker from '../components/DatePicker';
+
 
 
 class BeginProject extends Component {
-  state = {
+  
+  constructor(props){
+    
+
+    super(props);
+
+    this.logMe.bind(this);
+
+    this.state = {
     projects: [],
     title: "",
     description: "",
     photo_url: "",
     total_hours: 0,
-    date: 0,
     start_time: 0,
     end_time: 0,
     location: "",
@@ -27,17 +30,7 @@ class BeginProject extends Component {
     categoryId: 0
   };
 
-  // componentDidMount() {
-  //   this.loadBooks();
-  // }
-
-  // loadBooks = () => {
-  //   API.getBooks()
-  //     .then(res =>
-  //       this.setState({ books: res.data, title: "", author: "", synopsis: "" })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
+  }
 
   deleteBook = id => {
     API.deleteBook(id)
@@ -52,15 +45,14 @@ class BeginProject extends Component {
     });
     console.log("Inside handle input change");
   };
-
-  // handleSelectorInputChange = event => {
-  //   const name = event.target.name;
-  //   const value = event.target.value;
-    
-  //   console.log("Inside SelectorHIC", name, value);
-  // };
+  
+  logMe = () => {
+    console.log(this.value);
+  };
 
   handleFormSubmit = event => {
+    this.getUserId();
+
     console.log("Inside handle Submit");
     console.log(this.state.title);
     console.log(this.state.description);
@@ -80,7 +72,6 @@ class BeginProject extends Component {
         description: this.state.description,
         photo_url: this.state.photo_url,
         total_hours: this.state.total_hours,
-        date: this.state.date,
         start_time: this.state.start_time,
         end_time: this.state.end_time,
         location: this.state.location
@@ -99,7 +90,6 @@ class BeginProject extends Component {
         description: this.state.description,
         photo_url: this.state.photo_url,
         total_hours: this.state.total_hours,
-        date: this.state.date,
         start_time: this.state.start_time,
         end_time: this.state.end_time,
         location: this.state.location
@@ -109,6 +99,12 @@ class BeginProject extends Component {
         .catch(err => console.log(err));
     }
   };
+
+  getUserId = () => {
+    let localStorageObject = (JSON.parse(localStorage.getItem('profile')))
+      console.log(localStorageObject.idTokenPayload)
+    };
+  
 
   render() {
     return (
@@ -134,7 +130,8 @@ class BeginProject extends Component {
                 name="title"
                 placeholder="Title (required)"
               />
-              </label>
+            </label>
+
               <div className="textArea">
               <textarea rows={10} cols={40}
                 value={this.state.description}
@@ -166,10 +163,10 @@ class BeginProject extends Component {
               <label> Start Date and Time:
                 <p id="descriptorText">(ex., 04/06/2019 9:00 AM)</p>
               <Input
-                value={this.state.start_time}
+
+                // value={this.state.start_time}
                 onChange={this.handleInputChange}
-                name="date"
-                placeholder="Date (Optional)"
+                name="start_time"
                 type="datetime-local"
               />
               </label>
@@ -179,10 +176,9 @@ class BeginProject extends Component {
              <label> End Date and Time:
              <p id="descriptorText">(ex., 04/07/2019 3:00 PM)</p>
               <Input
-                value={this.state.end_time}
+                // value={this.state.end_time}
                 onChange={this.handleInputChange}
-                name="date"
-                placeholder="Date (Optional)"
+                name="end_time"
                 type="datetime-local"
               />
               </label>
@@ -198,6 +194,7 @@ class BeginProject extends Component {
               />
               </label>
               </div>
+
               <label> Owner ID:
               <Input
                 value={this.state.ownerId}
@@ -218,8 +215,8 @@ class BeginProject extends Component {
               </label>
               </div> */}
               <div>
-                <label> What benefactor are you associated with?</label>
-                <SelectDropDown 
+              <label> What benefactor are you associated with?</label>
+              <SelectDropDown 
               onChange={this.handleInputChange}
               name="benefactorId"
               value={this.state.benefactorId}
