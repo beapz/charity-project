@@ -1,4 +1,4 @@
-## charity-project ##
+## Charity-Project ##
 
 This was the final project for a coding bootcamp at Northwestern University by Trilogy.
 
