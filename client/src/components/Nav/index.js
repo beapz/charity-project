@@ -53,6 +53,7 @@ class Nav extends Component {
             <Navbar.Brand>
               <a className="navbar-brand" href="/">
                 <img
+                  className="brand-img"
                   src="https://res.cloudinary.com/dlfl6vj4n/image/upload/v1554142559/timelenders.png"
                   width="40"
                   height="40"
