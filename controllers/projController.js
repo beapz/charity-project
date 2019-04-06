@@ -18,17 +18,12 @@ module.exports = {
     });
   },
 
-  // findAllUsersForProject: function (req, res) {
-  //   db.UserProject.findAll({
-  //     include: [db.User, db.Project, db.Category],
-  //     where: {
-  //       project_id : req.params.projectId
-  //     }
-  
-  //   }).then(function (userResults) {
-  //     res.json(userResults);
-  //   });
-  // },
+  findAllUserProjects: function (req, res) {
+    db.UserProject.findAll({
+    }).then(function (userResults) {
+      res.json(userResults);
+    });
+  },
 
   findCarouselProjects: function (req, res) {
     db.Project.findAll({
@@ -101,30 +96,16 @@ module.exports = {
             res.send(dbProj);
           })
       });
+  },
+
+  createUserProject: function (req, res) {
+    const newUserProj = req.body;
+    console.log(newUserProj);
+    db.UserProject.create(newUserProj)
+    .then((newUserProj) => {
+      res.send(newUserProj);
+    })
   }
-
-  // createUserProject: function (req, res){
-  //   const userId = req.body.ownerId;
-  //   db.Project.findAll()
-  //     .then(function (dbProject){
-  //       const newUserProjects = [];
-
-  //       dbProject.forEach(project => {
-  //         const UserProject = {
-  //           ProjectId: project.id,
-  //           UserId: userId,
-  //           is_owner: true
-  //         }
-
-  //       newUserProjects.push(UserProject);
-  //       });
-
-  //       db.UserProject.bulkCreate(newUserProjects)
-  //         .then(function (dbUserProjs){
-  //           res.json(dbUserProjs);
-  //         });
-  //     });
-  // }
 
   // create: async function (req, res) {
   //   const newProj = req.body;

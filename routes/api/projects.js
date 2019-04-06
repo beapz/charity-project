@@ -12,6 +12,11 @@ router.route('/')
 router.route('/create')
     .post(projController.create);
 
+router.route('/userprojects')
+    .get(projController.findAllUserProjects)
+    .post(projController.createUserProject);
+
+
 //Route to see a specific project details
 //this is api/projects/id
 router.route('/:id')

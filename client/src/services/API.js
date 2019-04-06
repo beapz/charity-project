@@ -9,6 +9,10 @@ export default {
     return axios.get('/api/projects/');
   },
 
+  getUserProjects: function() {
+    return axios.get("/api/projects/userprojects")
+  },
+
   //To see all carousel projects
   getCarouselProjects: function () {
     return axios.get('/api/projects/all/carousel');
@@ -30,6 +34,10 @@ export default {
   },
 
   createProject: function (projectData) {
+    return axios.post('/api/projects/', projectData);
+  },
+
+  createUserProject: function (projectData) {
     return axios.post('/api/projects/', projectData);
   },
 

@@ -34,10 +34,37 @@ export function SelectDropDown(props){
   </select>);
   
 }
-  export function SelectDropDownOption(props){
-    return (
-        // <option selected>{props.displaytext}</option>
-        
-        <option value={props.value}>{props.opt}</option>
-    );
-    }
+export function SelectDropDownOption(props){
+  return (
+      // <option selected>{props.displaytext}</option>
+      
+      <option value={props.value}>{props.opt}</option>
+  );
+}
+
+export function DateTimePicker(props){
+  return (
+    <div class="container">
+      <div class="row">
+          <div class='col-sm-6'>
+              <div class="form-group">
+                  <div class='input-group date' id='datetimepicker1'>
+                      <input type='text' class="form-control" />
+                      <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
+                  </div>
+              </div>
+          </div>
+          {/* <script type="text/javascript">
+              $(function () {
+                  $('#datetimepicker1').datetimepicker();
+              });
+          </script> */}
+      </div>
+    </div>
+      
+      
+  );
+}
+
