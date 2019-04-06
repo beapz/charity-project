@@ -5,11 +5,12 @@ import Jumbotron from "../components/Jumbotron";
 import API from "../services/API";
 import Tiles from "../components/Tiles";
 import Moment from 'react-moment';
-import { AddUserToProject } from '../components/Project';
 import {PledgesHeader, PledgesData, PledgesFooter} from "../components/PledgesTable";
 import {Elements, StripeProvider} from 'react-stripe-elements';
 import CheckoutForm from '../components/CheckoutForm';
 import "./form.css"
+import {AddUserToProject} from '../components/Project';
+
 
 class ProjectDetail extends Component {
   state = {
@@ -24,7 +25,7 @@ class ProjectDetail extends Component {
   // When this component mounts, grab the PROJECT with the id of this.props.match.params.id
   //(this.props.match.params.id) <--- is how we get the ID from URL
   componentDidMount() {
-    
+
     // this.getSessionStorageInfo();
 
     console.log("Logging this.props.match.params.projecID", this.props.match.params.projectId);
@@ -53,7 +54,7 @@ class ProjectDetail extends Component {
   }
 
   // getSessionStorageInfo = () => {
-  
+
   //   //logging info from session storage
   //   console.log('Commit user hours to database')
   //   let localStorageObject = (JSON.parse(localStorage.getItem("profile")))
