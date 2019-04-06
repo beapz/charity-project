@@ -105,7 +105,7 @@ export default class Auth {
 
         if(res.data) {
           console.log(res.data)
-          returningEmail = res.data[0].email
+          returningEmail = res.data.email
         }
 
         console.log("existingEmail second log in then promise", returningEmail);
