@@ -1,22 +1,27 @@
 import React, { Component } from "react";
-// import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../services/API";
-// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn, SelectDropDown, SelectDropDownOption } from "../components/Form";
-import { cpus } from "os";
-import "./form.css"
+import { Input, TextArea, FormBtn, SelectDropDown, SelectDropDownOption} from "../components/Form";
+import "./form.css";
+
+
 
 class BeginProject extends Component {
-  state = {
+  
+  constructor(props){
+    
+
+    super(props);
+
+    this.logMe.bind(this);
+
+    this.state = {
     projects: [],
     title: "",
     description: "",
     photo_url: "",
     total_hours: 0,
-    date: 0,
     start_time: 0,
     end_time: 0,
     location: "",
@@ -25,17 +30,7 @@ class BeginProject extends Component {
     categoryId: 0
   };
 
-  // componentDidMount() {
-  //   this.loadBooks();
-  // }
-
-  // loadBooks = () => {
-  //   API.getBooks()
-  //     .then(res =>
-  //       this.setState({ books: res.data, title: "", author: "", synopsis: "" })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
+  }
 
   deleteBook = id => {
     API.deleteBook(id)
@@ -50,15 +45,14 @@ class BeginProject extends Component {
     });
     console.log("Inside handle input change");
   };
-
-  handleSelectorInputChange = event => {
-    const name = event.target.name;
-    const value = event.target.value;
-    
-    console.log("Inside SelectorHIC", name, value);
+  
+  logMe = () => {
+    console.log(this.value);
   };
 
   handleFormSubmit = event => {
+    this.getUserId();
+
     console.log("Inside handle Submit");
     console.log(this.state.title);
     console.log(this.state.description);
@@ -78,7 +72,6 @@ class BeginProject extends Component {
         description: this.state.description,
         photo_url: this.state.photo_url,
         total_hours: this.state.total_hours,
-        date: this.state.date,
         start_time: this.state.start_time,
         end_time: this.state.end_time,
         location: this.state.location
@@ -97,7 +90,6 @@ class BeginProject extends Component {
         description: this.state.description,
         photo_url: this.state.photo_url,
         total_hours: this.state.total_hours,
-        date: this.state.date,
         start_time: this.state.start_time,
         end_time: this.state.end_time,
         location: this.state.location
@@ -107,6 +99,12 @@ class BeginProject extends Component {
         .catch(err => console.log(err));
     }
   };
+
+  getUserId = () => {
+    let localStorageObject = (JSON.parse(localStorage.getItem('profile')))
+      console.log(localStorageObject.idTokenPayload)
+    };
+  
 
   render() {
     return (
@@ -132,7 +130,8 @@ class BeginProject extends Component {
                 name="title"
                 placeholder="Title (required)"
               />
-              </label>
+            </label>
+
               <div className="textArea">
               <textarea rows={10} cols={40}
                 value={this.state.description}
@@ -151,7 +150,7 @@ class BeginProject extends Component {
               />
               </label>
               <div>
-              <label> Total Hours:
+              <label> Total Hours Needed:
               <Input
                 value={this.state.total_hours}
                 onChange={this.handleInputChange}
@@ -161,33 +160,29 @@ class BeginProject extends Component {
               </label>
               </div>
               
-              <label> Start Date:
+              <label> Start Date and Time:
+                <p id="descriptorText">(ex., 04/06/2019 9:00 AM)</p>
               <Input
-                value={this.state.date}
+
+                // value={this.state.start_time}
                 onChange={this.handleInputChange}
-                name="date"
-                placeholder="Date (Optional)"
+                name="start_time"
+                type="datetime-local"
               />
               </label>
               <section className="splitRight">
-              <div>
-              <label> Start Time:
+            
+             <div>
+             <label> End Date and Time:
+             <p id="descriptorText">(ex., 04/07/2019 3:00 PM)</p>
               <Input
-                value={this.state.start_time}
+                // value={this.state.end_time}
                 onChange={this.handleInputChange}
-                name="start_time"
-                placeholder="Start Time (Optional)"
+                name="end_time"
+                type="datetime-local"
               />
               </label>
               </div>
-              <label> End Time:
-              <Input
-                value={this.state.end_time}
-                onChange={this.handleInputChange}
-                name="end_time"
-                placeholder="End Time (Optional)"
-              />
-              </label>
               
               <div>
                 <label> Location:
@@ -199,6 +194,7 @@ class BeginProject extends Component {
               />
               </label>
               </div>
+
               <label> Owner ID:
               <Input
                 value={this.state.ownerId}
@@ -208,8 +204,8 @@ class BeginProject extends Component {
               />
               </label>
 
-              <div>
-                <label> Benefactor ID:
+              {/* <div>
+              <label> Benefactor ID:
               <Input
                 value={this.state.benefactorId}
                 onChange={this.handleInputChange}
@@ -217,10 +213,10 @@ class BeginProject extends Component {
                 placeholder="Benefactor Id (REQUIRED)"
               />
               </label>
-              </div>
-              {/* <div>
-                <label> What benefactor are you associated with?</label>
-                <SelectDropDown 
+              </div> */}
+              <div>
+              <label> What benefactor are you associated with?</label>
+              <SelectDropDown 
               onChange={this.handleInputChange}
               name="benefactorId"
               value={this.state.benefactorId}
@@ -274,16 +270,16 @@ class BeginProject extends Component {
                 value="12"
                 />
               </SelectDropDown>
-               </div> */}
-                       <label>Category ID
+               </div>
+                       {/* <label>Category ID
               <Input
                 value={this.state.categoryId}
                 onChange={this.handleInputChange}
                 name="categoryId"
                 placeholder="Category Id (REQUIRED)"
               />
-              </label>
-              {/* <label>Category:</label>
+              </label> */}
+              <label>Category:</label>
               <SelectDropDown 
               onChange={this.handleInputChange}
               name="categoryId"
@@ -329,8 +325,25 @@ class BeginProject extends Component {
                 opt="Children and Youth"
                 value="10"
                 />
-              </SelectDropDown> */}
-              
+              </SelectDropDown>
+             
+              {/* <DateTimePicker
+              onChange={this.handleInputChange}
+              name="start_time"
+              value={this.state.start_time}
+              />
+              <DateTimePicker
+              onChange={this.handleInputChange}
+              name="end_time"
+              value={this.state.end_time}
+              /> */}
+              {/* <div class="form-group row">
+                <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
+                <div class="col-10">
+                  <input class="form-control" type="time" value="" min="9:00" max="18:00" id="example-datetime-local-input"></input>
+                </div>
+              </div> */}
+
               <FormBtn 
                 disabled={!(this.state.description && this.state.title)}
                 onClick={this.handleFormSubmit}
@@ -340,7 +353,7 @@ class BeginProject extends Component {
               </section>
             </form>
             </Col>
-        </Row>
+          </Row>
             </section>
    
     );

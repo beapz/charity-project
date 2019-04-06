@@ -24,7 +24,10 @@ class ProjectDetail extends Component {
   // When this component mounts, grab the PROJECT with the id of this.props.match.params.id
   //(this.props.match.params.id) <--- is how we get the ID from URL
   componentDidMount() {
-    console.log(this.props.match.params.projectId);
+    
+    this.getSessionStorageInfo();
+
+    console.log("Logging this.props.match.params.projecID", this.props.match.params.projectId);
     API.getProjectDetails(this.props.match.params.projectId)
       .then(res =>
         this.setState({
@@ -47,6 +50,25 @@ class ProjectDetail extends Component {
         })
       )
       .catch(err => console.log(err));
+  }
+
+  getSessionStorageInfo = () => {
+  
+    //logging info from session storage
+    console.log('Commit user hours to database')
+    let localStorageObject = (JSON.parse(localStorage.getItem("profile")))
+    console.log(localStorageObject.idTokenPayload); 
+    console.log("email", localStorageObject.idTokenPayload.email); 
+
+    API.searchUserEmail(localStorageObject.idTokenPayload.email)
+      .then(userData => {
+        console.log("UserData returned from DB ", userData.data[0])
+        console.log("User ID returned from DB", userData.data[0].id)
+        const userID = userData.data[0].id;
+        this.setState({
+          UserId: userID
+        })
+      });
   }
 
   render() {
@@ -82,9 +104,13 @@ class ProjectDetail extends Component {
                   Where: {this.state.project.location}
                 </div>
                 <div>
-                  When: <Moment format="LT" date={this.state.project.start_time} />
+                  
+                  When: 
+                  
+                <Moment format="LLL" date={this.state.project.start_time} />
+
                   -
-                <Moment format="LT" date={this.state.project.end_time} />
+                <Moment format="LLL" date={this.state.project.end_time} />
                 </div>
                 <div>
                   Total Hours Needed: {this.state.project.total_hours}
@@ -127,7 +153,7 @@ class ProjectDetail extends Component {
               <AddUserToProject />            
             </Tiles> */}
           </Col>
-        </Row>
+        </Row> 
         <Row>
           <Col size="md-2">
           <Link to="/"></Link>

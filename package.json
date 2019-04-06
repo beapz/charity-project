@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "proxy":"localhost:3001",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
@@ -35,6 +36,9 @@
     "mongoose": "^5.3.16",
     "mysql2": "^1.6.5",
     "popper.js": "^1.14.7",
+    "react": "^16.8.6",
+    "react-datetime": "^2.16.3",
+    "react-datetime-picker": "^2.3.0",
     "react-moment": "^0.8.4",
     "react-slick": "^0.23.2",
     "sequelize": "^5.1.0",

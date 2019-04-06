@@ -29,6 +29,18 @@ export default class Auth {
     this.auth0.authorize({connection: 'google-oauth2'});
     console.log('this is the login method')
   }
+  
+  getSessionStorageInfo = () => {
+    
+    //logging info from session storage
+   
+
+  {console.log('commit user hours to database')
+  let localStorageObject = (JSON.parse(localStorage.getItem('profile')))
+  console.log(localStorageObject.idTokenPayload)
+      }
+  }
+  
 
   handleAuthentication = () => { console.log('this is the handleAuthentication method')
     debugger;

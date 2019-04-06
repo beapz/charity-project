@@ -13,7 +13,6 @@ module.exports = function (sequelize, DataTypes) {
     description: DataTypes.TEXT,
     photo_url: DataTypes.TEXT,
     total_hours: DataTypes.INTEGER,
-    date: DataTypes.DATE,
     start_time: DataTypes.DATE,
     end_time: DataTypes.DATE,
     location: DataTypes.STRING,
