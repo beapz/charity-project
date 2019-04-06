@@ -14,3 +14,21 @@
 .body-content{
     padding: 90px
 }
+
+@media(max-width:425px){
+    h1{
+        font-size:26px !important;
+    }
+    .body-content{
+      padding: 30px
+    }
+
+      }
+
+@media(max-width:360px){
+
+.body-content{
+    padding: 20px
+}
+
+    }

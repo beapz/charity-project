@@ -7,9 +7,19 @@ import Tiles from "../components/Tiles";
 // import Project from '../components/Project';
 import Moment from 'react-moment';
 import TestTile from "../components/TestTile";
+<<<<<<< HEAD
 import { PledgesHeader, PledgesData, PledgesFooter } from "../components/PledgesTable";
 import { Button } from 'react-bootstrap';
 import { AddUserToProject } from '../components/Project';
+=======
+import {PledgesHeader, PledgesData, PledgesFooter} from "../components/PledgesTable";
+import Auth from "../Auth/Auth";
+import {Elements, StripeProvider} from 'react-stripe-elements';
+import CheckoutForm from '../components/CheckoutForm';
+import "./form.css"
+import {Button} from 'react-bootstrap';
+import {AddUserToProject} from '../components/Project';
+>>>>>>> master
 
 class ProjectDetail extends Component {
   state = {
@@ -21,11 +31,14 @@ class ProjectDetail extends Component {
   updateMyState = () => {
     this.componentDidMount()
   }
-
   // When this component mounts, grab the PROJECT with the id of this.props.match.params.id
   //(this.props.match.params.id) <--- is how we get the ID from URL
   componentDidMount() {
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> master
     // this.getSessionStorageInfo();
 
     console.log("Logging this.props.match.params.projecID", this.props.match.params.projectId);
@@ -54,7 +67,11 @@ class ProjectDetail extends Component {
   }
 
   // getSessionStorageInfo = () => {
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> master
   //   //logging info from session storage
   //   console.log('Commit user hours to database')
   //   let localStorageObject = (JSON.parse(localStorage.getItem("profile")))
@@ -155,6 +172,18 @@ class ProjectDetail extends Component {
               <input id="hoursinput"></input>
               <AddUserToProject />            
             </Tiles> */}
+
+            <Tiles title="Would you like to add a monetary donation to this cause?">
+          
+              {/* <Checkout/> */}
+            <StripeProvider apiKey="pk_test_K3KYvZ9DLO8ZE1pjNNaAq5Ru00FHcCuRjC">
+                <div className="example">
+                  <Elements>
+                    <CheckoutForm />
+                  </Elements>
+                </div>
+            </StripeProvider>
+        </Tiles>
           </Col>
         </Row>
         <Row>
