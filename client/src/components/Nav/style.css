@@ -18,3 +18,42 @@ a{
     color: #447604  !important;
 }
 
+@media(max-width:425px){
+
+    .navbar-brand{
+        font-size: 28px !important;
+    }
+    .nav-btn{
+        width: 75px;
+        font-size: 12px !important;
+    }
+    .brand-img{
+        height: 35px;
+        width:35px;
+    }
+
+}
+
+@media(max-width:360px){
+
+    .navbar-brand{
+        font-size: 22px !important;
+    }
+
+    .brand-img{
+        height: 25px;
+        width:25px;
+    }
+
+    .nav-btn{
+        width: 70px;
+        font-size: 10px !important;
+    }
+
+    .brand-img{
+        height: 30px;
+        width:30px;
+    }
+
+}
+
