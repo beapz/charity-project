@@ -38,9 +38,8 @@ const Footer = () => {
             </div>
           </div>
           <div className="col-4-md card ms-card foot-card">
-            <div className="card-body">
-              This is where the mission statement needs to go, we should have
-              all the fonts match
+            <div className="card-body float-right">
+            Timelender is a collaborative empowerment platform. We help inspire people to get involved with or create local improvement projects, care for their neighbors, and feel connected to their neighborhoods through a commitment of their time, creating strong, positive, and long-lasting community bonds.
             </div>
           </div>
         </div>

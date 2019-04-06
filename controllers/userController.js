@@ -63,13 +63,23 @@ module.exports = {
 
     checkUserByEmail: function (req, res) {
         let email = req.params.email;
-        console.log('email ', email);
-        db.User.findAll({
+        console.log(email);
+        db.User.findOne({
             where: {
                 email: email
             }
         }).then(userDetail => {
+            console.log(userDetail)
             res.json(userDetail)
         })
     },
+    addUserToProject: function(req,res){
+        let proj_obj={
+            UserId: req.body.UserId,
+            ProjectId: req.body.ProjectId,
+            hours_pledged: req.body.hours_pledged
+        }
+        db.UserProject.create(proj_obj)
+            .then(result=>res.json(result))
+    }
 };
