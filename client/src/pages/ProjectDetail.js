@@ -7,14 +7,13 @@ import Tiles from "../components/Tiles";
 // import Project from '../components/Project';
 import Moment from 'react-moment';
 import TestTile from "../components/TestTile";
-import { PledgesHeader, PledgesData, PledgesFooter } from "../components/PledgesTable";
 import { Button } from 'react-bootstrap';
 import { AddUserToProject } from '../components/Project';
+import {PledgesHeader, PledgesData, PledgesFooter} from "../components/PledgesTable";
 import Auth from "../Auth/Auth";
 import {Elements, StripeProvider} from 'react-stripe-elements';
 import CheckoutForm from '../components/CheckoutForm';
 import "./form.css"
-
 
 class ProjectDetail extends Component {
   state = {
