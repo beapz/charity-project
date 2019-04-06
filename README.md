@@ -1,11 +1,11 @@
-## charity-project
+## charity-project ##
 
 This was the final project for a coding bootcamp at Northwestern University by Trilogy.
 
 The premise of our project is we wanted a way to fascilitate charity and acts of goodwill.  Users can either create a event or join an existing one.  Events can either ask for help in the form of time (e.g., volunteers at a soup kitchen) or help in the form of money (e.g.,to buy books to help schoolteachers).
 
 
-##Dependencies
+## Dependencies ##
 
 To accomplish this we created a React app that uses Express, Node, and mySQL with Sequelize.  We chose a SQL based database to make it faster to query results and also for its scalability.
 
@@ -18,7 +18,7 @@ Other technologies/libraries used are:
   dotenv
   Stripework
   
-##Getting Started
+## Getting Started ##
 
 To begin locally, in the project directory you need to run:
 `npm install`
@@ -27,7 +27,7 @@ Next add your password to mySQL in the .env file.
 
 Then use `npm start`, this will initialize the database and needed tables.  It also will seed the database.  After this completes it will switch to the client folder and start the React App.  This will open the app locally on your machine in your default browser.
 
-##Future Features
+## Future Features ##
 
 This is currently in the MVP stage.  
 The site does not load as quickly as possible because the pictures in the '/find/all' route are large and take a while to load.  We want to have all pictures instead saved to a cloudinary database where we can use the thumbnail image to manage data.
@@ -35,16 +35,27 @@ We would also like to add an auto-emailer to remind users of their commitment so
 We also think it would be nice to have a dashboard for users to see what they have committed to and for how long and any future projects they are going to attend.
 This would also be useful for a project manager and their project.  How successful have they been?
 
-##Authors
+## Authors ##
 
--Amena Ahmed https://github.com/Amena99
--Brittany Higgin https://github.com/BAMHiggin
--Zach Merel https://github.com/zachmerel
--Zack Germain https://github.com/zgermain
--Paul Cwik https://github.com/PCeeeZy
--Efe Owolide https://github.com/nigerian21
+-Amena Ahmed 
+https://github.com/Amena99
 
-##License
+-Brittany Higgin 
+https://github.com/BAMHiggin
+
+-Zach Merel 
+https://github.com/zachmerel
+
+-Zack Germain
+https://github.com/zgermain
+
+-Paul Cwik 
+https://github.com/PCeeeZy
+
+-Efe Owolide 
+https://github.com/nigerian21
+
+## License ##
 
 Copyright 2019 beapz
 
