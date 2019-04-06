@@ -33,12 +33,10 @@ export default class Auth {
   getSessionStorageInfo = () => {
     
     //logging info from session storage
-   
-
-  {console.log('commit user hours to database')
-  let localStorageObject = (JSON.parse(localStorage.getItem('profile')))
-  console.log(localStorageObject.idTokenPayload)
-      }
+    {console.log('commit user hours to database')
+    let localStorageObject = (JSON.parse(localStorage.getItem('profile')))
+    console.log(localStorageObject.idTokenPayload)
+        }
   }
   
 
@@ -103,7 +101,7 @@ export default class Auth {
       
         console.log(res)
 
-        if(res.data) {
+        if(res.data.length === 1) {
           console.log(res.data)
           returningEmail = res.data.email
         }
