@@ -7,13 +7,16 @@ import Tiles from "../components/Tiles";
 // import Project from '../components/Project';
 import Moment from 'react-moment';
 import TestTile from "../components/TestTile";
-import { Button } from 'react-bootstrap';
-import { AddUserToProject } from '../components/Project';
+
 import {PledgesHeader, PledgesData, PledgesFooter} from "../components/PledgesTable";
 import Auth from "../Auth/Auth";
 import {Elements, StripeProvider} from 'react-stripe-elements';
 import CheckoutForm from '../components/CheckoutForm';
 import "./form.css"
+import {Button} from 'react-bootstrap';
+import {AddUserToProject} from '../components/Project';
+
+
 import {Button} from 'react-bootstrap';
 import {AddUserToProject} from '../components/Project';
 
@@ -31,6 +34,7 @@ class ProjectDetail extends Component {
   // When this component mounts, grab the PROJECT with the id of this.props.match.params.id
   //(this.props.match.params.id) <--- is how we get the ID from URL
   componentDidMount() {
+
     // this.getSessionStorageInfo();
 
     console.log("Logging this.props.match.params.projecID", this.props.match.params.projectId);
@@ -59,6 +63,7 @@ class ProjectDetail extends Component {
   }
 
   // getSessionStorageInfo = () => {
+
   //   //logging info from session storage
   //   console.log('Commit user hours to database')
   //   let localStorageObject = (JSON.parse(localStorage.getItem("profile")))
