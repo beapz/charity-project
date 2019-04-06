@@ -15,9 +15,12 @@ class ProjectDetail extends Component {
   state = {
     project: {},
     userProject: {},
-    userProjects: []
+    userProjects: [],
+    x:0
   };
-
+  updateMyState=()=>{
+    this.componentDidMount()
+  }
   // When this component mounts, grab the PROJECT with the id of this.props.match.params.id
   //(this.props.match.params.id) <--- is how we get the ID from URL
   componentDidMount() {
@@ -109,12 +112,13 @@ class ProjectDetail extends Component {
 
               <hr />
               <PledgesFooter
-
+                  
                   hours_pledged={this.state.userProjects.reduce((hours_pledged, userProject) => hours_pledged + userProject.hours_pledged, 0)}
                   total_hours={this.state.project.total_hours}
                 />
             </Tiles>
             <AddUserToProject 
+            updateMyState={this.updateMyState}
             email={getEmailFromLocalStorage()}
             projectId={this.state.project.id}
             />

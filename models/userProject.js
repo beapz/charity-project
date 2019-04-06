@@ -4,7 +4,11 @@ const userProjectSeeds = require("../scripts/userProjectSeeds");
 module.exports = function (sequelize, DataTypes) {
     //Define the user_project table
     let UserProject = sequelize.define("UserProject", {
-
+        // id: {
+        //     type: DataTypes.INTEGER,
+        //     autoIncrement: true,
+        //     primaryKey: true
+        // },
         hours_pledged: DataTypes.INTEGER,
         is_owner: {
             type: DataTypes.BOOLEAN,

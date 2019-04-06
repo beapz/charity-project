@@ -7,7 +7,6 @@ router.route('/')
     .get(userController.findAll)
     .post(userController.createUser);
 
-    //added /email/ because path didn't know difference against other paths otherwise
 router.route('/email/:email')
     .get(userController.checkUserByEmail);
     
@@ -21,14 +20,11 @@ router.route('/:id')
 //THIS ROUTE WILL WORK LAST
 router.route('/:id/dash')
     .get(userController.findUserDash);
-
+router.route('/create/userProject/')
+    .post(userController.addUserToProject)
 //this gets users associated with a project
 router.route('/userProject/:projectId')
 .get(userController.findAllUsersForProject);
-
-router.route('/create/userProject/')
-.post(userController.addVolunteerToProject);
-
 
 module.exports = router;
 

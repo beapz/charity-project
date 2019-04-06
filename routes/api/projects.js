@@ -31,6 +31,5 @@ router.route('/all/benefactor/:benefactorId')
 
 
 
-
 module.exports = router;
 

@@ -33,35 +33,41 @@ export function Project({ title, description, total_hours, date, start_time, end
     </ListItem>
   );
 }
-
-export function AddUserToProject({email, projectId}) {
-  let userId;
-let hoursinput = 0;
-  API.searchUserEmail(email).then(res =>
-    userId = res.data[0].id)
-    .catch(err => console.log(err));
-
+function getEmailFromLocalStorage (){
+  let localStorageObject = (JSON.parse(localStorage.getItem('profile')));
+  return localStorageObject.idTokenPayload.email
+}
+export function AddUserToProject(props) {
+  
   return (
     <Tiles title="Commit To This Project">
-      <input onUpdate={hoursinput} ></input>
+      
       <Button
         type="button"
-        onClick={() => {addUserToProjectApi(userId, projectId, 5)}}
-      >Commit Hours</Button>
+        onClick={() => addUserToProjectApi(props)}
+      >Commit</Button>
     </Tiles>
     //TODO: need to be able to pass hours pledged from hoursInput 
 
   );
 }
 
-function addUserToProjectApi(userId, projectId, hours_pledged) {
-  API.AddUserToProject({
-    UserId: userId,
-    ProjectId: projectId,
-    hours_pledged: hours_pledged
+function addUserToProjectApi(props) {
+  let email = getEmailFromLocalStorage()
+  let hours_pledged=prompt("enter hours")
+  API.searchUserEmail(email).then(res =>
+    {
+      let userId = res.data.id
+      API.AddUserToProject({
+        UserId: userId,
+        ProjectId: props.projectId,
+        hours_pledged: parseInt(hours_pledged)
+      }).then(res=>{
+        props.updateMyState()
+        })
   })
-  // console.log(userId);
-  // console.log(projectId);
-  // console.log(hours_pledged);
+    .catch(err => console.log(err));
+  
+
 
 }

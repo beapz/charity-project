@@ -60,7 +60,7 @@ export default {
   },
 
   AddUserToProject: function(userProjectData) {
-    return axios.post('../../api/users/create/userProject/', userProjectData);
+    return axios.post('/api/users/create/userProject/', userProjectData);
   }
 }
 //TODO: investigate route to hit api earlier on
