@@ -13,6 +13,9 @@ import Auth from "../Auth/Auth";
 import {Elements, StripeProvider} from 'react-stripe-elements';
 import CheckoutForm from '../components/CheckoutForm';
 import "./form.css"
+import {Button} from 'react-bootstrap';
+import {AddUserToProject} from '../components/Project';
+
 
 import {Button} from 'react-bootstrap';
 import {AddUserToProject} from '../components/Project';

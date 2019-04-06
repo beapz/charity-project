@@ -90,6 +90,7 @@ class BeginProject extends Component {
       })
         .then(res => 
           console.log("Project create successful."))
+         .then(window.location.href="/find/all") 
         .catch(err => console.log(err));
     }
   };
