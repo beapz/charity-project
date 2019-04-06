@@ -4,6 +4,8 @@ This was the final project for a coding bootcamp at Northwestern University by T
 
 The premise of our project is we wanted a way to fascilitate charity and acts of goodwill.  Users can either create a event or join an existing one.  Events can either ask for help in the form of time (e.g., volunteers at a soup kitchen) or help in the form of money (e.g.,to buy books to help schoolteachers).
 
+Our project is hosted by Heroku with the JawsDB addon.
+
 
 ## Dependencies ##
 
