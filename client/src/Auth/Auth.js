@@ -103,7 +103,8 @@ export default class Auth {
       
         console.log(res)
 
-        if(res.data.length === 1) {
+        if(res.data) {
+          console.log(res.data)
           returningEmail = res.data[0].email
         }
 
@@ -133,13 +134,13 @@ export default class Auth {
               first_name: newUser.first_name,
               last_name: newUser.last_name,
               email: newUser.email
-            }).then( console.log("createUser complete. "))
+            }).then(res=> console.log(res))
 
           }
           });
       }
     );
-    window.location.replace(window.location.pathname);
+    // window.location.replace(window.location.pathname);
   }
 
   getAccessToken = () => {console.log('this is the getAccessToken method')
