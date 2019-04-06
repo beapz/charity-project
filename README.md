@@ -10,12 +10,12 @@ The premise of our project is we wanted a way to fascilitate charity and acts of
 To accomplish this we created a React app that uses Express, Node, and mySQL with Sequelize.  We chose a SQL based database to make it faster to query results and also for its scalability.
 
 Other technologies/libraries used are:
-  Popper.js
-  Axios
-  Moment
-  React-Moment
-  cookie-parser
-  dotenv
+  Popper.js, 
+  Axios, 
+  Moment, 
+  React-Moment, 
+  cookie-parser, 
+  dotenv, 
   Stripework
   
 ## Getting Started ##
