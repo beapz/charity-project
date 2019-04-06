@@ -7,7 +7,7 @@ router.route('/')
     .get(userController.findAll)
     .post(userController.createUser);
 
-router.route('/:email')
+router.route('/email/:email')
     .get(userController.checkUserByEmail);
     
 
@@ -20,7 +20,8 @@ router.route('/:id')
 //THIS ROUTE WILL WORK LAST
 router.route('/:id/dash')
     .get(userController.findUserDash);
-
+router.route('/create/userProject/')
+    .post(userController.addUserToProject)
 //this gets users associated with a project
 router.route('/userProject/:projectId')
 .get(userController.findAllUsersForProject);
