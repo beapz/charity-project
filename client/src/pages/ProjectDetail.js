@@ -8,29 +8,18 @@ import Tiles from "../components/Tiles";
 import Moment from 'react-moment';
 import TestTile from "../components/TestTile";
 import {PledgesHeader, PledgesData, PledgesFooter} from "../components/PledgesTable";
-
-import Auth from "../Auth/Auth";
-import {Elements, StripeProvider} from 'react-stripe-elements';
-import CheckoutForm from '../components/CheckoutForm';
-import "./form.css"
-
-
+import {Button} from 'react-bootstrap';
+import {AddUserToProject} from '../components/Project';
 
 class ProjectDetail extends Component {
-  
-
-  constructor(props){
-    
-    super(props);
-
-    this.state = {
-      project: {},
-      userProject: {},
-      userProjects: [],
-      UserId: ""
-    }
-
-
+  state = {
+    project: {},
+    userProject: {},
+    userProjects: [],
+    x:0
+  };
+  updateMyState=()=>{
+    this.componentDidMount()
   }
   // When this component mounts, grab the PROJECT with the id of this.props.match.params.id
   //(this.props.match.params.id) <--- is how we get the ID from URL
@@ -161,22 +150,8 @@ class ProjectDetail extends Component {
             />
             {/* <Tiles title="Commit To This Project">
               <input id="hoursinput"></input>
-
-              <button className="btn btn-success">Commit!</button>
-            </Tiles>
-            <Tiles title="Would you like to add a monetary donation to this cause?">
-          
-              {/* <Checkout/> */}
-             <StripeProvider apiKey="pk_test_K3KYvZ9DLO8ZE1pjNNaAq5Ru00FHcCuRjC">
-                <div className="example">
-                  <Elements>
-                    <CheckoutForm />
-                  </Elements>
-                </div>
-            </StripeProvider>
-            </Tiles>
-           
-
+              <AddUserToProject />            
+            </Tiles> */}
           </Col>
         </Row> 
         <Row>

@@ -74,7 +74,7 @@ class Find extends Component {
           <Row>
           <div className="dropdown">
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Sort Projects By Category
+                Category Filter
               </button>
 
               <div className="dropdown-menu" ariaLabelledby="dropdownMenuLink">
