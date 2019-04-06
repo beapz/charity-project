@@ -1,10 +1,9 @@
 import React from "react";
 import './style.css';
 
+
 function Tiles({ title, children }) {
   return (
-
-
 
 
     <div className="card mt-4">
