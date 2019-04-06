@@ -25,7 +25,7 @@ class ProjectDetail extends Component {
   //(this.props.match.params.id) <--- is how we get the ID from URL
   componentDidMount() {
     
-    this.getSessionStorageInfo();
+    // this.getSessionStorageInfo();
 
     console.log("Logging this.props.match.params.projecID", this.props.match.params.projectId);
     API.getProjectDetails(this.props.match.params.projectId)
@@ -52,24 +52,24 @@ class ProjectDetail extends Component {
       .catch(err => console.log(err));
   }
 
-  getSessionStorageInfo = () => {
+  // getSessionStorageInfo = () => {
   
-    //logging info from session storage
-    console.log('Commit user hours to database')
-    let localStorageObject = (JSON.parse(localStorage.getItem("profile")))
-    console.log(localStorageObject.idTokenPayload); 
-    console.log("email", localStorageObject.idTokenPayload.email); 
+  //   //logging info from session storage
+  //   console.log('Commit user hours to database')
+  //   let localStorageObject = (JSON.parse(localStorage.getItem("profile")))
+  //   console.log(localStorageObject.idTokenPayload); 
+  //   console.log("email", localStorageObject.idTokenPayload.email); 
 
-    API.searchUserEmail(localStorageObject.idTokenPayload.email)
-      .then(userData => {
-        console.log("UserData returned from DB ", userData.data[0])
-        console.log("User ID returned from DB", userData.data[0].id)
-        const userID = userData.data[0].id;
-        this.setState({
-          UserId: userID
-        })
-      });
-  }
+  //   API.searchUserEmail(localStorageObject.idTokenPayload.email)
+  //     .then(userData => {
+  //       console.log("UserData returned from DB ", userData.data[0])
+  //       console.log("User ID returned from DB", userData.data[0].id)
+  //       const userID = userData.data[0].id;
+  //       this.setState({
+  //         UserId: userID
+  //       })
+  //     });
+  // }
 
   render() {
     // console.log(this.state.userHours);
