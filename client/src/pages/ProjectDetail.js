@@ -8,6 +8,10 @@ import Tiles from "../components/Tiles";
 import Moment from 'react-moment';
 import TestTile from "../components/TestTile";
 import {PledgesHeader, PledgesData, PledgesFooter} from "../components/PledgesTable";
+import Auth from "../Auth/Auth";
+import {Elements, StripeProvider} from 'react-stripe-elements';
+import CheckoutForm from '../components/CheckoutForm';
+import "./form.css"
 import {Button} from 'react-bootstrap';
 import {AddUserToProject} from '../components/Project';
 
@@ -152,6 +156,18 @@ class ProjectDetail extends Component {
               <input id="hoursinput"></input>
               <AddUserToProject />            
             </Tiles> */}
+
+            <Tiles title="Would you like to add a monetary donation to this cause?">
+          
+              {/* <Checkout/> */}
+            <StripeProvider apiKey="pk_test_K3KYvZ9DLO8ZE1pjNNaAq5Ru00FHcCuRjC">
+                <div className="example">
+                  <Elements>
+                    <CheckoutForm />
+                  </Elements>
+                </div>
+            </StripeProvider>
+        </Tiles>
           </Col>
         </Row> 
         <Row>
