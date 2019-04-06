@@ -53,6 +53,10 @@ class ProjectDetail extends Component {
       .catch(err => console.log(err));
   }
 
+  getEmailFromLocalStorage() {
+  let localStorageObject = (JSON.parse(localStorage.getItem('profile')));
+  return localStorageObject.idTokenPayload.email;
+}
   // getSessionStorageInfo = () => {
 
   //   //logging info from session storage
@@ -148,7 +152,7 @@ class ProjectDetail extends Component {
             </Tiles>
             <AddUserToProject
               updateMyState={this.updateMyState}
-              email={getEmailFromLocalStorage()}
+              email={this.getEmailFromLocalStorage()}
               projectId={this.state.project.id}
             />
             {/* <Tiles title="Commit To This Project">
@@ -182,7 +186,3 @@ class ProjectDetail extends Component {
 
 export default ProjectDetail;
 
-function getEmailFromLocalStorage() {
-  let localStorageObject = (JSON.parse(localStorage.getItem('profile')));
-  return localStorageObject.idTokenPayload.email
-}
