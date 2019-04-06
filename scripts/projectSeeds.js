@@ -7,7 +7,6 @@ module.exports = [
       description: "Help your neighbors keep Gompers Park healthy and accessible this Earth day! Clean up tools and lunch will be provided.",
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553106006/LLBTWFI-picture1.jpg",
       total_hours: 30,
-      // date: "4/21/2019",
       start_time: "2019-04-21 09:00:00",
       end_time: "2019-04-21 12:00:00",
       location: "Gompers Park Soccer Field"
@@ -20,7 +19,6 @@ module.exports = [
       description: "Come visit our pantry on Wednesday nights to stock shelves and help our clients shop for their favorite items.",
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553106584/bazaar-bottles-business-15964.jpg",
       total_hours: 50,
-      // date: "5/20/2019",
       start_time: "2019-05-20 18:00:00",
       end_time: "2019-05-20 20:00:00",
       location: "Common Pantry North Center"
@@ -33,7 +31,6 @@ module.exports = [
       description: "Spend time conversing with our ESL learners and helping them through literacy exercises. Tutoring is needed every Thursday beginning at 6:00pm.",
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553106249/senior-woman-learning-on-computer_4460x4460.jpg",
       total_hours: 40,
-      // date: "9/6/2019",
       start_time: "2019-09-06 18:00:00",
       end_time: "2019-09-06 21:00:00",
       location: "Albany Park Community Center"
@@ -46,7 +43,6 @@ module.exports = [
       description: "Join forces with Chicago Cares and the Red Cross of Greater Chicago to help families remove flood-damaged furniture and flooring from their homes.",
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553103716/collaboration-community-cooperation-461049.jpg",
       total_hours: 100,
-      // date: "4/28/2019",
       start_time: "2019-04-28 10:00:00",
       end_time: "2019-04-28 17:00:00",
       location: "Various"
@@ -59,7 +55,6 @@ module.exports = [
       description: "Musical therapy is a helps to improve memory and entertain our residents. Bring your instrument or just your voice and volunteer with Swedish Covenant",
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553104848/action-adult-affection-339620.jpg",
       total_hours: 50,
-      // date: "4/2/2019",
       start_time: "2019-04-02 11:00:00",
       end_time: "2019-04-02 12:30:00",
       location: "Swedish Covenant Hospital"
@@ -72,7 +67,6 @@ module.exports = [
       description: "Assist our students in cooking projects to foster their autonomous spirits",
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553107528/GettyImages-584219268.jpg",
       total_hours: 100,
-      // date: "4/15/2019",
       start_time: "2019-04-15 15:00:00",
       end_time: "2019-04-15 16:00:00",
       location: "Dorothy's Can-Do Cafe"
@@ -85,7 +79,6 @@ module.exports = [
       description: "Help Doggie Heaven wash and groom dogs for adoption portraits",
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553105788/animal-black-and-white-close-up-37401.jpg",
       total_hours: 20,
-      // date: "4/30/2019",
       start_time: "2019-04-30 13:00:00",
       end_time: "2019-04-30 15:00:00",
       location: "Doggie Heaven"
@@ -98,7 +91,6 @@ module.exports = [
       description: "Visit us on any Friday night to help sleeping arrangements for our patrons.",
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553105492/adult-beggar-begging-1058068.jpg",
       total_hours: 30,
-      // date: "4/12/2019",
       start_time: "2019-04-12 19:00:00",
       end_time: "2019-04-12 21:00:00",
       location: "St. Mark's Church"
@@ -111,7 +103,6 @@ module.exports = [
       description: "Keep our communities safe from the elements and volunteer to shovel pathways with our team.",
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553103816/charity-cheerful-community-1374360.jpg",
       total_hours: 9,
-      // date: "4/6/2019",
       start_time: "2019-04-06 16:00:00",
       end_time: "2019-04-06 18:00:00",
       location: "Chatham"
@@ -124,7 +115,6 @@ module.exports = [
       description: "Teach and learn alongside girls as they learn fundamental computer science concepts. Wednesday afternoons after school.",
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1553104008/adolescent-adult-back-view-710743.jpg",
       total_hours: 25,
-      // date: "4/10/2019",
       start_time: "2019-04-10 15:00:00",
       end_time: "2019-04-10 16:00:00",
       location: "Fuller School of Excellence"
@@ -137,7 +127,6 @@ module.exports = [
       description: "Come together with your neighbors to write encouraging letters to active service members.",
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1554141577/business-calligraphy-close-up-1809346.jpg",
       total_hours: 10,
-      // date: "5/4/2019",
       start_time: "2019-05-04 17:30:00",
       end_time: "1969-05-04 18:30:00",
       location: "VA Regional Office"
@@ -150,7 +139,6 @@ module.exports = [
       description: "Donate your time as a baker or baked goods seller at our fundraiser for a new stage at the Albany Park Theatre Project.",
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1554141626/baked-bakery-baking-230743.jpg",
       total_hours: 25,
-      // date: "5/22/2019",
       start_time: "2019-05-22 10:00:00",
       end_time: "2019-05-22 15:00:00",
       location: "Ravenswood Event Center"
@@ -163,7 +151,6 @@ module.exports = [
       description: "Come meet with communities members to knit hats and clothing for newborns at Swedish.",
       photo_url: "https://res.cloudinary.com/dlfl6vj4n/image/upload/v1554141380/adult-art-blue-312591.jpg",
       total_hours: 20,
-      // date: "5/1/2019",
       start_time: "2019-05-01 18:00:00",
       end_time: "2019-05-01 21:00:00",
       location: "Swedish Covenant Hospital"
