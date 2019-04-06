@@ -4,13 +4,9 @@ import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import API from "../services/API";
 import Tiles from "../components/Tiles";
-// import Project from '../components/Project';
 import Moment from 'react-moment';
-import TestTile from "../components/TestTile";
-import { Button } from 'react-bootstrap';
 import { AddUserToProject } from '../components/Project';
 import {PledgesHeader, PledgesData, PledgesFooter} from "../components/PledgesTable";
-import Auth from "../Auth/Auth";
 import {Elements, StripeProvider} from 'react-stripe-elements';
 import CheckoutForm from '../components/CheckoutForm';
 import "./form.css"
