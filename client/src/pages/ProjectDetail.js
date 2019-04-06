@@ -14,8 +14,6 @@ import {Elements, StripeProvider} from 'react-stripe-elements';
 import CheckoutForm from '../components/CheckoutForm';
 import "./form.css"
 
-
-
 class ProjectDetail extends Component {
   
 
