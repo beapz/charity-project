@@ -62,7 +62,7 @@ class Find extends Component {
 
         <Jumbotron>
           <h1>
-            This page loads all projects. Search by a category (in url) if desired.
+            Browse community projects that inspire you
           </h1>
 
           {/* <FormBtn onClick={this.searchCategory} type="success" className="input-lg body-btn">Search By Category</FormBtn> */}

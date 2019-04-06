@@ -7,6 +7,11 @@ import Tiles from "../components/Tiles";
 // import Project from '../components/Project';
 import Moment from 'react-moment';
 import TestTile from "../components/TestTile";
+<<<<<<< HEAD
+import { PledgesHeader, PledgesData, PledgesFooter } from "../components/PledgesTable";
+import { Button } from 'react-bootstrap';
+import { AddUserToProject } from '../components/Project';
+=======
 import {PledgesHeader, PledgesData, PledgesFooter} from "../components/PledgesTable";
 import Auth from "../Auth/Auth";
 import {Elements, StripeProvider} from 'react-stripe-elements';
@@ -14,21 +19,26 @@ import CheckoutForm from '../components/CheckoutForm';
 import "./form.css"
 import {Button} from 'react-bootstrap';
 import {AddUserToProject} from '../components/Project';
+>>>>>>> master
 
 class ProjectDetail extends Component {
   state = {
     project: {},
     userProject: {},
     userProjects: [],
-    x:0
+    x: 0
   };
-  updateMyState=()=>{
+  updateMyState = () => {
     this.componentDidMount()
   }
   // When this component mounts, grab the PROJECT with the id of this.props.match.params.id
   //(this.props.match.params.id) <--- is how we get the ID from URL
   componentDidMount() {
+<<<<<<< HEAD
+
+=======
     
+>>>>>>> master
     // this.getSessionStorageInfo();
 
     console.log("Logging this.props.match.params.projecID", this.props.match.params.projectId);
@@ -57,7 +67,11 @@ class ProjectDetail extends Component {
   }
 
   // getSessionStorageInfo = () => {
+<<<<<<< HEAD
+
+=======
   
+>>>>>>> master
   //   //logging info from session storage
   //   console.log('Commit user hours to database')
   //   let localStorageObject = (JSON.parse(localStorage.getItem("profile")))
@@ -85,7 +99,7 @@ class ProjectDetail extends Component {
             <Jumbotron>
 
               <h1 class="text-center">
-                Learn More About Lending Your Time to <br/><b>{this.state.benefactorName}</b>
+                Learn More About Lending Your Time to <br /><b>{this.state.benefactorName}</b>
               </h1>
             </Jumbotron>
           </Col>
@@ -99,6 +113,8 @@ class ProjectDetail extends Component {
                 <div><h5>{this.state.benefactorDescription}</h5></div>
               </div>
             </Tiles>
+          </Col>
+          <Col size="md-6 md-offset-1">
             <Tiles title="Project Details">
               <div className="projectDetailTile">
                 <div>
@@ -108,9 +124,9 @@ class ProjectDetail extends Component {
                   Where: {this.state.project.location}
                 </div>
                 <div>
-                  
-                  When: 
-                  
+
+                  When:
+
                 <Moment format="LLL" date={this.state.project.start_time} />
 
                   -
@@ -128,29 +144,29 @@ class ProjectDetail extends Component {
             </Tiles>
             <Tiles title="Current Volunteer Hours">
               {/* <div className="userTimeTile"> */}
-              
-                <PledgesHeader/>
-              
+
+              <PledgesHeader />
+
               {this.state.userProjects.map(userProject => (
                 <PledgesData
                   first_name={userProject.User.first_name}
                   last_name={userProject.User.last_name}
                   hours_pledged={userProject.hours_pledged}
                 />
-              
+
               ))}
 
               <hr />
               <PledgesFooter
-                  
-                  hours_pledged={this.state.userProjects.reduce((hours_pledged, userProject) => hours_pledged + userProject.hours_pledged, 0)}
-                  total_hours={this.state.project.total_hours}
-                />
+
+                hours_pledged={this.state.userProjects.reduce((hours_pledged, userProject) => hours_pledged + userProject.hours_pledged, 0)}
+                total_hours={this.state.project.total_hours}
+              />
             </Tiles>
-            <AddUserToProject 
-            updateMyState={this.updateMyState}
-            email={getEmailFromLocalStorage()}
-            projectId={this.state.project.id}
+            <AddUserToProject
+              updateMyState={this.updateMyState}
+              email={getEmailFromLocalStorage()}
+              projectId={this.state.project.id}
             />
             {/* <Tiles title="Commit To This Project">
               <input id="hoursinput"></input>
@@ -169,10 +185,10 @@ class ProjectDetail extends Component {
             </StripeProvider>
         </Tiles>
           </Col>
-        </Row> 
+        </Row>
         <Row>
           <Col size="md-2">
-          <Link to="/"></Link>
+            <Link to="/"></Link>
             {/* <Link to="/">← Back to Home Page</Link> */}
           </Col>
         </Row>
@@ -183,7 +199,7 @@ class ProjectDetail extends Component {
 
 export default ProjectDetail;
 
-function getEmailFromLocalStorage (){
+function getEmailFromLocalStorage() {
   let localStorageObject = (JSON.parse(localStorage.getItem('profile')));
   return localStorageObject.idTokenPayload.email
 }
