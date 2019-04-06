@@ -13,6 +13,7 @@ module.exports = {
   findAll: function (req, res) {
     db.Project.findAll({
       include: [db.Category, db.Benefactor]
+      ,order: [['updatedAt', 'DESC']]
     }).then(function (projects) {
       res.json(projects);
     });
