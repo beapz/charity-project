@@ -36,10 +36,7 @@ class ProjectDetail extends Component {
           benefactorName: res.data.Benefactor.name,
           benefactorDescription: res.data.Benefactor.description,
           category: res.data.Category.name,
-
-
-        })
-      )
+        }))
       .catch(err => console.log(err));
     API.findAllUsersForProject(this.props.match.params.projectId)
       .then(res =>

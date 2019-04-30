@@ -2,10 +2,8 @@ const db = require("../models");
 
 // class ProjectController {
 //   findAll = (req, res) => {
-
 //   }
 // }
-
 // module.exports = ProjectController
 
 // Defining methods for the projController
